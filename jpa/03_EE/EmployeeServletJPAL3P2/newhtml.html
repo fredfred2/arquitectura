@@ -1,0 +1,21 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <h1>Enter New Employee information</h1>
+        <form action="${pageContext.request.contextPath}/CreateEmployee" method="post">
+            First name: <input type="text" name="firstname" /><br />
+            Last name: <input type="text" name="lastname" /><br />
+            Birth date: <input type="date" name="birthdate"  /><br />
+            Salary: $<input type="number" name="salary" /><br />
+            <input type="submit" value="Submit" />
+        </form>
+    </body>
+</html>

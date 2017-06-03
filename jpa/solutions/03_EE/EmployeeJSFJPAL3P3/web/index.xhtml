@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Employee Management (JSF)</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+        <h:form styleClass="jsfcrud_list_form">
+            
+            <h:inputText value="#{listBean.busqueda}" requiredMessage="#{msg.CreateEmployeeRequiredMessage_lastname}"/>
+            
+            <h:commandLink value="busqueda" action="#{listBean.findByLastName()}"/>
+            
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h1>Employee Management System</h1>
+            <h:dataTable value="#{listBean.allEmployees}" var="e" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg.ListEmployeeTitle_id}"/>
+                    </f:facet>
+                    <h:outputText value="#{e.id}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg.ListEmployeeTitle_firstname}"/>
+                    </f:facet>
+                    <h:outputText value="#{e.firstName}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg.ListEmployeeTitle_lastname}"/>
+                    </f:facet>
+                    <h:outputText value="#{e.lastName}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg.ListEmployeeTitle_birthdate}"/>
+                    </f:facet>
+                    <h:outputText value="#{e.birthDate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg.ListEmployeeTitle_salary}"/>
+                    </f:facet>
+                    <h:outputText value="#{e.salary}">
+                        <f:convertNumber currencyCode="USD" currencySymbol="$" type="currency"/>
+                    </h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="&nbsp;"/>
+                    </f:facet>
+                    <h:commandLink action="#{listBean.viewEmployee(e.id)}" value="#{msg.ListEmployeeViewLink}"/>
+                    <h:outputText value=" "/>
+                    <h:commandLink action="#{editBean.prepareUpdate(e.id)}" value="#{msg.ListEmployeeEditLink}"/>
+                    <h:outputText value=" "/>
+                    <h:commandLink action="#{listBean.deleteEmployee(e.id)}" value="#{msg.ListEmployeeDeleteLink}"/>
+                </h:column>
+            </h:dataTable>
+            <br />
+            <h:commandLink value="#{msg.CreateEmployeeTitle}" action="#{editBean.prepareCreate()}"/>
+        </h:form>
+    </h:body>
+</html>
+

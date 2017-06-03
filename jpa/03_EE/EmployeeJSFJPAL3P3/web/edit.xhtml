@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Employee Management: Edit Employee</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+        <h:panelGroup id="messagePanel" layout="block">
+            <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+        </h:panelGroup>
+        <h:form>
+            <h1>Employee Management System: Edit an Employee</h1>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="#{msg.EditEmployeeLabel_id}" for="id" />
+                <h:outputText id="id" value="#{editBean.emp.id}"/>
+                
+                <h:outputLabel value="#{msg.EditEmployeeLabel_firstname}" for="firstname" />
+                <h:inputText id="firstname" value="#{editBean.emp.firstName}" readonly="#{editBean.editReadonly}" required="true" requiredMessage="#{msg.EditEmployeeRequiredMessage_firstname}"/>
+                
+                <h:outputLabel value="#{msg.EditEmployeeLabel_lastname}" for="lastname" />
+                <h:inputText id="lastname" value="#{editBean.emp.lastName}" readonly="#{editBean.editReadonly}" required="true" requiredMessage="#{msg.EditEmployeeRequiredMessage_lastname}"/>
+                
+                <h:outputLabel value="#{msg.EditEmployeeLabel_birthdate}" for="birthdate" />
+                <h:inputText id="birthdate" value="#{editBean.emp.birthDate}" readonly="#{editBean.editReadonly}" required="true" requiredMessage="#{msg.EditEmployeeRequiredMessage_birthdate}" converterMessage="#{msg.DateFormatError}">
+                    <f:convertDateTime pattern="MM/dd/yyyy"/>
+                </h:inputText>
+                
+                <h:outputLabel value="#{msg.EditEmployeeLabel_salary}" for="salary" />
+                <h:inputText id="salary" value="#{editBean.emp.salary}" readonly="#{editBean.editReadonly}" required="true" requiredMessage="#{msg.EditEmployeeRequiredMessage_salary}" converterMessage="#{msg.SalaryFormatError}" >
+                    <f:convertNumber currencyCode="USD" currencySymbol="$" type="currency"/>
+                </h:inputText>
+                
+                <h:commandButton value="#{msg.Save}" action="#{editBean.updateEmployee()}" disabled="#{editBean.editReadonly}"/>
+                <h:commandButton value="#{msg.Cancel}" action="home" disabled="#{editBean.editReadonly}" immediate="true"/>
+            </h:panelGrid>
+            <h:commandLink value="#{msg.EmployeeShowAllLink}" action="home"/><p/>
+            <h:commandLink value="#{msg.EditEmployeeAgainLink}" action="#{editBean.prepareUpdate(editBean.emp.id)}" rendered="#{editBean.editReadonly}"/>
+        </h:form>
+    </h:body>
+</html>
+

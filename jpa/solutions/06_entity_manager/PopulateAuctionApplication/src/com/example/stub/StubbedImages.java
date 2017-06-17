@@ -31,7 +31,7 @@ public class StubbedImages {
         int numBytes;
         Path p;
         try {
-            p = FileSystems.getDefault().getPath("D:/labs/resources/images/AntiquePhoneStand.jpg");
+            p = FileSystems.getDefault().getPath("/apps/code/curso/jpa/resources/images/AntiquePhoneStand.jpg");
             numBytes = (int) Files.size(p);
             photo = new byte[numBytes];
             photo = Files.readAllBytes(p);
@@ -45,7 +45,7 @@ public class StubbedImages {
         id = StubbedImages.getNextId();  // 2001
         photo = null;
         try {
-            p = FileSystems.getDefault().getPath("D:/labs/resources/images/Doll.jpg");
+            p = FileSystems.getDefault().getPath("/apps/code/curso/jpa/resources/images/Doll.jpg");
             numBytes = (int) Files.size(p);
             photo = new byte[numBytes];
             photo = Files.readAllBytes(p);
@@ -59,7 +59,7 @@ public class StubbedImages {
         id = StubbedImages.getNextId();  // 2002
         photo = null;
         try {
-            p = FileSystems.getDefault().getPath("D:/labs/resources/images/AntiqueCoffeeGrinder.jpg");
+            p = FileSystems.getDefault().getPath("/apps/code/curso/jpa/resources/images/AntiqueCoffeeGrinder.jpg");
             numBytes = (int) Files.size(p);
             photo = new byte[numBytes];
             photo = Files.readAllBytes(p);
@@ -74,7 +74,7 @@ public class StubbedImages {
         id = StubbedImages.getNextId();  // 2003
         photo = null;
         try {
-            p = FileSystems.getDefault().getPath("D:/labs/resources/images/SaltPepperShakers.jpg");
+            p = FileSystems.getDefault().getPath("/apps/code/curso/jpa/resources/images/SaltPepperShakers.jpg");
             numBytes = (int) Files.size(p);
             photo = new byte[numBytes];
             photo = Files.readAllBytes(p);
@@ -88,7 +88,7 @@ public class StubbedImages {
         id = StubbedImages.getNextId();  // 2004
         photo = null;
         try {
-            p = FileSystems.getDefault().getPath("D:/labs/resources/images/PolarBear.jpg");
+            p = FileSystems.getDefault().getPath("/apps/code/curso/jpa/resources/images/PolarBear.jpg");
             numBytes = (int) Files.size(p);
             photo = new byte[numBytes];
             photo = Files.readAllBytes(p);
@@ -102,7 +102,7 @@ public class StubbedImages {
         id = StubbedImages.getNextId();  // 2005
         photo = null;
         try {
-            p = FileSystems.getDefault().getPath("D:/labs/resources/images/Backpack.jpg");
+            p = FileSystems.getDefault().getPath("/apps/code/curso/jpa/resources/images/Backpack.jpg");
             numBytes = (int) Files.size(p);
             photo = new byte[numBytes];
             photo = Files.readAllBytes(p);
@@ -116,7 +116,7 @@ public class StubbedImages {
         id = StubbedImages.getNextId();  // 2006
         photo = null;
         try {
-            p = FileSystems.getDefault().getPath("D:/labs/resources/images/HorseSculpture.jpg");
+            p = FileSystems.getDefault().getPath("/apps/code/curso/jpa/resources/images/HorseSculpture.jpg");
             numBytes = (int) Files.size(p);
             photo = new byte[numBytes];
             photo = Files.readAllBytes(p);

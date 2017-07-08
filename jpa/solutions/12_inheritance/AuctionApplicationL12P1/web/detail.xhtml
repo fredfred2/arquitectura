@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./templates/masterLayout.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="content">
+        <h:outputText styleClass="header" value="#{msg.appName} : #{msg.detail_header}"/>
+        <h:form prependId="false">
+            <h:panelGrid columns="2">
+                <h:graphicImage library="images" name="NoImage.gif" height="400" rendered="#{list.auctionItem.imageId eq 0}"/>
+                <h:graphicImage value="/download/#{list.auctionItem.imageId}" height="400" rendered="#{list.auctionItem.imageId gt 0}"/>
+                <h:panelGroup layout="block">
+                    <h:outputText value="#{list.auctionItem.title}" styleClass="title"/>
+                    <h:panelGrid columns="2" styleClass="place_top">
+                        <h:outputLabel value="#{msg.detail_curr_prce}"/><h:outputText value="#{list.auctionItem.currPrice}">
+                            <f:convertNumber currencyCode="USD" minFractionDigits="2" type="currency" />
+                        </h:outputText>
+
+                        <h:outputLabel value="#{msg.detail_time}"/><h:outputText value="#{list.auctionItem.timeRemaining}"/>
+
+                        <h:outputLabel value="#{msg.detail_bids}"/><h:outputText value="#{list.auctionItem.numBids}"/>
+
+                        <h:outputLabel value="#{msg.detail_enter_bid}"/>
+                        <h:panelGroup>
+                            <h:inputText value="#{list.bidAmount}" converterMessage="#{msg.err_valid_dollar}">
+                                <f:convertNumber currencyCode="USD" maxFractionDigits="2" minFractionDigits="2" />
+                            </h:inputText>
+                            <h:commandButton value="#{msg.btn_bid}" action="#{list.enterBid()}" />
+                        </h:panelGroup>
+
+                        <h:outputText value=""/><h:outputText value="#{list.currBid}"/>
+
+                        <h:outputText value=""/><h:commandButton value="#{msg.btn_watch}" action="#{list.addWatch()}"/>
+
+                    </h:panelGrid>
+                    <h:panelGroup id="messagePanel" layout="block">
+                        <h:messages warnStyle="color: blue" errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                    </h:panelGroup>
+                </h:panelGroup>
+
+            </h:panelGrid>
+            <h:panelGrid>
+                <h:inputTextarea value="#{list.auctionItem.description}" readonly="true" styleClass="description"/>
+            </h:panelGrid>
+            <h:commandLink value="#{msg.link_back}" action="home"/>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

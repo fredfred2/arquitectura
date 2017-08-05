@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>home.xhtml</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST0 {color: #628fb5; background-color: #e9eff8}
+.ST1 {color: #628fb5}
+.ST3 {color: #009900}
+.ST4 {color: #ce7b00}
+.ST2 {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">D:\toUpload\Facelets_Examples\web\home.xhtml</td></tr></table>
+<pre>
+  1 <span class="ST0">&lt;?xml version=&#39;1.0&#39; encoding=&#39;UTF-8&#39; ?&gt;</span>
+  2 <span class="ST1">&lt;!DOCTYPE</span> <span class="ST1">html</span> <span class="ST1">PUBLIC</span> <span class="ST1">&quot;-//W3C//DTD</span> <span class="ST1">XHTML</span> <span class="ST1">1.0</span> <span class="ST1">Transitional//EN&quot;</span> <span class="ST1">&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;</span><span class="ST1">&gt;</span>
+  3 <span class="ST2">&lt;</span><span class="ST2">html</span> <span class="ST3">xmlns</span><span class="ST3">=</span><span class="ST4">&quot;http://www.w3.org/1999/xhtml&quot;</span>
+  4       <span class="ST3">xmlns:h</span><span class="ST3">=</span><span class="ST4">&quot;http://java.sun.com/jsf/html&quot;</span><span class="ST2">&gt;</span>
+  5     <span class="ST2">&lt;</span><span class="ST2">h:head</span><span class="ST2">&gt;</span>
+  6         <span class="ST2">&lt;</span><span class="ST2">title</span><span class="ST2">&gt;</span>Lesson_03_Facelet Examples<span class="ST2">&lt;/</span><span class="ST2">title</span><span class="ST2">&gt;</span>
+  7            
+  8                 <span class="ST2">&lt;</span><span class="ST2">h:outputStylesheet</span> <span class="ST3">library</span><span class="ST3">=</span><span class="ST4">&quot;css&quot;</span> <span class="ST3">name</span><span class="ST3">=</span><span class="ST4">&quot;styles.css&quot;</span><span class="ST2">/&gt;</span>
+  9     <span class="ST2">&lt;/</span><span class="ST2">h:head</span><span class="ST2">&gt;</span>
+ 10     <span class="ST2">&lt;</span><span class="ST2">h:body</span><span class="ST2">&gt;</span>
+ 11            <span class="ST2">&lt;</span><span class="ST2">h2</span><span class="ST2">&gt;</span>UI Components Example<span class="ST2">&lt;/</span><span class="ST2">h2</span><span class="ST2">&gt;</span>
+ 12 
+ 13     <span class="ST2">&lt;</span><span class="ST2">p</span><span class="ST2">&gt;</span>This is a sample JSF page containing several UI components that are used in JSF pages.<span class="ST2">&lt;/</span><span class="ST2">p</span><span class="ST2">&gt;</span>
+ 14     <span class="ST2">&lt;</span><span class="ST2">table</span><span class="ST2">&gt;</span>
+ 15       <span class="ST2">&lt;</span><span class="ST2">thead</span><span class="ST2">&gt;</span>
+ 16         <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">td</span> <span class="ST3">colspan</span><span class="ST3">=</span><span class="ST4">&quot;3&quot;</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>UI Components<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+ 17         <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+ 18           <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Output<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+ 19           <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Source code<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+ 20           <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Description<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+ 21         <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+ 22       <span class="ST2">&lt;/</span><span class="ST2">thead</span><span class="ST2">&gt;</span>
+ 23       <span class="ST2">&lt;</span><span class="ST2">tbody</span><span class="ST2">&gt;</span>
+ 24         <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+ 25           <span class="ST2">&lt;</span><span class="ST2">td</span> <span class="ST3">rowspan</span><span class="ST3">=</span><span class="ST4">&quot;3&quot;</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;faces/components_examples.xhtml&quot;</span><span class="ST2">&gt;</span>/components_examples<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+ 26           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/components_examples.xhtml.html&quot;</span><span class="ST2">&gt;</span>components_examples<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+ 27           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>A JSF page showing several UI components as illustrated in Slide 6 of SG<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+ 28         <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+ 29           <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+ 30          
+ 31           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/RegisterForm.java.html&quot;</span><span class="ST2">&gt;</span>RegisterForm.java<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+ 32           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The managed bean for the JSF page<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+ 33         <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+ 34           <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+ 35          
+ 36           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/showInformation.xhtml.html&quot;</span><span class="ST2">&gt;</span>ShowInformation.xhtml<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+ 37           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The page that opens up after user clicks the Submit information button<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+ 38         <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+ 39       <span class="ST2">&lt;/</span><span class="ST2">tbody</span><span class="ST2">&gt;</span>
+ 40     <span class="ST2">&lt;/</span><span class="ST2">table</span><span class="ST2">&gt;</span>
+ 41         <span class="ST2">&lt;</span><span class="ST2">h3</span><span class="ST2">&gt;</span>HTML Tags<span class="ST2">&lt;/</span><span class="ST2">h3</span><span class="ST2">&gt;</span>
+ 42         
+ 43     <span class="ST2">&lt;</span><span class="ST2">p</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>Goal<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span>: HTML tags and their <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>attributes<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span>.<span class="ST2">&lt;/</span><span class="ST2">p</span><span class="ST2">&gt;</span>
+ 44     
+ 45         <span class="ST2">&lt;</span><span class="ST2">table</span> <span class="ST3">border</span><span class="ST3">=</span><span class="ST4">&quot;1&quot;</span> <span class="ST3">cellpadding</span><span class="ST3">=</span><span class="ST4">&quot;1&quot;</span><span class="ST2">&gt;</span>
+ 46             <span class="ST2">&lt;</span><span class="ST2">thead</span><span class="ST2">&gt;</span>
+ 47                 <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+ 48                     <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Output<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+ 49                     <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Source Code<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+ 50                     <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Description<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+ 51                 <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+ 52             <span class="ST2">&lt;/</span><span class="ST2">thead</span><span class="ST2">&gt;</span>
+ 53             <span class="ST2">&lt;</span><span class="ST2">tbody</span><span class="ST2">&gt;</span>
+ 54                 <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+ 55                     <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;faces/index.xhtml&quot;</span><span class="ST2">&gt;</span>/index<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+ 56           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/index.xhtml.html&quot;</span><span class="ST2">&gt;</span>Simple Form<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+ 57           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>A JSF page showing a text box, a command button and a implicit object, <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>username <span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span>in a form. It has a label with a <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>rendered<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span> attribute <span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+ 58         <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+ 59            <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+ 60           <span class="ST2">&lt;</span><span class="ST2">td</span> <span class="ST3">rowspan</span><span class="ST3">=</span><span class="ST4">&quot;3&quot;</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;faces/Login.xhtml&quot;</span><span class="ST2">&gt;</span>/Login<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+ 61           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/Login.xhtml.html&quot;</span><span class="ST2">&gt;</span>Login Form<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+ 62           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>A JSF page showing a login screen<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+ 63         <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+ 64           <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+ 65          
+ 66           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/Login.java.html&quot;</span><span class="ST2">&gt;</span>Login.java<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+ 67           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The managed bean for the JSF page<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+ 68         <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+ 69                 <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+ 70          
+ 71           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/invalid.xhtml.html&quot;</span><span class="ST2">&gt;</span>invalid.xhtml<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+ 72           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The JSF page that opens up when the user is not authenticated<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+ 73         <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+ 74                   
+ 75       <span class="ST2">&lt;/</span><span class="ST2">tbody</span><span class="ST2">&gt;</span>
+ 76     <span class="ST2">&lt;/</span><span class="ST2">table</span><span class="ST2">&gt;</span>
+ 77 <span class="ST2">&lt;</span><span class="ST2">h3</span><span class="ST2">&gt;</span>Core Tags<span class="ST2">&lt;/</span><span class="ST2">h3</span><span class="ST2">&gt;</span>
+ 78  <span class="ST2">&lt;</span><span class="ST2">p</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>Goal<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span>: Core tags implements the core actions of a JSF application.<span class="ST2">&lt;/</span><span class="ST2">p</span><span class="ST2">&gt;</span>
+ 79     
+ 80         <span class="ST2">&lt;</span><span class="ST2">table</span> <span class="ST3">border</span><span class="ST3">=</span><span class="ST4">&quot;1&quot;</span> <span class="ST3">cellpadding</span><span class="ST3">=</span><span class="ST4">&quot;1&quot;</span><span class="ST2">&gt;</span>
+ 81             <span class="ST2">&lt;</span><span class="ST2">thead</span><span class="ST2">&gt;</span>
+ 82                 <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+ 83                     <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Output<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+ 84                     <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Source Code<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+ 85                     <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Description<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+ 86                 <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+ 87             <span class="ST2">&lt;/</span><span class="ST2">thead</span><span class="ST2">&gt;</span>
+ 88             <span class="ST2">&lt;</span><span class="ST2">tbody</span><span class="ST2">&gt;</span>
+ 89               <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+ 90           <span class="ST2">&lt;</span><span class="ST2">td</span> <span class="ST3">rowspan</span><span class="ST3">=</span><span class="ST4">&quot;3&quot;</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;faces/CoreTags.xhtml&quot;</span><span class="ST2">&gt;</span>/CoreTags<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+ 91           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/CoreTags.xhtml.html&quot;</span><span class="ST2">&gt;</span>Core Tags<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+ 92           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>A JSF page showing the use of<span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span> f:param, f:attribute. and f:facet <span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span>core tags<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+ 93         <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+ 94           <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+ 95          
+ 96           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/Card.java.html&quot;</span><span class="ST2">&gt;</span>Card.java<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+ 97           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The managed bean for the JSF page<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+ 98         <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+ 99           <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+100         
+101           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/cardinfo.xhtml.html&quot;</span><span class="ST2">&gt;</span>cardinfo.xhtml<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+102           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The page that opens up after user clicks the Submit button<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+103         <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+104                 <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+105           <span class="ST2">&lt;</span><span class="ST2">td</span> <span class="ST3">rowspan</span><span class="ST3">=</span><span class="ST4">&quot;4&quot;</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;faces/register.xhtml&quot;</span><span class="ST2">&gt;</span>/Registration Form<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+106           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/register.xhtml.html&quot;</span><span class="ST2">&gt;</span>Registration<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+107           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>A JSF page showing the use of<span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span> f:selectItem and f:convertDateTime <span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span>core tags<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+108         <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+109           <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+110          
+111           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/UserBean.java.html&quot;</span><span class="ST2">&gt;</span>UserBean.java<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+112           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The managed bean for the JSF page<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+113         <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+114           <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+115         
+116           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/confirm.xhtml.html&quot;</span><span class="ST2">&gt;</span>confirm.xhtml<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+117           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The page that opens up after user clicks the Register button<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+118         <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+119                 <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+120         
+121           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/done.xhtml.html&quot;</span><span class="ST2">&gt;</span>done.xhtml<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+122           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The page that opens up after user clicks the Confirm button<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+123         <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+124       <span class="ST2">&lt;/</span><span class="ST2">tbody</span><span class="ST2">&gt;</span>
+125         <span class="ST2">&lt;/</span><span class="ST2">table</span><span class="ST2">&gt;</span>
+126 <span class="ST2">&lt;</span><span class="ST2">h3</span><span class="ST2">&gt;</span>Facelet Tags<span class="ST2">&lt;/</span><span class="ST2">h3</span><span class="ST2">&gt;</span>
+127 <span class="ST2">&lt;</span><span class="ST2">p</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>Goal<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span>: Facelet tags are also called template tags and are prefixed with ui:<span class="ST2">&lt;/</span><span class="ST2">p</span><span class="ST2">&gt;</span>
+128         <span class="ST2">&lt;</span><span class="ST2">table</span> <span class="ST3">border</span><span class="ST3">=</span><span class="ST4">&quot;1&quot;</span> <span class="ST3">cellpadding</span><span class="ST3">=</span><span class="ST4">&quot;1&quot;</span><span class="ST2">&gt;</span>
+129             <span class="ST2">&lt;</span><span class="ST2">thead</span><span class="ST2">&gt;</span>
+130                 <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+131                     <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Output<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+132                     <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Source Code<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+133                     <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Description<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+134                 <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+135             <span class="ST2">&lt;/</span><span class="ST2">thead</span><span class="ST2">&gt;</span>
+136             <span class="ST2">&lt;</span><span class="ST2">tbody</span><span class="ST2">&gt;</span>
+137                 <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+138           <span class="ST2">&lt;</span><span class="ST2">td</span> <span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;faces/newTemplate.xhtml&quot;</span><span class="ST2">&gt;</span>/newTemplate<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+139           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/newTemplate.xhtml.html&quot;</span><span class="ST2">&gt;</span>newTemplate<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+140           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>A template file that uses <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>ui:insert<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span> tag<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+141         <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+142           <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+143               <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;faces/newTemplateClient.xhtml&quot;</span><span class="ST2">&gt;</span>/newTemplateClient<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+144           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/newTemplateClient.xhtml.html&quot;</span><span class="ST2">&gt;</span>newTemplateClient<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+145           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>A client template file that uses the template file and <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>ui:define and ui:composition<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span> tags<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+146         <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+147             <span class="ST2">&lt;/</span><span class="ST2">tbody</span><span class="ST2">&gt;</span>
+148         <span class="ST2">&lt;/</span><span class="ST2">table</span><span class="ST2">&gt;</span>
+149 <span class="ST2">&lt;</span><span class="ST2">h3</span><span class="ST2">&gt;</span>JSTL Core Tags<span class="ST2">&lt;/</span><span class="ST2">h3</span><span class="ST2">&gt;</span>
+150 <span class="ST2">&lt;</span><span class="ST2">p</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>Goal<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span>: JSTL core tags and function tags are supported in JSF<span class="ST2">&lt;/</span><span class="ST2">p</span><span class="ST2">&gt;</span>
+151         <span class="ST2">&lt;</span><span class="ST2">table</span> <span class="ST3">border</span><span class="ST3">=</span><span class="ST4">&quot;1&quot;</span> <span class="ST3">cellpadding</span><span class="ST3">=</span><span class="ST4">&quot;1&quot;</span><span class="ST2">&gt;</span>
+152             <span class="ST2">&lt;</span><span class="ST2">thead</span><span class="ST2">&gt;</span>
+153                 <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+154                     <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Output<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+155                     <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Source Code<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+156                     <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Description<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+157                 <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+158             <span class="ST2">&lt;/</span><span class="ST2">thead</span><span class="ST2">&gt;</span>
+159             <span class="ST2">&lt;</span><span class="ST2">tbody</span><span class="ST2">&gt;</span>
+160                 <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+161           <span class="ST2">&lt;</span><span class="ST2">td</span> <span class="ST3">rowspan</span><span class="ST3">=</span><span class="ST4">&quot;2&quot;</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;faces/JstlJsf.xhtml&quot;</span><span class="ST2">&gt;</span>/JSTL tags<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+162           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/JstlJsf.xhtml.html&quot;</span><span class="ST2">&gt;</span>JSTL Tags<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+163           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>A JSF page showing the use of<span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span> JSTL <span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span>core tags<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+164         <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+165           <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+166          
+167           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/BooksBean.java.html&quot;</span><span class="ST2">&gt;</span>Booksbean.java<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+168           <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The managed bean for the JSF page<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+169         <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+170             <span class="ST2">&lt;/</span><span class="ST2">tbody</span><span class="ST2">&gt;</span>
+171         <span class="ST2">&lt;/</span><span class="ST2">table</span><span class="ST2">&gt;</span>
+172     <span class="ST2">&lt;/</span><span class="ST2">h:body</span><span class="ST2">&gt;</span>
+173 <span class="ST2">&lt;/</span><span class="ST2">html</span><span class="ST2">&gt;</span>
+174 
+175 
+</pre></body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>showInformation.xhtml</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST0 {color: #628fb5; background-color: #e9eff8}
+.ST1 {color: #628fb5}
+.expression-language {background-color: #e3f2e1}
+.ST3 {color: #009900}
+.ST4 {color: #ce7b00}
+.ST2 {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">D:\toUpload\Facelets_Examples\web\showInformation.xhtml</td></tr></table>
+<pre>
+ 1 <span class="ST0">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+ 2 <span class="ST1">&lt;!DOCTYPE</span> <span class="ST1">html</span> <span class="ST1">PUBLIC</span> <span class="ST1">&quot;-//W3C//DTD</span> <span class="ST1">XHTML</span> <span class="ST1">1.0</span> <span class="ST1">Transitional//EN&quot;</span>  
+ 3 <span class="ST1">&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;</span><span class="ST1">&gt;</span>
+ 4 <span class="ST2">&lt;</span><span class="ST2">html</span> <span class="ST3">xmlns</span><span class="ST3">=</span><span class="ST4">&quot;http://www.w3.org/1999/xhtml&quot;</span>
+ 5       <span class="ST3">xmlns:f</span><span class="ST3">=</span><span class="ST4">&quot;http://java.sun.com/jsf/core&quot;</span> <span class="ST3">xmlns:h</span><span class="ST3">=</span><span class="ST4">&quot;http://java.sun.com/jsf/html&quot;</span><span class="ST2">&gt;</span>
+ 6    <span class="ST2">&lt;</span><span class="ST2">h:head</span><span class="ST2">&gt;</span>
+ 7       <span class="ST2">&lt;</span><span class="ST2">title</span><span class="ST2">&gt;</span><span class="expression-language">#{</span><span class="expression-language">msgs</span><span class="expression-language">.</span><span class="expression-language">indexWindowTitle</span><span class="expression-language">}</span><span class="ST2">&lt;/</span><span class="ST2">title</span><span class="ST2">&gt;</span>
+ 8    <span class="ST2">&lt;/</span><span class="ST2">h:head</span><span class="ST2">&gt;</span>
+ 9    <span class="ST2">&lt;</span><span class="ST2">h:body</span><span class="ST2">&gt;</span>
+10       <span class="ST2">&lt;</span><span class="ST2">h:form</span><span class="ST2">&gt;</span>
+11          <span class="ST2">&lt;</span><span class="ST2">h:outputStylesheet</span> <span class="ST3">library</span><span class="ST3">=</span><span class="ST4">&quot;css&quot;</span> <span class="ST3">name</span><span class="ST3">=</span><span class="ST4">&quot;styles.css&quot;</span><span class="ST2">/&gt;</span>
+12          <span class="ST2">&lt;</span><span class="ST2">h:outputFormat</span> <span class="ST3">value</span><span class="ST3">=</span><span class="ST4">&quot;</span><span class="expression-language">#{</span><span class="expression-language">msgs</span><span class="expression-language">.</span><span class="expression-language">thankYouLabel</span><span class="expression-language">}</span><span class="ST4">&quot;</span><span class="ST2">&gt;</span>
+13             <span class="ST2">&lt;</span><span class="ST2">f:param</span> <span class="ST3">value</span><span class="ST3">=</span><span class="ST4">&quot;</span><span class="expression-language">#{</span><span class="expression-language">form</span><span class="expression-language">.</span><span class="expression-language">name</span><span class="expression-language">}</span><span class="ST4">&quot;</span><span class="ST2">/&gt;</span>
+14          <span class="ST2">&lt;/</span><span class="ST2">h:outputFormat</span><span class="ST2">&gt;</span>
+15          <span class="ST2">&lt;</span><span class="ST2">h:panelGrid</span> <span class="ST3">columns</span><span class="ST3">=</span><span class="ST4">&quot;2&quot;</span><span class="ST2">&gt;</span>
+16             <span class="expression-language">#{</span><span class="expression-language">msgs</span><span class="expression-language">.</span><span class="expression-language">contactMeLabel</span><span class="expression-language">}</span>
+17             <span class="ST2">&lt;</span><span class="ST2">h:outputText</span> <span class="ST3">value</span><span class="ST3">=</span><span class="ST4">&quot;</span><span class="expression-language">#{</span><span class="expression-language">form</span><span class="expression-language">.</span><span class="expression-language">contactMe</span><span class="expression-language">}</span><span class="ST4">&quot;</span><span class="ST2">/&gt;</span>
+18             <span class="expression-language">#{</span><span class="expression-language">msgs</span><span class="expression-language">.</span><span class="expression-language">bestDayLabel</span><span class="expression-language">}</span>
+19             <span class="ST2">&lt;</span><span class="ST2">h:outputText</span> <span class="ST3">value</span><span class="ST3">=</span><span class="ST4">&quot;</span><span class="expression-language">#{</span><span class="expression-language">form</span><span class="expression-language">.</span><span class="expression-language">bestDaysConcatenated</span><span class="expression-language">}</span><span class="ST4">&quot;</span><span class="ST2">/&gt;</span>
+20             <span class="expression-language">#{</span><span class="expression-language">msgs</span><span class="expression-language">.</span><span class="expression-language">yearOfBirthLabel</span><span class="expression-language">}</span>
+21             <span class="ST2">&lt;</span><span class="ST2">h:outputText</span> <span class="ST3">value</span><span class="ST3">=</span><span class="ST4">&quot;</span><span class="expression-language">#{</span><span class="expression-language">form</span><span class="expression-language">.</span><span class="expression-language">yearOfBirth</span><span class="expression-language">}</span><span class="ST4">&quot;</span><span class="ST2">/&gt;</span>
+22             <span class="expression-language">#{</span><span class="expression-language">msgs</span><span class="expression-language">.</span><span class="expression-language">languageLabel</span><span class="expression-language">}</span>
+23             <span class="ST2">&lt;</span><span class="ST2">h:outputText</span> <span class="ST3">value</span><span class="ST3">=</span><span class="ST4">&quot;</span><span class="expression-language">#{</span><span class="expression-language">form</span><span class="expression-language">.</span><span class="expression-language">languages</span><span class="expression-language">}</span><span class="ST4">&quot;</span><span class="ST2">/&gt;</span>
+24             <span class="expression-language">#{</span><span class="expression-language">msgs</span><span class="expression-language">.</span><span class="expression-language">colorLabel</span><span class="expression-language">}</span>
+25             <span class="ST2">&lt;</span><span class="ST2">h:outputText</span> <span class="ST3">value</span><span class="ST3">=</span><span class="ST4">&quot;</span><span class="expression-language">#{</span><span class="expression-language">form</span><span class="expression-language">.</span><span class="expression-language">colorsConcatenated</span><span class="expression-language">}</span><span class="ST4">&quot;</span><span class="ST2">/&gt;</span>
+26             <span class="expression-language">#{</span><span class="expression-language">msgs</span><span class="expression-language">.</span><span class="expression-language">educationLabel</span><span class="expression-language">}</span>
+27             <span class="ST2">&lt;</span><span class="ST2">h:outputText</span> <span class="ST3">value</span><span class="ST3">=</span><span class="ST4">&quot;</span><span class="expression-language">#{</span><span class="expression-language">form</span><span class="expression-language">.</span><span class="expression-language">education</span><span class="expression-language">}</span><span class="ST4">&quot;</span><span class="ST2">/&gt;</span>
+28          <span class="ST2">&lt;/</span><span class="ST2">h:panelGrid</span><span class="ST2">&gt;</span>
+29          <span class="ST2">&lt;</span><span class="ST2">h:commandButton</span> <span class="ST3">value</span><span class="ST3">=</span><span class="ST4">&quot;</span><span class="expression-language">#{</span><span class="expression-language">msgs</span><span class="expression-language">.</span><span class="expression-language">backPrompt</span><span class="expression-language">}</span><span class="ST4">&quot;</span> <span class="ST3">action</span><span class="ST3">=</span><span class="ST4">&quot;index&quot;</span><span class="ST2">/&gt;</span>
+30       <span class="ST2">&lt;/</span><span class="ST2">h:form</span><span class="ST2">&gt;</span>
+31    <span class="ST2">&lt;/</span><span class="ST2">h:body</span><span class="ST2">&gt;</span>
+32 <span class="ST2">&lt;/</span><span class="ST2">html</span><span class="ST2">&gt;</span>
+33 
+</pre></body>
+</html>

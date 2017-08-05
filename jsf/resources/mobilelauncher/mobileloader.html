@@ -1,0 +1,31 @@
+<html>
+<head>
+<script type="text/javascript">
+<!--
+	function updateSize() {
+		var viewport_size_span = document.getElementById('viewport_size');
+		viewport_size_span.innerHTML = window.innerWidth + "x" + window.innerHeight;
+	}
+	function checkMobileAgent() {
+		var main_par = document.getElementById('main');
+		if(navigator.userAgent.toLowerCase().indexOf("mobile") == -1) {
+			main_par.innerHTML = "Mobile User-Agent Header NOT detected. Close ALL Chrome windows and relaunch with the Mobile Chrome shortcut.";
+		} else {
+			//Chrome can not be resized with JavaScript: http://code.google.com/p/chromium/issues/detail?id=2091
+			main_par.innerHTML = 'Please resize your browser to match the borders and then open the <a href="http://localhost:7001/DVDLibrary">DVDLibrary</a>.';
+		}
+	}
+// -->
+</script>
+</head>
+<body onresize="updateSize()" style="width:300px; background:url('mobilescreen.png') no-repeat;">
+<p id='main'></p>
+<p>Viewport Size: <span id="viewport_size"></span></p>
+</body>
+</html>
+<script type="text/javascript">
+	checkMobileAgent();
+	updateSize();
+	//window.location = "http://localhost:7001/DVDLibrary/";
+
+</script>

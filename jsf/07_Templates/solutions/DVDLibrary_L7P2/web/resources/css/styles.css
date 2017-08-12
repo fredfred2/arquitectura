@@ -1,0 +1,84 @@
+/* 
+    Document   : styles
+    Created on : Nov 15, 2010, 3:46:06 PM
+    Author     : tmcginn
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+.table {
+    border: thin solid black;
+}
+
+.headers {
+    text-align: left;
+    font-weight: bold;
+    font-style: italic;
+    color: blue;
+}
+
+.oddRows {
+    background-color: silver;
+}
+
+.evenRows {
+    background-color: yellow;
+}
+
+#heading {
+   padding: 20px;
+   height: 40px;
+   margin-bottom: 10px;
+   background: #dddddd;
+   border: 1px solid;
+}
+
+#sideBarLeft {
+   border: thin solid;
+   padding: 5px;
+   width: 200px;
+   background: #eeeeee;
+}
+
+#content {
+   padding: 5px;
+   border: thin solid;
+   background: #fefeef;
+   position: absolute;
+   right: 8px;
+   left: 230px;
+   height: 400px;
+   width: 600px;
+   top: 105px;
+}
+
+.header {
+   font-size: 1.4em;
+   font-style: italic;
+   font-family: Palatino;
+   text-align: center;
+}
+
+.welcome {
+   font-style: italic;
+   font-family: Palatino;
+}
+
+.welcomeImage {
+   margin-top: 10px;
+   text-align: center;
+}

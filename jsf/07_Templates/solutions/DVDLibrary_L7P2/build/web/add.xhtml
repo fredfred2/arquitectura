@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+   
+   <head><title>IGNORED</title></head>
+<body>
+   <ui:composition template="/templates/masterLayout.xhtml">
+      <ui:define name="heading">
+         #{msg.appName}:#{msg.title_add}
+      </ui:define>
+
+        <h:outputFormat value="#{msg.welcome}">
+            <f:param value="#{empty login.username ? 'Guest' : login.username}"/>
+        </h:outputFormat>
+        !
+        <hr/>
+             <ui:define name="content">
+         <h:form>
+            <h:panelGrid columns="2">
+               #{msg.column_Title}: 
+               <h:inputText id="title" value="#{dvd.title}"/>
+               #{msg.column_Year}: 
+               <h:inputText id="year" value="#{dvd.releaseyear}"/>
+               #{msg.column_Genre}: 
+               <h:inputText id="genre" value="#{dvd.genre}"/>
+           </h:panelGrid>
+           <h:commandButton value="#{msg.btn_addDVD}"
+action="#{dvd.addDVD}"/>
+        </h:form>
+     </ui:define>
+</ui:composition>
+    </body>
+</html>
+

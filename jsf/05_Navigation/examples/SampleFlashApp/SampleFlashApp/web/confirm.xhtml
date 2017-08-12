@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Sign Up Confirmation Page</title>
+    </h:head>
+    <h:body>
+        <h:form>
+        Please Confirm the values you entered:
+        <h:panelGrid columns="2">
+            Name: <h:outputText value="#{flash.keep.name}"/>
+            Street: <h:outputText value="#{flash.keep.street}"/>
+            City: <h:outputText value="#{flash.keep.city}"/>
+            Zip Code: <h:outputText value="#{flash.keep.zip}"/>
+            E-mail: <h:outputText value="#{flash.keep.email}"/>
+            <h:commandButton value="Cancel" action="index"/> <h:commandButton value="Confirmed" action="#{signup.add}"/>
+        </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+

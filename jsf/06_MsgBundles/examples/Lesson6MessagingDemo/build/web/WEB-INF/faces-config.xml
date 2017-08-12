@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee" 
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+      http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+   version="2.0">
+
+  <!-- Declare properties files. Note that "messages1" for base-name really
+       means WEB-INF/classes/messages1.properties (src/messages1.properties in
+       the Eclipse project) -->
+  <application>
+    <resource-bundle>
+      <base-name>messages1</base-name>
+      <var>msgs1</var>
+    </resource-bundle>
+    <resource-bundle>
+      <base-name>messages2</base-name>
+      <var>msgs2</var>
+    </resource-bundle>
+     <locale-config>
+      <default-locale>en</default-locale>
+      <supported-locale>es</supported-locale>
+      <supported-locale>fr</supported-locale>
+       </locale-config>
+  </application>
+
+</faces-config>

@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<!--<f:view locale="#{facesContext.externalContext.requestLocale}">-->
+<h:head><title>#{msgs2.registrationTitle}</title>
+<link href="./css/styles.css" 
+      rel="stylesheet" type="text/css"/> 
+</h:head>
+<h:body>
+<h1 class="title">#{msgs2.registrationTitle}</h1>
+<h3>
+<h:outputFormat value="#{msgs2.registrationText}">
+  <f:param value="#{msgs2.firstName}"/>
+  <f:param value="#{msgs2.lastName}"/>
+  <f:param value="#{msgs2.emailAddress}"/>
+</h:outputFormat>
+</h3>
+<h:form>
+<h:outputFormat value="#{msgs2.prompt}">
+  <f:param value="#{msgs2.firstName}"/>
+</h:outputFormat>:
+<h:inputText value="#{person3.firstName}"/>
+<br/>
+<h:outputFormat value="#{msgs2.prompt}">
+  <f:param value="#{msgs2.lastName}"/>
+</h:outputFormat>:
+<h:inputText value="#{person3.lastName}"/>
+<br/>
+<h:outputFormat value="#{msgs2.prompt}">
+  <f:param value="#{msgs2.emailAddress}"/>
+</h:outputFormat>:
+<h:inputText value="#{person3.emailAddress}"/>
+<br/>
+<h:commandButton value="#{msgs2.buttonLabel}" 
+                 action="#{person3.doRegistration}"/>
+</h:form>
+</h:body>
+
+<!--</f:view>-->
+</html>

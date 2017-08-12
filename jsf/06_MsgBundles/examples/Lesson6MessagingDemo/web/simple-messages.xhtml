@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head><title>#{msgs1.registrationTitle}</title>
+<link href="./css/styles.css" 
+      rel="stylesheet" type="text/css"/> 
+</h:head>
+<h:body>
+<h1 class="title">#{msgs1.registrationTitle}</h1>
+<h3>#{msgs1.registrationText}</h3>
+<h:form>
+#{msgs1.firstNamePrompt}:
+<h:inputText value="#{person1.firstName}"/>
+<br/>
+#{msgs1.lastNamePrompt}:
+<h:inputText value="#{person1.lastName}"/>
+<br/>
+#{msgs1.emailAddressPrompt}:
+<h:inputText value="#{person1.emailAddress}"/>
+<br/>
+<h:commandButton value="#{msgs1.buttonLabel}" 
+                 action="#{person1.doRegistration}"/>
+</h:form>
+</h:body></html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core"> 
+<h:head> 
+  <title>Student Details</title> 
+</h:head> 
+<h:body> 
+  <h2>Student Form</h2> 
+  <h:form prependId="false"> 
+    <h:panelGrid columns="2"> 
+        <h:outputLabel value="ID:"/> 
+      <h:inputText id="inputid" binding="#{autofill.inputID}" required="true" immediate="true" valueChangeListener="#{autofill.autofillListener}" onchange="this.form.submit()"/>
+      <h:outputLabel value="First Name:"/> 
+      <h:inputText id="inputfname" binding="#{autofill.inputFname}"  immediate="true"/>
+      <h:outputLabel value="Last Name:"/> 
+      <h:inputText id="inputlname" binding="#{autofill.inputLname}" immediate="true" 
+                    /> 
+                 
+           
+      <h:outputLabel value="City:" /> 
+      <h:inputText id="inputcity" binding="#{autofill.inputCity}" immediate="true"/> 
+      <h:outputLabel value="State:"/> 
+      <h:inputText id="inputstate" binding="#{autofill.inputState}" immediate="true"/> 
+      <h:commandButton value="Submit"/> 
+    </h:panelGrid> 
+   </h:form> 
+</h:body> 
+</html>

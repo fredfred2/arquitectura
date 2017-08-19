@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Guess the Number Game!</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:outputText value="I am thinking of a number between 1 and #{guessBean.max}!"/><p/>
+            <h:outputLabel for="guess" value="Enter your guess: "/>
+            <h:inputText id="guess" value="#{guessBean.guess}" required="true" 
+                         requiredMessage="Please enter at least one digit."
+                         converterMessage="Please enter only integer values."
+                         validatorMessage="Please enter an integer between 1 and #{guessBean.max}.">
+                <f:validateLongRange minimum="1" maximum="#{guessBean.max}"/>
+            </h:inputText><p/>
+            <h:commandButton value="Submit" action="#{guessBean.checkAnswer()}"/>
+            <h:commandButton value="Reset" action="#{guessBean.reset()}"/><p/>
+            <h:message for="guess" style="font-weight: bold;color: red"/>
+        </h:form>
+        <p><a href="index.xhtml">Back</a></p>
+    </h:body>
+</html>

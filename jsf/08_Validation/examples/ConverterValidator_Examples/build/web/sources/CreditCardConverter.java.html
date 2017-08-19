@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>CreditCardConverter.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.comment {color: #969696}
+.character {color: #ce7b00}
+.keyword-directive {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">D:\toUpload\ConverterValidator_Examples\src\java\com\example\custom\converter\CreditCardConverter.java</td></tr></table>
+<pre>
+<span class="keyword-directive">package</span> com.example.custom.converter;
+
+<span class="keyword-directive">import</span> javax.faces.application.FacesMessage;
+<span class="keyword-directive">import</span> javax.faces.component.UIComponent;
+<span class="keyword-directive">import</span> javax.faces.context.FacesContext;
+<span class="keyword-directive">import</span> javax.faces.convert.Converter;
+<span class="keyword-directive">import</span> javax.faces.convert.ConverterException;
+<span class="keyword-directive">import</span> javax.faces.convert.FacesConverter;
+
+@FacesConverter(<span class="character">&quot;</span><span class="character">com.java.example.Card</span><span class="character">&quot;</span>)
+<span class="keyword-directive">public</span> <span class="keyword-directive">class</span> CreditCardConverter <span class="keyword-directive">implements</span> Converter {
+
+    <span class="comment">// getAsObject strips any spaces or dashes from the credit card number</span>
+    <span class="comment">// Card number entered must be a valid digit or an exception is thrown</span>
+    <span class="keyword-directive">public</span> Object getAsObject(FacesContext context, UIComponent component,
+            String newValue) <span class="keyword-directive">throws</span> ConverterException {
+        String convertedValue = <span class="keyword-directive">null</span>;
+        <span class="keyword-directive">if</span> (newValue == <span class="keyword-directive">null</span>) {
+            <span class="keyword-directive">return</span> newValue;
+        }
+        convertedValue = newValue.trim();
+        <span class="keyword-directive">char</span>[] input = convertedValue.toCharArray();
+        StringBuffer buffer = <span class="keyword-directive">new</span> StringBuffer(50);
+        <span class="keyword-directive">for</span> (<span class="keyword-directive">int</span> i = 0; i &lt; input.length; ++i) {
+            <span class="keyword-directive">if</span> (input[i] == <span class="character">&#39;</span><span class="character">-</span><span class="character">&#39;</span> || input[i] == <span class="character">&#39;</span> <span class="character">&#39;</span>) {
+                <span class="keyword-directive">continue</span>;
+            } <span class="keyword-directive">else</span> <span class="keyword-directive">if</span> (Character.isDigit(input[i])) {
+                buffer.append(input[i]);
+            } <span class="keyword-directive">else</span> {
+                FacesMessage message = <span class="keyword-directive">new</span> FacesMessage(<span class="character">&quot;</span><span class="character">Please enter only digits</span><span class="character">&quot;</span>);
+                <span class="keyword-directive">throw</span> <span class="keyword-directive">new</span> ConverterException(message);
+            }
+        }
+        convertedValue = buffer.toString();
+        <span class="keyword-directive">return</span> <span class="keyword-directive">new</span> CreditCard(convertedValue.toString());
+    }
+
+    <span class="comment">// getAsString makes the card number readable by adding back spaces every</span>
+    <span class="comment">// four characters</span>
+    <span class="keyword-directive">public</span> String getAsString(FacesContext context, UIComponent component,
+            Object value) <span class="keyword-directive">throws</span> ConverterException {
+        String inputVal = <span class="keyword-directive">null</span>;
+        <span class="keyword-directive">if</span> (value == <span class="keyword-directive">null</span>) {
+            <span class="keyword-directive">return</span> <span class="keyword-directive">null</span>;
+        }
+        <span class="keyword-directive">try</span> {
+            inputVal = value.toString();
+        } <span class="keyword-directive">catch</span> (ClassCastException ce) {
+            FacesMessage err = <span class="keyword-directive">new</span> FacesMessage(<span class="character">&quot;</span><span class="character">Failed to convert object to String</span><span class="character">&quot;</span>);
+            <span class="keyword-directive">throw</span> <span class="keyword-directive">new</span> ConverterException(err);
+        }
+        <span class="keyword-directive">char</span>[] input = inputVal.toCharArray();
+        StringBuffer buffer = <span class="keyword-directive">new</span> StringBuffer(50);
+        <span class="keyword-directive">for</span> (<span class="keyword-directive">int</span> i = 0; i &lt; input.length; ++i) {
+            <span class="keyword-directive">if</span> ((i % 4) == 0 &amp;&amp; i != 0) {
+                <span class="keyword-directive">if</span> (input[i] != <span class="character">&#39;</span> <span class="character">&#39;</span> || input[i] != <span class="character">&#39;</span><span class="character">-</span><span class="character">&#39;</span>) {
+                    buffer.append(<span class="character">&quot;</span> <span class="character">&quot;</span>);
+                }
+            }
+            buffer.append(input[i]);
+        }
+        <span class="keyword-directive">return</span> buffer.toString();
+    }
+}
+
+</pre></body>
+</html>

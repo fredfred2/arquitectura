@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+   <h:head>
+        <title>Lesson_08_Converter_Validator Examples</title>
+           
+                <h:outputStylesheet library="css" name="styles.css"/>
+    </h:head>
+    <h:body>
+           <h2>Standard Validator Example</h2>
+
+    
+    <table>
+      <thead>
+        <tr><td colspan="3"><b>Using Default Validator</b></td></tr>
+        <tr>
+          <th>Output</th>
+          <th>Source code</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="2"><a href="faces/index_1.xhtml">/GuessBean Example</a></td>
+          <td><a href="sources/index_1.xhtml.html">index_1.xhtml</a></td>
+          <td>The GuessBean home page that uses built in validation constraint <b>f:validateLongRange</b> tag and attributes to display custom messages</td>
+        </tr>
+          <tr>
+         
+          <td><a href="sources/GuessBean.java.html">GuessBean.java</a></td>
+          <td>The CDI managed bean for the JSF page</td>
+        </tr>
+         
+      </tbody>
+    </table>
+        <h2>Custom Converter Example</h2>
+        
+    <p><b>Goal</b>: Display how to create a custom converter and use it in a JSF page</p>
+    
+        <table border="1" cellpadding="1">
+            <thead>
+                <tr>
+                    <th>Output</th>
+                    <th>Source Code</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+             <tr>
+                    <td rowspan="5"><a href="faces/index_2.xhtml">/index2</a></td>
+          <td><a href="sources/index_2.xhtml.html">index_2.xhtml</a></td>
+          <td>A JSF page that uses a custom converter <b>com.example.java.card</b></td>
+        </tr>
+           <tr>
+     
+          <td><a href="sources/response2.xhtml.html">response2.xhtml</a></td>
+          <td>Custom converter response page</td>
+        </tr>
+          <tr>
+         
+          <td><a href="sources/CreditCard.java.html">CreditCard.java</a></td>
+          <td>Credit Card class</td>
+        </tr>
+                <tr>
+         
+          <td><a href="sources/Payment.java.html">Payment.java</a></td>
+          <td>The CDI named bean for index2.xhtml</td>
+        </tr>
+                   <tr>
+            <td><a href="sources/CreditCardConverter.java.html">CreditCardConverter.java</a></td>
+          <td>The custom Converter class that contains the <b>@FacesConverter</b> annotation</td>
+        </tr> 
+                   
+      </tbody>
+    </table>
+<h3>Custom Validator Example</h3>
+ <p><b>Goal</b>: Display how to create a custom validator and use it in a JSF page</p>
+    
+        <table border="1" cellpadding="1">
+            <thead>
+                <tr>
+                    <th>Output</th>
+                    <th>Source Code</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr>
+          <td rowspan="4"><a href="faces/index_3.xhtml">/index_3</a></td>
+          <td><a href="sources/index_3.xhtml.html">index_3.xhtml</a></td>
+          <td>A JSF page that uses a custom validator <b>com.java.example.EMailValidator</b> uses the </td>
+        </tr>
+          <tr>
+         
+          <td><a href="sources/ContactInfo.java.html">ContactInfo.java</a></td>
+          <td>The CDI named bean for the JSF page</td>
+        </tr>
+          <tr>
+        
+          <td><a href="sources/EMailValidator.java.html">EMailValidator.java</a></td>
+          <td>The custom Validator class that contains the <b>@FacesValidator</b> annotation </td>
+        </tr>
+                <tr>
+        
+          <td><a href="sources/response3.xhtml.html">response3.xhtml</a></td>
+          <td>The email response page   </td>
+        </tr>
+                
+      </tbody>
+        </table>
+<h3>Bean Validation Example</h3>
+<p><b>Goal</b>: Display a simple bean validation example in the Guess Number Application
+</p>
+        <table border="1" cellpadding="1">
+            <thead>
+                <tr>
+                    <th>Output</th>
+                    <th>Source Code</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+          <td  rowspan="3"><a href="faces/index_4.xhtml">/index_4.xhtml</a></td>
+          <td><a href="sources/index_4.xhtml.html">index_4.xhtml</a></td>
+          <td>A JSF page for the guess the number game</td>
+        </tr>
+          <tr>
+             
+          <td><a href="sources/GuessBean1.java.html">GuessBean1.java</a></td>
+          <td>The bean class that uses bean validation annotations in its fields</td>
+        </tr>
+                <tr>
+                <td><a href="sources/ValidationMessages.properties.html">ValidationMessages.properties</a></td>
+          <td>The properties file that stores the bean validation error messages</td>
+        </tr>
+            </tbody>
+        </table>
+           <h3>Custom Bean Validation Example</h3>
+<p><b>Goal</b>: Display a simple custom bean validation example in a License entry form
+</p>
+        <table border="1" cellpadding="1">
+            <thead>
+                <tr>
+                    <th>Output</th>
+                    <th>Source Code</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+          <td  rowspan="4"><a href="faces/index_5.xhtml">/index_5.xhtml</a></td>
+          <td><a href="sources/index_5.xhtml.html">index_5.xhtml</a></td>
+          <td>A JSF page that is a license entry form</td>
+        </tr>
+          <tr>
+             
+          <td><a href="sources/LicenseBean.java.html">LicenseBean.java</a></td>
+          <td>The bean class that uses thecustom bean validation constraint <b>@ValidLicenseKey</b></td>
+        </tr>
+                <tr>
+                <td><a href="sources/ValidLicenseKey.java.html">ValidLicenseKey.java</a></td>
+          <td>The user defined (custom) constraint declaration</td>
+        </tr>
+          <tr>
+                <td><a href="sources/ValidLicenseKeyValidator.java.html">ValidLicenseKeyValidator.java</a></td>
+          <td>The user defined constraint implementation class that over-rides the<b> initialize </b> and the <b>isValid</b></td>
+        </tr>      
+            </tbody>
+        </table>
+             
+    </h:body>
+</html>
+

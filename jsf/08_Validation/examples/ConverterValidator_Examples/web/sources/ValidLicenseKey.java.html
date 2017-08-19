@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>ValidLicenseKey.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST1 {font-family: Monospaced; font-weight: bold}
+.character {color: #ce7b00}
+.ST0 {color: #009900; font-family: Monospaced; font-style: italic}
+.keyword-directive {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">D:\toUpload\ConverterValidator_Examples\src\java\com\example\custom\beanvalidation\constraints\ValidLicenseKey.java</td></tr></table>
+<pre>
+<span class="keyword-directive">package</span> com.example.custom.beanvalidation.constraints;
+
+<span class="keyword-directive">import</span> java.lang.annotation.*;
+<span class="keyword-directive">import</span> javax.validation.Constraint;
+<span class="keyword-directive">import</span> javax.validation.Payload;
+<span class="keyword-directive">import</span> javax.validation.constraints.NotNull;
+
+@NotNull
+@Documented
+@Constraint(validatedBy = ValidLicenseKeyValidator.<span class="keyword-directive">class</span>)
+@Target({ElementType.<span class="ST0">FIELD</span>})
+@Retention(RetentionPolicy.<span class="ST0">RUNTIME</span>)
+<span class="keyword-directive">public</span> @<span class="keyword-directive">interface</span> <span class="ST1">ValidLicenseKey</span> {
+
+    String <span class="ST1">message</span>() <span class="keyword-directive">default</span> <span class="character">&quot;</span><span class="character">{com.example.constraints.ValidLicenseKey.message}</span><span class="character">&quot;</span>;
+
+    Class&lt;?&gt;[] <span class="ST1">groups</span>() <span class="keyword-directive">default</span> {};
+
+    Class&lt;? <span class="keyword-directive">extends</span> Payload&gt;[] <span class="ST1">payload</span>() <span class="keyword-directive">default</span> {};
+}
+</pre></body>
+</html>

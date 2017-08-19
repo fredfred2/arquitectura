@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>SortFilterModel.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../res/styles.css" type="text/css">
+<style type="text/css">
+<!--
+.ST0 {color: #969696; font-weight: bold}
+.comment {color: #969696}
+.keyword-directive {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<script src="../../res/jquery.js" type="text/javascript"></script>
+<script src="../../res/jquery.tooltip.js" type="text/javascript"></script>
+<script src="../../res/tooltip.js" type="text/javascript"></script>
+<p>
+<a href="../../">Go back</a>
+</p>
+<table width="100%"><tr><td align="center">D:\MyProjects\JSF-Dev\D77738GC10\07_DataTables\examples\SimpleDataTableExample\src\java\com\java\util\SortFilterModel.java</td></tr></table>
+<pre>
+ 1 <span class="comment">/*</span>
+ 2 <span class="comment"> * To change this template, choose Tools | Templates</span>
+ 3 <span class="comment"> * and open the template in the editor.</span>
+ 4 <span class="comment"> */</span>
+ 5 
+ 6 <span class="keyword-directive">package</span> com.java.util;
+ 7 
+ 8 <span class="comment">/**</span>
+ 9 <span class="comment"> *</span>
+10 <span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">D</span><span class="comment">.</span><span class="comment">Geary</span><span class="comment">, </span><span class="comment">C</span><span class="comment">.</span><span class="comment">Horstmann</span>
+11  <span class="comment">*/</span>
+12 <span class="keyword-directive">import</span> java.util.Arrays;
+13 <span class="keyword-directive">import</span> java.util.Comparator;
+14 
+15 <span class="keyword-directive">import</span> javax.faces.model.DataModel;
+16 
+17 <span class="keyword-directive">public</span> <span class="keyword-directive">class</span> SortFilterModel&lt;E&gt; <span class="keyword-directive">extends</span> DataModel&lt;E&gt; {
+18    <span class="keyword-directive">private</span> DataModel&lt;E&gt; model;
+19    <span class="keyword-directive">private</span> Integer[] rows;
+20 
+21    <span class="keyword-directive">public</span> SortFilterModel() { <span class="comment">// mandated by JSF spec</span>
+22       setWrappedData(<span class="keyword-directive">null</span>);
+23    }
+24    <span class="keyword-directive">public</span> SortFilterModel(E[] names) { <span class="comment">// recommended by JSF spec</span>
+25       setWrappedData(names);
+26    }
+27    <span class="keyword-directive">public</span> SortFilterModel(DataModel&lt;E&gt; model) {
+28       <span class="keyword-directive">this</span>.model = model;
+29       initializeRows();
+30    }
+31 
+32    <span class="keyword-directive">private</span> E getData(<span class="keyword-directive">int</span> row) {
+33       <span class="keyword-directive">int</span> originalIndex = model.getRowIndex();
+34       model.setRowIndex(row);
+35       E thisRowData = model.getRowData();
+36       model.setRowIndex(originalIndex);
+37       <span class="keyword-directive">return</span> thisRowData;
+38    }
+39 
+40    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> sortBy(<span class="keyword-directive">final</span> Comparator&lt;E&gt; dataComp) {
+41       Comparator&lt;Integer&gt; rowComp = <span class="keyword-directive">new</span>
+42       Comparator&lt;Integer&gt;() {
+43          <span class="keyword-directive">public</span> <span class="keyword-directive">int</span> compare(Integer r1, Integer r2) {
+44             E e1 = getData(r1);
+45             E e2 = getData(r2);
+46             <span class="keyword-directive">return</span> dataComp.compare(e1, e2);
+47          }
+48       };
+49       Arrays.sort(rows, rowComp);
+50    }
+51 
+52    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> setRowIndex(<span class="keyword-directive">int</span> rowIndex) {
+53       <span class="keyword-directive">if</span> (0 &lt;= rowIndex &amp;&amp; rowIndex &lt; rows.length)
+54          model.setRowIndex(rows[rowIndex]);
+55       <span class="keyword-directive">else</span>
+56          model.setRowIndex(rowIndex);
+57    }
+58 
+59    <span class="comment">// The following methods delegate to the decorated model</span>
+60 
+61    <span class="keyword-directive">public</span> <span class="keyword-directive">boolean</span> isRowAvailable() {
+62       <span class="keyword-directive">return</span> model.isRowAvailable();
+63    }
+64    <span class="keyword-directive">public</span> <span class="keyword-directive">int</span> getRowCount() {
+65       <span class="keyword-directive">return</span> model.getRowCount();
+66    }
+67    <span class="keyword-directive">public</span> E getRowData() {
+68       <span class="keyword-directive">return</span> model.getRowData();
+69    }
+70    <span class="keyword-directive">public</span> <span class="keyword-directive">int</span> getRowIndex() {
+71       <span class="keyword-directive">return</span> model.getRowIndex();
+72    }
+73    <span class="keyword-directive">public</span> Object getWrappedData() {
+74       <span class="keyword-directive">return</span> model.getWrappedData();
+75    }
+76    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> setWrappedData(Object data) {
+77       model.setWrappedData(data);
+78       initializeRows();
+79    }
+80    <span class="keyword-directive">private</span> <span class="keyword-directive">void</span> initializeRows() {
+81       <span class="keyword-directive">int</span> rowCnt = model.getRowCount();
+82       <span class="keyword-directive">if</span> (rowCnt != -1) {
+83          rows = <span class="keyword-directive">new</span> Integer[rowCnt];
+84          <span class="keyword-directive">for</span>(<span class="keyword-directive">int</span> i = 0; i &lt; rowCnt; ++i) rows[i] = i;
+85       }
+86    }
+87 }
+88 
+</pre>
+<div id="tt-overview">
+</div>
+<p>
+<a href="../../">Go back</a>
+</p>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>PagerRenderer.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../res/styles.css" type="text/css">
+<style type="text/css">
+<!--
+.ST2 {font-weight: bold; font-style: italic}
+.ST1 {font-style: italic}
+.ST0 {font-weight: bold}
+.comment {color: #969696}
+.character {color: #ce7b00}
+.keyword-directive {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<script src="../../res/jquery.js" type="text/javascript"></script>
+<script src="../../res/jquery.tooltip.js" type="text/javascript"></script>
+<script src="../../res/tooltip.js" type="text/javascript"></script>
+<p>
+<a href="../../">Go back</a>
+</p>
+<table width="100%"><tr><td align="center">D:\MyProjects\JSF-Dev\ExamplesDemoFrameWork\Lesson9\Pager\src\java\com\corejsf\PagerRenderer.java</td></tr></table>
+<pre>
+<span class="keyword-directive">package</span> com.corejsf;
+
+<span class="keyword-directive">import</span> java.io.IOException;
+<span class="keyword-directive">import</span> java.util.Map;
+<span class="keyword-directive">import</span> javax.faces.component.UIComponent;
+<span class="keyword-directive">import</span> javax.faces.component.UIData;
+<span class="keyword-directive">import</span> javax.faces.component.UIForm;
+<span class="keyword-directive">import</span> javax.faces.context.FacesContext;
+<span class="keyword-directive">import</span> javax.faces.context.ResponseWriter;
+<span class="keyword-directive">import</span> javax.faces.render.FacesRenderer;
+<span class="keyword-directive">import</span> javax.faces.render.Renderer;
+
+@FacesRenderer(componentFamily=<span class="character">&quot;</span><span class="character">javax.faces.Command</span><span class="character">&quot;</span>,
+   rendererType=<span class="character">&quot;</span><span class="character">com.corejsf.Pager</span><span class="character">&quot;</span>)
+<span class="keyword-directive">public</span> <span class="keyword-directive">class</span> <span class="ST0">PagerRenderer</span> <span class="keyword-directive">extends</span> Renderer {
+   <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> <span class="ST0">encodeBegin</span>(FacesContext context, UIComponent component) 
+      <span class="keyword-directive">throws</span> IOException {   
+      String id = component.getClientId(context);
+      UIComponent parent = component;
+      <span class="keyword-directive">while</span> (!(parent <span class="keyword-directive">instanceof</span> UIForm)) parent = parent.getParent();
+      String formId = parent.getClientId(context);
+
+      ResponseWriter writer = context.getResponseWriter();    
+
+      String styleClass = (String) component.getAttributes().get(<span class="character">&quot;</span><span class="character">styleClass</span><span class="character">&quot;</span>);
+      String selectedStyleClass 
+         = (String) component.getAttributes().get(<span class="character">&quot;</span><span class="character">selectedStyleClass</span><span class="character">&quot;</span>);
+      String dataTableId = (String) component.getAttributes().get(<span class="character">&quot;</span><span class="character">dataTableId</span><span class="character">&quot;</span>);
+      <span class="keyword-directive">int</span> showpages = <span class="ST1">toInt</span>(component.getAttributes().get(<span class="character">&quot;</span><span class="character">showpages</span><span class="character">&quot;</span>));      
+
+      <span class="comment">// find the component with the given ID</span>
+
+      UIData data = (UIData) component.findComponent(dataTableId);
+
+      <span class="keyword-directive">int</span> first = data.getFirst();
+      <span class="keyword-directive">int</span> itemcount = data.getRowCount();
+      <span class="keyword-directive">int</span> pagesize = data.getRows(); 
+      <span class="keyword-directive">if</span> (pagesize &lt;= 0) pagesize = itemcount;
+
+      <span class="keyword-directive">int</span> pages = itemcount / pagesize;
+      <span class="keyword-directive">if</span> (itemcount % pagesize != 0) pages++;
+
+      <span class="keyword-directive">int</span> currentPage = first / pagesize;
+      <span class="keyword-directive">if</span> (first &gt;= itemcount - pagesize) currentPage = pages - 1;
+      <span class="keyword-directive">int</span> startPage = 0;
+      <span class="keyword-directive">int</span> endPage = pages;
+      <span class="keyword-directive">if</span> (showpages &gt; 0) { 
+         startPage = (currentPage / showpages) * showpages;
+         endPage = Math.<span class="ST1">min</span>(startPage + showpages, pages);
+      }
+      <span class="keyword-directive">if</span> (currentPage &gt; 0)
+         writeLink(writer, component, formId, id, <span class="character">&quot;</span><span class="character">&lt;</span><span class="character">&quot;</span>, styleClass);
+      
+      <span class="keyword-directive">if</span> (startPage &gt; 0)  
+         writeLink(writer, component, formId, id, <span class="character">&quot;</span><span class="character">&lt;&lt;</span><span class="character">&quot;</span>, styleClass);
+
+      <span class="keyword-directive">for</span> (<span class="keyword-directive">int</span> i = startPage; i &lt; endPage; i++) {
+         writeLink(writer, component, formId, id, <span class="character">&quot;&quot;</span> + (i + 1), 
+            i == currentPage ? selectedStyleClass : styleClass);
+      }
+
+      <span class="keyword-directive">if</span> (endPage &lt; pages) 
+         writeLink(writer, component, formId, id, <span class="character">&quot;</span><span class="character">&gt;&gt;</span><span class="character">&quot;</span>, styleClass);
+
+      <span class="keyword-directive">if</span> (first &lt; itemcount - pagesize)
+         writeLink(writer, component, formId, id, <span class="character">&quot;</span><span class="character">&gt;</span><span class="character">&quot;</span>, styleClass);
+
+      <span class="comment">// hidden field to hold result</span>
+      writeHiddenField(writer, component, id);
+   }
+   
+   <span class="keyword-directive">private</span> <span class="keyword-directive">void</span> <span class="ST0">writeLink</span>(ResponseWriter writer, UIComponent component, 
+      String formId, String id, String value, String styleClass) 
+      <span class="keyword-directive">throws</span> IOException {
+      writer.writeText(<span class="character">&quot;</span> <span class="character">&quot;</span>, <span class="keyword-directive">null</span>);
+      writer.startElement(<span class="character">&quot;</span><span class="character">a</span><span class="character">&quot;</span>, component);
+      writer.writeAttribute(<span class="character">&quot;</span><span class="character">href</span><span class="character">&quot;</span>, <span class="character">&quot;</span><span class="character">#</span><span class="character">&quot;</span>, <span class="keyword-directive">null</span>);
+      writer.writeAttribute(<span class="character">&quot;</span><span class="character">onclick</span><span class="character">&quot;</span>, onclickCode(formId, id, value), <span class="keyword-directive">null</span>);
+      <span class="keyword-directive">if</span> (styleClass != <span class="keyword-directive">null</span>) 
+         writer.writeAttribute(<span class="character">&quot;</span><span class="character">class</span><span class="character">&quot;</span>, styleClass, <span class="character">&quot;</span><span class="character">styleClass</span><span class="character">&quot;</span>);
+      writer.writeText(value, <span class="keyword-directive">null</span>);
+      writer.endElement(<span class="character">&quot;</span><span class="character">a</span><span class="character">&quot;</span>);
+   }
+
+   <span class="keyword-directive">private</span> String <span class="ST0">onclickCode</span>(String formId, String id, String value) {
+      <span class="keyword-directive">return</span> <span class="keyword-directive">new</span> StringBuilder().append(<span class="character">&quot;</span><span class="character">document.forms[&#39;</span><span class="character">&quot;</span>)
+         .append(formId).append(<span class="character">&quot;</span><span class="character">&#39;][&#39;</span><span class="character">&quot;</span>)
+         .append(id).append(<span class="character">&quot;</span><span class="character">&#39;].value=&#39;</span><span class="character">&quot;</span>).append(value).append(<span class="character">&quot;</span><span class="character">&#39;; document.forms[&#39;</span><span class="character">&quot;</span>)
+         .append(formId).append(<span class="character">&quot;</span><span class="character">&#39;].submit(); return false;</span><span class="character">&quot;</span>).toString();      
+   }
+
+   <span class="keyword-directive">private</span> <span class="keyword-directive">void</span> <span class="ST0">writeHiddenField</span>(ResponseWriter writer, UIComponent component, 
+      String id) <span class="keyword-directive">throws</span> IOException {
+      writer.startElement(<span class="character">&quot;</span><span class="character">input</span><span class="character">&quot;</span>, component);
+      writer.writeAttribute(<span class="character">&quot;</span><span class="character">type</span><span class="character">&quot;</span>, <span class="character">&quot;</span><span class="character">hidden</span><span class="character">&quot;</span>, <span class="keyword-directive">null</span>);
+      writer.writeAttribute(<span class="character">&quot;</span><span class="character">name</span><span class="character">&quot;</span>, id, <span class="keyword-directive">null</span>);
+      writer.endElement(<span class="character">&quot;</span><span class="character">input</span><span class="character">&quot;</span>);
+   }
+
+   <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> <span class="ST0">decode</span>(FacesContext context, UIComponent component) {
+      String id = component.getClientId(context);
+      Map&lt;String, String&gt; parameters 
+         = context.getExternalContext().getRequestParameterMap();
+
+      String response = (String) parameters.get(id);
+      <span class="keyword-directive">if</span> (response == <span class="keyword-directive">null</span> || response.equals(<span class="character">&quot;&quot;</span>)) <span class="keyword-directive">return</span>; 
+
+      String dataTableId = (String) component.getAttributes().get(<span class="character">&quot;</span><span class="character">dataTableId</span><span class="character">&quot;</span>);
+      <span class="keyword-directive">int</span> showpages = <span class="ST1">toInt</span>(component.getAttributes().get(<span class="character">&quot;</span><span class="character">showpages</span><span class="character">&quot;</span>));      
+
+      UIData data = (UIData) component.findComponent(dataTableId);
+
+      <span class="keyword-directive">int</span> first = data.getFirst();
+      <span class="keyword-directive">int</span> itemcount = data.getRowCount();
+      <span class="keyword-directive">int</span> pagesize = data.getRows(); 
+      <span class="keyword-directive">if</span> (pagesize &lt;= 0) pagesize = itemcount;
+
+      <span class="keyword-directive">if</span> (response.equals(<span class="character">&quot;</span><span class="character">&lt;</span><span class="character">&quot;</span>)) first -= pagesize;
+      <span class="keyword-directive">else</span> <span class="keyword-directive">if</span> (response.equals(<span class="character">&quot;</span><span class="character">&gt;</span><span class="character">&quot;</span>)) first += pagesize;
+      <span class="keyword-directive">else</span> <span class="keyword-directive">if</span> (response.equals(<span class="character">&quot;</span><span class="character">&lt;&lt;</span><span class="character">&quot;</span>)) first -= pagesize * showpages;
+      <span class="keyword-directive">else</span> <span class="keyword-directive">if</span> (response.equals(<span class="character">&quot;</span><span class="character">&gt;&gt;</span><span class="character">&quot;</span>)) first += pagesize * showpages;
+      <span class="keyword-directive">else</span> {
+         <span class="keyword-directive">int</span> page = Integer.<span class="ST1">parseInt</span>(response);
+         first = (page - 1) * pagesize;
+      }
+      <span class="keyword-directive">if</span> (first + pagesize &gt; itemcount) first = itemcount - pagesize; 
+      <span class="keyword-directive">if</span> (first &lt; 0) first = 0;
+      data.setFirst(first);
+   }
+
+   <span class="keyword-directive">private</span> <span class="keyword-directive">static</span> <span class="keyword-directive">int</span> <span class="ST2">toInt</span>(Object value) {
+      <span class="keyword-directive">if</span> (value == <span class="keyword-directive">null</span>) <span class="keyword-directive">return</span> 0;
+      <span class="keyword-directive">if</span> (value <span class="keyword-directive">instanceof</span> Number) <span class="keyword-directive">return</span> ((Number) value).intValue();
+      <span class="keyword-directive">if</span> (value <span class="keyword-directive">instanceof</span> String) <span class="keyword-directive">return</span> Integer.<span class="ST1">parseInt</span>((String) value);
+      <span class="keyword-directive">throw</span> <span class="keyword-directive">new</span> IllegalArgumentException(<span class="character">&quot;</span><span class="character">Cannot convert </span><span class="character">&quot;</span> + value);
+   }   
+}
+</pre>
+<div id="tt-overview">
+</div>
+<p>
+<a href="../../">Go back</a>
+</p>
+</body>
+</html>

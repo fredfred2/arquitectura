@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    
+    <h:head>
+        <h:outputStylesheet library="css" name="styles.css"/>
+        <title>#{msg.dvdlibraryTitle}</title>
+    </h:head>
+    
+    <h:body>
+        <!-- Header includes the Welcome message and the function title -->
+        <div id="heading" class="header">
+            <ui:include src="/sections/dvdlibrary/headerWelcome.xhtml"/>
+            <!-- The function title format = DVD Library:<Function> -->
+            <ui:insert name="heading"/>
+        </div>
+        <!-- SideBarLeft is located below the header to the left -->
+        <div id="sideBarLeft">
+            <ui:insert name="sideBarLeft">
+                <ui:include src="/sections/dvdlibrary/sideBarLeft.xhtml"/>
+            </ui:insert>
+        </div>
+        <!-- Content section is right of the Side Bar and below the header -->
+        <div id="content">
+            <ui:insert name="content"/>
+        </div>
+        <ui:debug/>
+    </h:body>
+</html>

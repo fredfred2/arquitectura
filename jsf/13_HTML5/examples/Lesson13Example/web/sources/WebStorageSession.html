@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>WebStorageSession.html</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../res/styles.css" type="text/css">
+<style type="text/css">
+<!--
+.highlight-caret-row {background-color: #e9eff8}
+.ST1 {color: #0000e6; background-color: #e3f2e1}
+.ST0 {color: #628fb5; background-color: #e9eff8}
+.ST4 {color: #ce7b00; background-color: #e3f2e1}
+.ST5 {color: #009900; background-color: #e3f2e1}
+.ST6 {color: #007c00; background-color: #e3f2e1; font-weight: bold}
+.argument {color: #009900}
+.ST2 {background-color: #e3f2e1}
+.value {color: #ce7b00}
+.ST3 {background-color: #e3f2e1; font-weight: bold}
+.tag {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<script src="../res/jquery.js" type="text/javascript"></script>
+<script src="../res/jquery.tooltip.js" type="text/javascript"></script>
+<script src="../res/tooltip.js" type="text/javascript"></script>
+<p>
+<a href="../">Go back</a>
+</p>
+<table width="100%"><tr><td align="center">D:\MyProjects\JSF-Dev\D77738GC10\13_html5\HTML5FeaturesDemo\WebStorageSession.html</td></tr></table>
+<pre>
+<span class="ST0">&lt;!DOCTYPE</span> <span class="ST0">html</span><span class="ST0">&gt;</span>
+<span class="tag">&lt;</span><span class="tag">html</span><span class="tag">&gt;</span>
+<span class="tag">&lt;</span><span class="tag">head</span><span class="tag">&gt;</span>
+<span class="tag">&lt;</span><span class="tag">script</span><span class="tag">&gt;</span>
+<span class="ST1">function</span> <span class="ST3">clickCounter</span><span class="ST2">(</span><span class="ST2">)</span>
+<span class="ST2">{</span>
+<span class="ST1">if</span><span class="ST2">(</span><span class="ST1">typeof</span><span class="ST2">(</span><span class="ST2">Storage</span><span class="ST2">)</span><span class="ST2">!==</span><span class="ST4">&quot;</span><span class="ST4">undefined</span><span class="ST4">&quot;</span><span class="ST2">)</span>
+  <span class="ST2">{</span>
+  <span class="ST1">if</span> <span class="ST2">(</span><span class="ST5">sessionStorage</span><span class="ST2">.</span><span class="ST2">clickcount</span><span class="ST2">)</span>
+    <span class="ST2">{</span>
+    <span class="ST5">sessionStorage</span><span class="ST2">.</span><span class="ST2">clickcount</span><span class="ST2">=</span><span class="ST2">Number</span><span class="ST2">(</span><span class="ST5">sessionStorage</span><span class="ST2">.</span><span class="ST2">clickcount</span><span class="ST2">)</span><span class="ST2">+</span><span class="ST2">1</span><span class="ST2">;</span>
+    <span class="ST2">}</span>
+  <span class="ST1">else</span>
+    <span class="ST2">{</span>
+    <span class="ST5">sessionStorage</span><span class="ST2">.</span><span class="ST2">clickcount</span><span class="ST2">=</span><span class="ST2">1</span><span class="ST2">;</span>
+    <span class="ST2">}</span>
+  <span class="ST5">document</span><span class="ST2">.</span><span class="ST2">getElementById</span><span class="ST2">(</span><span class="ST4">&quot;</span><span class="ST4">result</span><span class="ST4">&quot;</span><span class="ST2">)</span><span class="ST2">.</span><span class="ST2">innerHTML</span><span class="ST2">=</span><span class="ST4">&quot;</span><span class="ST4">You have clicked the button </span><span class="ST4">&quot;</span> <span class="ST2">+</span> <span class="ST5">sessionStorage</span><span class="ST2">.</span><span class="ST2">clickcount</span> <span class="ST2">+</span> <span class="ST4">&quot;</span><span class="ST4"> time(s) in this session.</span><span class="ST4">&quot;</span><span class="ST2">;</span>
+  <span class="ST2">}</span>
+<span class="ST1">else</span>
+  <span class="ST2">{</span>
+  <span class="ST5">document</span><span class="ST2">.</span><span class="ST2">getElementById</span><span class="ST2">(</span><span class="ST4">&quot;</span><span class="ST4">result</span><span class="ST4">&quot;</span><span class="ST2">)</span><span class="ST2">.</span><span class="ST2">innerHTML</span><span class="ST2">=</span><span class="ST4">&quot;</span><span class="ST4">Sorry, your browser does not support web storage...</span><span class="ST4">&quot;</span><span class="ST2">;</span>
+  <span class="ST2">}</span>
+<span class="ST2">}</span>
+<span class="tag">&lt;/</span><span class="tag">script</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/</span><span class="tag">head</span><span class="tag">&gt;</span>
+<span class="tag">&lt;</span><span class="tag">body</span><span class="tag">&gt;</span>
+<span class="tag">&lt;</span><span class="tag">p</span><span class="tag">&gt;</span><span class="tag">&lt;</span><span class="tag">button</span> <span class="argument">onclick</span><span class="argument">=</span><span class="value">&quot;</span><span class="ST2">clickCounter</span><span class="ST2">(</span><span class="ST2">)</span><span class="value">&quot;</span> <span class="argument">type</span><span class="argument">=</span><span class="value">&quot;button&quot;</span><span class="tag">&gt;</span>Click me!<span class="tag">&lt;/</span><span class="tag">button</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag">p</span><span class="tag">&gt;</span>
+<span class="tag">&lt;</span><span class="tag">div</span> <span class="argument">id</span><span class="argument">=</span><span class="value">&quot;</span><span class="ST6">result</span><span class="value">&quot;</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag">div</span><span class="tag">&gt;</span>
+<span class="tag">&lt;</span><span class="tag">p</span><span class="tag">&gt;</span>Click the button to see the counter increase.<span class="tag">&lt;/</span><span class="tag">p</span><span class="tag">&gt;</span>
+<span class="tag">&lt;</span><span class="tag">p</span><span class="tag">&gt;</span>Close the browser tab (or window), and try again, and the counter is reset.<span class="tag">&lt;/</span><span class="tag">p</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/</span><span class="tag">body</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/</span><span class="tag">html</span><span class="tag">&gt;</span>
+</pre>
+<div id="tt-overview">
+</div>
+<p>
+<a href="../">Go back</a>
+</p>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>canvas2.html</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../res/styles.css" type="text/css">
+<style type="text/css">
+<!--
+.ST2 {color: #0000e6; background-color: #e3f2e1}
+.ST3 {color: #ce7b00; background-color: #e3f2e1}
+.sgml-declaration {color: #628fb5}
+.ST1 {color: #009900; background-color: #e3f2e1}
+.ST4 {color: #007c00; background-color: #e3f2e1; font-weight: bold}
+.argument {color: #009900}
+.ST0 {background-color: #e3f2e1}
+.value {color: #ce7b00}
+.tag {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<script src="../res/jquery.js" type="text/javascript"></script>
+<script src="../res/jquery.tooltip.js" type="text/javascript"></script>
+<script src="../res/tooltip.js" type="text/javascript"></script>
+<p>
+<a href="../">Go back</a>
+</p>
+<table width="100%"><tr><td align="center">D:\MyProjects\JSF-Dev\D77738GC10\13_html5\HTML5FeaturesDemo\canvas2.html</td></tr></table>
+<pre>
+
+<span class="sgml-declaration">&lt;!DOCTYPE</span> <span class="sgml-declaration">html</span><span class="sgml-declaration">&gt;</span>
+
+<span class="tag">&lt;</span><span class="tag">head</span><span class="tag">&gt;</span>
+    
+<span class="tag">&lt;</span><span class="tag">script</span><span class="tag">&gt;</span>
+ <span class="ST1">window</span><span class="ST0">.</span><span class="ST0">onload</span> <span class="ST0">=</span> <span class="ST2">function</span><span class="ST0">(</span><span class="ST0">)</span> 
+<span class="ST0">{</span>
+  <span class="ST2">var</span> <span class="ST0">canvasContext</span> <span class="ST0">=</span> <span class="ST1">document</span><span class="ST0">.</span><span class="ST0">getElementById</span><span class="ST0">(</span><span class="ST3">&quot;</span><span class="ST3">canvas</span><span class="ST3">&quot;</span><span class="ST0">)</span><span class="ST0">.</span><span class="ST0">getContext</span><span class="ST0">(</span><span class="ST3">&quot;</span><span class="ST3">2d</span><span class="ST3">&quot;</span><span class="ST0">)</span><span class="ST0">;</span>
+  <span class="ST0">canvasContext</span><span class="ST0">.</span><span class="ST0">fillRect</span><span class="ST0">(</span><span class="ST0">250</span><span class="ST0">,</span> <span class="ST0">25</span><span class="ST0">,</span> <span class="ST0">150</span><span class="ST0">,</span> <span class="ST0">100</span><span class="ST0">)</span><span class="ST0">;</span>
+  
+  <span class="ST0">canvasContext</span><span class="ST0">.</span><span class="ST0">beginPath</span><span class="ST0">(</span><span class="ST0">)</span><span class="ST0">;</span>
+  <span class="ST0">canvasContext</span><span class="ST0">.</span><span class="ST0">arc</span><span class="ST0">(</span><span class="ST0">450</span><span class="ST0">,</span> <span class="ST0">110</span><span class="ST0">,</span> <span class="ST0">100</span><span class="ST0">,</span> <span class="ST0">Math</span><span class="ST0">.</span><span class="ST0">PI</span> <span class="ST0">*</span> <span class="ST0">1</span><span class="ST0">/</span><span class="ST0">2</span><span class="ST0">,</span> <span class="ST0">Math</span><span class="ST0">.</span><span class="ST0">PI</span> <span class="ST0">*</span> <span class="ST0">3</span><span class="ST0">/</span><span class="ST0">2</span><span class="ST0">)</span><span class="ST0">;</span>
+  <span class="ST0">canvasContext</span><span class="ST0">.</span><span class="ST0">lineWidth</span> <span class="ST0">=</span> <span class="ST0">15</span><span class="ST0">;</span>
+  <span class="ST0">canvasContext</span><span class="ST0">.</span><span class="ST0">lineCap</span> <span class="ST0">=</span> <span class="ST3">&#39;</span><span class="ST3">round</span><span class="ST3">&#39;</span><span class="ST0">;</span>
+  <span class="ST0">canvasContext</span><span class="ST0">.</span><span class="ST0">strokeStyle</span> <span class="ST0">=</span> <span class="ST3">&#39;</span><span class="ST3">rgba(255, 127, 0, 0.5)</span><span class="ST3">&#39;</span><span class="ST0">;</span>
+  <span class="ST0">canvasContext</span><span class="ST0">.</span><span class="ST0">stroke</span><span class="ST0">(</span><span class="ST0">)</span><span class="ST0">;</span>
+<span class="ST0">}</span>
+<span class="tag">&lt;/</span><span class="tag">script</span><span class="tag">&gt;</span>
+
+<span class="tag">&lt;/</span><span class="tag">head</span><span class="tag">&gt;</span>
+<span class="tag">&lt;</span><span class="tag">body</span><span class="tag">&gt;</span>
+<span class="tag">&lt;</span><span class="tag">canvas</span> <span class="argument">id</span><span class="argument">=</span><span class="value">&quot;</span><span class="ST4">canvas</span><span class="value">&quot;</span> <span class="argument">width</span><span class="argument">=</span><span class="value">&quot;838&quot;</span> <span class="argument">height</span><span class="argument">=</span><span class="value">&quot;220&quot;</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag">canvas</span><span class="tag">&gt;</span>
+
+<span class="tag">&lt;/</span><span class="tag">body</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/</span><span class="tag">html</span><span class="tag">&gt;</span>
+</pre>
+<div id="tt-overview">
+</div>
+<p>
+<a href="../">Go back</a>
+</p>
+</body>
+</html>

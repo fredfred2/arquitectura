@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Canvas.html</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../res/styles.css" type="text/css">
+<style type="text/css">
+<!--
+.ST3 {color: #0000e6; background-color: #e3f2e1}
+.ST0 {color: #628fb5; background-color: #e9eff8}
+.ST4 {color: #ce7b00; background-color: #e3f2e1}
+.sgml-declaration {color: #628fb5}
+.ST2 {color: #009900; background-color: #e3f2e1}
+.ST5 {color: #007c00; background-color: #e3f2e1; font-weight: bold}
+.ST1 {background-color: #e3f2e1}
+.argument {color: #009900}
+.ST6 {color: #0000ff; background-color: #e3f2e1}
+.value {color: #ce7b00}
+.tag {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<script src="../res/jquery.js" type="text/javascript"></script>
+<script src="../res/jquery.tooltip.js" type="text/javascript"></script>
+<script src="../res/tooltip.js" type="text/javascript"></script>
+<p>
+<a href="../">Go back</a>
+</p>
+<table width="100%"><tr><td align="center">D:\MyProjects\JSF-Dev\D77738GC10\13_html5\HTML5FeaturesDemo\Canvas.html</td></tr></table>
+<pre>
+<span class="ST0">&lt;?xml version=&#39;1.0&#39; encoding=&#39;UTF-8&#39; ?&gt;</span>
+<span class="sgml-declaration">&lt;!DOCTYPE</span> <span class="sgml-declaration">html</span> <span class="sgml-declaration">PUBLIC</span> <span class="sgml-declaration">&quot;-//W3C//DTD</span> <span class="sgml-declaration">XHTML</span> <span class="sgml-declaration">1.0</span> <span class="sgml-declaration">Transitional//EN&quot;</span> <span class="sgml-declaration">&quot;</span><span class="sgml-declaration">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd</span><span class="sgml-declaration">&quot;</span><span class="sgml-declaration">&gt;</span>
+<span class="tag">&lt;</span><span class="tag">html</span> <span class="argument">xmlns</span><span class="argument">=</span><span class="value">&quot;</span><span class="value">http://www.w3.org/1999/xhtml</span><span class="value">&quot;</span>
+      <span class="argument">xmlns:h</span><span class="argument">=</span><span class="value">&quot;</span><span class="value">http://java.sun.com/jsf/html</span><span class="value">&quot;</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;</span><span class="tag">h:head</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;</span><span class="tag">title</span><span class="tag">&gt;</span>Canvas Demo<span class="tag">&lt;/</span><span class="tag">title</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;</span><span class="tag">script</span> <span class="argument">type</span><span class="argument">=</span><span class="value">&quot;text/javascript&quot;</span><span class="tag">&gt;</span>
+            <span class="ST2">window</span><span class="ST1">.</span><span class="ST1">onload</span> <span class="ST1">=</span> <span class="ST3">function</span><span class="ST1">(</span><span class="ST1">)</span> 
+            <span class="ST1">{</span>
+                <span class="ST3">var</span> <span class="ST1">c</span><span class="ST1">=</span><span class="ST2">document</span><span class="ST1">.</span><span class="ST1">getElementById</span><span class="ST1">(</span><span class="ST4">&quot;</span><span class="ST4">myCanvas</span><span class="ST4">&quot;</span><span class="ST1">)</span><span class="ST1">;</span>
+                <span class="ST3">var</span> <span class="ST1">ctx</span><span class="ST1">=</span><span class="ST1">c</span><span class="ST1">.</span><span class="ST1">getContext</span><span class="ST1">(</span><span class="ST4">&quot;</span><span class="ST4">2d</span><span class="ST4">&quot;</span><span class="ST1">)</span><span class="ST1">;</span>
+                <span class="ST1">ctx</span><span class="ST1">.</span><span class="ST1">fillStyle</span><span class="ST1">=</span><span class="ST4">&quot;</span><span class="ST4">#FF0000</span><span class="ST4">&quot;</span><span class="ST1">;</span>
+                <span class="ST1">ctx</span><span class="ST1">.</span><span class="ST1">fillRect</span><span class="ST1">(</span><span class="ST1">0</span><span class="ST1">,</span><span class="ST1">0</span><span class="ST1">,</span><span class="ST1">150</span><span class="ST1">,</span><span class="ST1">75</span><span class="ST1">)</span><span class="ST1">;</span>
+            <span class="ST1">}</span>   
+        <span class="tag">&lt;/</span><span class="tag">script</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;/</span><span class="tag">h:head</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;</span><span class="tag">h:body</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;</span><span class="tag">canvas</span> <span class="argument">id</span><span class="argument">=</span><span class="value">&quot;</span><span class="ST5">myCanvas</span><span class="value">&quot;</span> <span class="argument">width</span><span class="argument">=</span><span class="value">&quot;200&quot;</span> <span class="argument">height</span><span class="argument">=</span><span class="value">&quot;100&quot;</span>
+                <span class="argument">style</span><span class="argument">=</span><span class="value">&quot;</span><span class="ST6">border</span><span class="ST1">:</span><span class="ST1">1px</span> <span class="ST1">solid</span> <span class="ST1">#000000</span><span class="ST1">;</span><span class="value">&quot;</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;/</span><span class="tag">canvas</span><span class="tag">&gt;</span> 
+    <span class="tag">&lt;/</span><span class="tag">h:body</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/</span><span class="tag">html</span><span class="tag">&gt;</span>
+
+</pre>
+<div id="tt-overview">
+</div>
+<p>
+<a href="../">Go back</a>
+</p>
+</body>
+</html>

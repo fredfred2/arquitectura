@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<skins xmlns="http://myfaces.apache.org/trinidad/skin">
+    <skin> 
+        <id>mobileWebKit.desktop</id> 
+        <family>mobileWebKit</family> 
+        <render-kit-id>org.apache.myfaces.trinidad.desktop</render-kit-id>
+        <style-sheet-name>css/mobileWebKit.css</style-sheet-name> 
+    </skin>
+        <skin> 
+        <id>modernDesktop.desktop</id> 
+        <family>modernDesktop</family> 
+        <render-kit-id>org.apache.myfaces.trinidad.desktop</render-kit-id>
+        <style-sheet-name>css/modernDesktop.css</style-sheet-name> 
+    </skin>
+</skins>

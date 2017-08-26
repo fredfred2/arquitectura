@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <head><title>IGNORED</title></head>
+    <body>
+        <ui:composition template="/templates/masterLayout.xhtml">
+            <ui:define name="heading">
+                #{msg.appName}:#{msg.title_prefs}
+            </ui:define>
+
+            <ui:define name="content">
+                <h:form>
+                    <h:panelGrid columns="2">
+                        #{msg.column_Title}
+                        <h:selectBooleanCheckbox id="title"
+                                                 value="#{prefs.title}">
+                            <f:ajax event="valueChange" execute="@this"/>
+                        </h:selectBooleanCheckbox>
+
+                        #{msg.column_Year}
+                        <h:selectBooleanCheckbox id="year"
+                                                 value="#{prefs.releaseyear}">
+                            <f:ajax event="valueChange" execute="@this"/>
+                        </h:selectBooleanCheckbox>
+
+                        #{msg.column_Genre}
+                        <h:selectBooleanCheckbox id="genre"
+                                                 value="#{prefs.genre}">
+                            <f:ajax event="valueChange" execute="@this"/>
+                        </h:selectBooleanCheckbox>
+                    </h:panelGrid>
+                    #{msg.lang}
+                    <h:panelGroup>
+                        <h:commandLink immediate="true" action="#{locale.langChanged}">
+                            <f:setPropertyActionListener target="#{locale.language}"
+                                                         value="de"/>
+                            <h:graphicImage library="images" name="de_flag.gif"
+                                            style="border: 0px; margin-right: 1em;"/>
+                        </h:commandLink>
+                        <h:commandLink immediate="true" action="#{locale.langChanged}">
+                            <f:setPropertyActionListener target="#{locale.language}"
+                                                         value="en"/>
+                            <h:graphicImage library="images" name="us_flag.gif" style="border: 0px"/>
+                        </h:commandLink>
+                    </h:panelGroup>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html> 
+<html> 
+<body> 
+
+
+<div style="text-align:center"> 
+  <button onclick="play()">Play</button> 
+  <button onclick="pause()">Pause</button>
+  <button onclick="mute()">Mute</button>
+   <button onclick="unmute()">UnMute</button>
+  <br> 
+  <video id="video1" width="420" controls>
+    <source src="video.mp4" type="video/mp4">
+    
+    Your browser does not support HTML5 video.
+  </video>
+</div> 
+
+<script> 
+var myVideo=document.getElementById("video1"); 
+
+function play()
+{ 
+
+  myVideo.play(); 
+ 
+} 
+
+function pause()
+{ 
+myVideo.pause();
+} 
+
+function mute()
+{ 
+myVideo.muted=true; 
+} 
+
+function unmute()
+{ 
+myVideo.muted=false; 
+} 
+
+</script> 
+
+</body> 
+</html>
+

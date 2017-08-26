@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    
+   <head><title>IGNORED</title></head>
+<body>
+   <ui:composition template="/templates/masterLayout.xhtml">
+      <ui:define name="heading">
+        <h:outputFormat value="#{msg.welcome_list}">
+   <f:param value="#{dvd.size}"/>
+</h:outputFormat>
+<hr/>
+
+      </ui:define>
+
+       <ui:define name="content">
+    <div style="overflow: auto; width: 100%; height: 400px;">      
+  <h:form>
+  
+
+  
+<p:pieChart id="custom" value="#{chartBean.pieModel}" legendPosition="e" fill="true" showDataLabels="true"  
+                title="Genre Distribution" style="width:400px;height:300px" sliceMargin="5" diameter="150" /> 
+     
+      </h:form>
+</div>
+</ui:define>
+     </ui:composition>
+    </body>
+</html>
+
+

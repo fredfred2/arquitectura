@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:util="http://java.sun.com/jsf/composite/util"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head><title>IGNORED</title></head>
+    <body>
+        <ui:composition template="/templates/masterLayout.xhtml">
+            <ui:define name="heading">
+                #{msg.appName}:#{msg.loginHeader}
+            </ui:define>
+
+            <ui:define name="sideBarLeft">
+                <ui:include src="/sections/login/sideBarLeft.xhtml"/>
+            </ui:define>
+
+            <ui:define name="content">
+                <script type="text/javascript">
+              
+                    var loaded=0;
+                    function showProgress(loaded)
+                    {     
+             
+                        var bar = document.getElementById('bar');
+                        var status = document.getElementById('status');
+                         document.getElementById('wait').innerHTML="Please wait..."; 
+                         status.innerHTML=loaded+"%";
+                        bar.value=loaded;
+                        loaded++;
+                        var sim=setTimeout("showProgress("+loaded+")",100);
+            
+            
+                        if(loaded==100)  
+                        { 
+                           
+                            status.innerHTML="100%";
+                             document.getElementById('status').innerHTML="Login successful..."; 
+                            bar.value=100;
+                            clearTimeout(sim);
+                            window.location.href="faces/index.xhtml";
+                  
+                      
+                        }
+  
+                    }
+                </script>
+
+                <h:form id="LoginForm">
+                    <h:panelGrid columns="2">
+                        #{msg.usernamePrompt}: 
+                        <h:inputText id="username" value="#{login.username}"/>
+                        <p/>
+                        #{msg.passwordPrompt}: 
+                        <h:inputSecret id="password" value="#{login.password}">
+                            <f:ajax event="blur"  onevent="showProgress(0)" execute="username password" immediate="true" /> 
+                        </h:inputSecret>
+                    </h:panelGrid>
+                    <p/>
+                     <p><span id="wait"> </span></p>
+                    <p><progress id="bar" value="0" max="100"></progress> 
+                   
+                     <span id="status"> </span></p>                       
+                    <p><h3 id="finalMessage"></h3></p>
+
+                </h:form>
+
+
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

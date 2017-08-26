@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:cc="http://java.sun.com/jsf/composite">
+
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <cc:interface>
+            <cc:attribute name="src"  required="true"/>
+            <cc:attribute name="controls" required="false"/>
+         </cc:interface>
+        <cc:implementation>
+            <h:outputScript library="js" name="audio.js" target="head"/>
+            <audio src="#{cc.attrs.src}" controls="#{cc.attrs.controls}"></audio>
+            <input type="button" value="Play" onclick="play()"/>
+            <input type="button" value="Pause" onclick="pause()"/>
+            </cc:implementation>
+    </h:body>
+</html>
+

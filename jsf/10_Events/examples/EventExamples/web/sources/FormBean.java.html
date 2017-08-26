@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>FormBean.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST2 {font-family: Monospaced; font-style: italic}
+.ST0 {font-family: Monospaced; font-weight: bold}
+.ST1 {color: #009900}
+.character {color: #ce7b00}
+.ST3 {color: #009900; font-family: Monospaced; font-style: italic}
+.keyword-directive {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">D:\toUpload\EventExamples\src\java\com\example\beans\FormBean.java</td></tr></table>
+<pre>
+<span class="keyword-directive">package</span> com.example.beans;
+
+<span class="keyword-directive">import</span> javax.faces.FactoryFinder;
+<span class="keyword-directive">import</span> javax.inject.Named; 
+  
+<span class="keyword-directive">import</span> javax.enterprise.context.RequestScoped; 
+ 
+<span class="keyword-directive">import</span> javax.faces.event.PhaseEvent;
+<span class="keyword-directive">import</span> javax.faces.event.PhaseListener;
+<span class="keyword-directive">import</span> javax.faces.event.ValueChangeEvent;
+<span class="keyword-directive">import</span> javax.faces.lifecycle.Lifecycle;
+<span class="keyword-directive">import</span> javax.faces.lifecycle.LifecycleFactory;
+<span class="keyword-directive">import</span> javax.faces.model.SelectItem;
+
+@Named 
+@RequestScoped
+<span class="keyword-directive">public</span> <span class="keyword-directive">class</span> <span class="ST0">FormBean</span> {
+   <span class="keyword-directive">private</span> SelectItem[] <span class="ST1">phases</span> = {
+      <span class="keyword-directive">new</span> SelectItem(<span class="character">&quot;</span><span class="character">RESTORE_VIEW</span><span class="character">&quot;</span>),
+      <span class="keyword-directive">new</span> SelectItem(<span class="character">&quot;</span><span class="character">APPLY_REQUEST_VALUES</span><span class="character">&quot;</span>),
+      <span class="keyword-directive">new</span> SelectItem(<span class="character">&quot;</span><span class="character">PROCESS_VALIDATIONS</span><span class="character">&quot;</span>),
+      <span class="keyword-directive">new</span> SelectItem(<span class="character">&quot;</span><span class="character">UPDATE_MODEL_VALUES</span><span class="character">&quot;</span>),
+      <span class="keyword-directive">new</span> SelectItem(<span class="character">&quot;</span><span class="character">INVOKE_APPLICATION</span><span class="character">&quot;</span>),
+      <span class="keyword-directive">new</span> SelectItem(<span class="character">&quot;</span><span class="character">RENDER_RESPONSE</span><span class="character">&quot;</span>),
+      <span class="keyword-directive">new</span> SelectItem(<span class="character">&quot;</span><span class="character">ANY_PHASE</span><span class="character">&quot;</span>),
+   };
+
+   <span class="keyword-directive">public</span> SelectItem[] <span class="ST0">getPhases</span>() { <span class="keyword-directive">return</span> <span class="ST1">phases</span>; }
+
+   <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> <span class="ST0">phaseChange</span>(ValueChangeEvent e) {
+      LifecycleFactory factory = (LifecycleFactory) FactoryFinder.<span class="ST2">getFactory</span>(FactoryFinder.<span class="ST3">LIFECYCLE_FACTORY</span>);
+      Lifecycle lifecycle = factory.getLifecycle(LifecycleFactory.<span class="ST3">DEFAULT_LIFECYCLE</span>);
+      
+      PhaseListener[] listeners = lifecycle.getPhaseListeners();
+      <span class="keyword-directive">for</span> (<span class="keyword-directive">int</span> i = 0; i &lt; listeners.<span class="ST1">length</span>; i++) {
+         PhaseListener listener = listeners[i]; 
+         <span class="keyword-directive">if</span> (listener <span class="keyword-directive">instanceof</span> com.example.listeners.PhaseTracker) {
+              ((com.example.listeners.PhaseTracker) listener).setPhase(
+                 (String) e.getNewValue());
+          }
+      }
+   }
+   <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> <span class="ST0">afterPhase</span>(PhaseEvent event) {
+      System.<span class="ST3">out</span>.println(<span class="character">&quot;</span><span class="character">AFTER PHASE mymsg </span><span class="character">&quot;</span> + showEvent(event));
+   }
+   <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> <span class="ST0">beforePhase</span>(PhaseEvent event) {
+      System.<span class="ST3">out</span>.println(<span class="character">&quot;</span><span class="character">BEFORE PHASE </span><span class="character">&quot;</span> + showEvent(event));
+   }
+   <span class="keyword-directive">private</span> String <span class="ST0">showEvent</span>(PhaseEvent event) {
+      <span class="keyword-directive">return</span> <span class="character">&quot;</span><span class="character">Phase Event: </span><span class="character">&quot;</span> + event.getPhaseId();
+   }
+}
+
+</pre></body>
+</html>

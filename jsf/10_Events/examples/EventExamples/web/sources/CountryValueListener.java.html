@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>CountryValueListener.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.comment {color: #969696}
+.character {color: #ce7b00}
+.keyword-directive {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">D:\toUpload\EventExamples\src\java\com\example\listeners\CountryValueListener.java</td></tr></table>
+<pre>
+<span class="keyword-directive">package</span> com.example.listeners;
+
+<span class="keyword-directive">import</span> com.example.beans.CountryBean;
+<span class="keyword-directive">import</span> javax.faces.context.FacesContext;
+<span class="keyword-directive">import</span> javax.faces.event.AbortProcessingException;
+<span class="keyword-directive">import</span> javax.faces.event.ValueChangeEvent;
+<span class="keyword-directive">import</span> javax.faces.event.ValueChangeListener;
+ 
+<span class="keyword-directive">public</span> <span class="keyword-directive">class</span> CountryValueListener <span class="keyword-directive">implements</span> ValueChangeListener{
+
+        @Override
+        <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> processValueChange(ValueChangeEvent event)
+                        <span class="keyword-directive">throws</span> AbortProcessingException {
+                
+                <span class="comment">//access country bean directly</span>
+                CountryBean country = (CountryBean) FacesContext.getCurrentInstance().
+                        getExternalContext().getSessionMap().get(<span class="character">&quot;</span><span class="character">country</span><span class="character">&quot;</span>);
+
+                country.setLocaleCode(event.getNewValue().toString());
+                
+        }
+        
+        
+}
+</pre></body>
+</html>

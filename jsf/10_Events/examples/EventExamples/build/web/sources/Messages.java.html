@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Messages.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.comment {color: #969696}
+.character {color: #ce7b00}
+.keyword-directive {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">D:\toUpload\EventExamples\src\java\com\example\util\Messages.java</td></tr></table>
+<pre>
+<span class="keyword-directive">package</span> com.example.util;
+
+<span class="keyword-directive">import</span> java.text.MessageFormat;
+<span class="keyword-directive">import</span> java.util.Locale;
+<span class="keyword-directive">import</span> java.util.MissingResourceException;
+<span class="keyword-directive">import</span> java.util.ResourceBundle;
+<span class="keyword-directive">import</span> javax.faces.application.Application;
+<span class="keyword-directive">import</span> javax.faces.application.FacesMessage;
+<span class="keyword-directive">import</span> javax.faces.component.UIViewRoot;
+<span class="keyword-directive">import</span> javax.faces.context.FacesContext;
+
+<span class="keyword-directive">public</span> <span class="keyword-directive">class</span> Messages {
+   <span class="keyword-directive">public</span> <span class="keyword-directive">static</span> FacesMessage getMessage(String bundleName, String resourceId,
+      Object[] params) {
+      FacesContext context = FacesContext.getCurrentInstance();
+      Application app = context.getApplication();
+      String appBundle = app.getMessageBundle();
+      Locale locale = getLocale(context);
+      ClassLoader loader = getClassLoader();
+      String summary = getString(appBundle, bundleName, resourceId, 
+         locale, loader, params);
+      <span class="keyword-directive">if</span> (summary == <span class="keyword-directive">null</span>) summary = <span class="character">&quot;</span><span class="character">???</span><span class="character">&quot;</span> + resourceId + <span class="character">&quot;</span><span class="character">???</span><span class="character">&quot;</span>;
+      String detail = getString(appBundle, bundleName, resourceId + <span class="character">&quot;</span><span class="character">_detail</span><span class="character">&quot;</span>, 
+         locale, loader, params);
+      <span class="keyword-directive">return</span> <span class="keyword-directive">new</span> FacesMessage(summary, detail);
+   }
+
+   <span class="keyword-directive">public</span> <span class="keyword-directive">static</span> String getString(String bundle, String resourceId, 
+         Object[] params) {
+      FacesContext context = FacesContext.getCurrentInstance();
+      Application app = context.getApplication();
+      String appBundle = app.getMessageBundle();
+      Locale locale = getLocale(context);
+      ClassLoader loader = getClassLoader();
+      <span class="keyword-directive">return</span> getString(appBundle, bundle, resourceId, locale, loader, params);
+   }  
+
+   <span class="keyword-directive">public</span> <span class="keyword-directive">static</span> String getString(String bundle1, String bundle2, 
+         String resourceId, Locale locale, ClassLoader loader, 
+         Object[] params) {
+      String resource = <span class="keyword-directive">null</span>;
+      ResourceBundle bundle;
+      
+      <span class="keyword-directive">if</span> (bundle1 != <span class="keyword-directive">null</span>) {
+         bundle = ResourceBundle.getBundle(bundle1, locale, loader);
+         <span class="keyword-directive">if</span> (bundle != <span class="keyword-directive">null</span>)
+            <span class="keyword-directive">try</span> {
+               resource = bundle.getString(resourceId);
+            } <span class="keyword-directive">catch</span> (MissingResourceException ex) {
+            }
+      }
+
+      <span class="keyword-directive">if</span> (resource == <span class="keyword-directive">null</span>) {
+         bundle = ResourceBundle.getBundle(bundle2, locale, loader);
+         <span class="keyword-directive">if</span> (bundle != <span class="keyword-directive">null</span>)
+            <span class="keyword-directive">try</span> {
+               resource = bundle.getString(resourceId);
+            } <span class="keyword-directive">catch</span> (MissingResourceException ex) {
+            }
+      }
+
+      <span class="keyword-directive">if</span> (resource == <span class="keyword-directive">null</span>) <span class="keyword-directive">return</span> <span class="keyword-directive">null</span>; <span class="comment">// no match</span>
+      <span class="keyword-directive">if</span> (params == <span class="keyword-directive">null</span>) <span class="keyword-directive">return</span> resource;
+      
+      MessageFormat formatter = <span class="keyword-directive">new</span> MessageFormat(resource, locale);      
+      <span class="keyword-directive">return</span> formatter.format(params);
+   }   
+
+   <span class="keyword-directive">public</span> <span class="keyword-directive">static</span> Locale getLocale(FacesContext context) {
+      Locale locale = <span class="keyword-directive">null</span>;
+      UIViewRoot viewRoot = context.getViewRoot();
+      <span class="keyword-directive">if</span> (viewRoot != <span class="keyword-directive">null</span>) locale = viewRoot.getLocale();
+      <span class="keyword-directive">if</span> (locale == <span class="keyword-directive">null</span>) locale = Locale.getDefault();
+      <span class="keyword-directive">return</span> locale;
+   }
+   
+   <span class="keyword-directive">public</span> <span class="keyword-directive">static</span> ClassLoader getClassLoader() {
+      ClassLoader loader = Thread.currentThread().getContextClassLoader();
+      <span class="keyword-directive">if</span> (loader == <span class="keyword-directive">null</span>) loader = ClassLoader.getSystemClassLoader();
+      <span class="keyword-directive">return</span> loader;
+   }
+}
+</pre></body>
+</html>

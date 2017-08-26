@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>ValueChangeBean.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST0 {color: #969696; font-family: Monospaced; font-weight: bold}
+.comment {color: #969696}
+.character {color: #ce7b00}
+.keyword-directive {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">D:\toUpload\EventExamples\src\java\com\example\beans\ValueChangeBean.java</td></tr></table>
+<pre>
+<span class="comment">/*</span>
+<span class="comment"> * To change this template, choose Tools | Templates</span>
+<span class="comment"> * and open the template in the editor.</span>
+<span class="comment"> */</span>
+<span class="keyword-directive">package</span> com.example.beans;
+
+
+<span class="keyword-directive">import</span> javax.faces.context.FacesContext;
+<span class="keyword-directive">import</span> javax.faces.event.AbortProcessingException;
+<span class="keyword-directive">import</span> javax.faces.event.ValueChangeEvent;
+<span class="keyword-directive">import</span> javax.faces.event.ValueChangeListener;
+<span class="keyword-directive">import</span> javax.inject.Inject;
+<span class="keyword-directive">import</span> javax.inject.Named;
+
+<span class="comment">/**</span>
+<span class="comment"> *</span>
+<span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">admin</span>
+ <span class="comment">*/</span>
+
+<span class="keyword-directive">public</span> <span class="keyword-directive">class</span> ValueChangeBean <span class="keyword-directive">implements</span> ValueChangeListener {
+   
+  @Override
+    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> processValueChange(ValueChangeEvent event) <span class="keyword-directive">throws</span> AbortProcessingException {
+<span class="keyword-directive">if</span> (<span class="keyword-directive">null</span> != event.getNewValue())
+{ 
+   
+    FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put(<span class="character">&quot;</span><span class="character">msg</span><span class="character">&quot;</span>, <span class="character">&quot;</span><span class="character">Hello</span><span class="character">&quot;</span>+ event.getNewValue());
+   
+   
+        <span class="comment">//FacesContext.getCurrentInstance().getViewRoot().</span>
+}
+}
+}
+</pre></body>
+</html>

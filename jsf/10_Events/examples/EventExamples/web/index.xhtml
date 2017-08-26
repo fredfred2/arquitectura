@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+   <h:head>
+        <title>Lesson_10_Event Examples</title>
+           
+                <h:outputStylesheet library="css" name="styles.css"/>
+    </h:head>
+    <h:body>
+           <h2>JSF Event Model Examples</h2>
+
+    
+   
+        <h2>Application Events</h2>
+     
+      <p><b>Goal</b>: Display the syntax and different ways of handling application events, that are <b>value change and action</b>events</p>
+    <h3>Value Change Events</h3>
+    <p>Value change events are fired by editable value holders—such as <b>h:inputText, h:selectOneRadio, and h:selectManyMenu </b>—when the component’s value changes </p>   
+        <table border="1" cellpadding="1">
+            <thead>
+                <tr>
+                    <th>Output</th>
+                    <th>Source Code</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+             <tr>
+                    <td rowspan="2"><a href="faces/index_1.xhtml">/index_1</a></td>
+          <td><a href="sources/index_1.xhtml.html">index_1.xhtml</a></td>
+          <td>A JSF page that captures a value change event in, <b>h:inputText inputzip</b>by using the <b>valueChangeListener </b> atrribute. Note the use of <b> binding, immediate and onchange </b> attributes.</td>
+             </tr> 
+          <tr>
+     
+          <td><a href="sources/AutoFillBean.java.html">AutoFillBean.java</a></td>
+          <td>The backing bean for the JSF Address form</td>
+        </tr> 
+                <tr>
+                    <td rowspan="2"><a href="faces/index_2.xhtml">/index_2</a></td>
+          <td><a href="sources/index_2.xhtml.html">index_2.xhtml</a></td>
+          <td>A JSF page that captures a value change event in, <b>h:selectOneMenup</b>by using the <b>valueChangeListener </b> atrribute. </td>
+                </tr>
+          <tr>
+     
+          <td><a href="sources/CountryBean.java.html">CountryBean.java</a></td>
+          <td>The managed bean for the JSF form</td>
+        </tr>    
+          <tr>
+                    <td rowspan="3"><a href="faces/index_3.xhtml">/index_3</a></td>
+          <td><a href="sources/index_3.xhtml.html">index_3.xhtml</a></td>
+          <td>A JSF page that captures a value change event in, <b>h:selectOneMenup</b>by using the <b>f:valueChangeListener </b> tag </td>
+                </tr>
+                 <tr>
+     
+          <td><a href="sources/CountryBean.java.html">CountryBean.java</a></td>
+          <td>The managed bean for the JSF form</td>
+        </tr>        
+          <tr>
+     
+          <td><a href="sources/CountryValueListener.java.html">CountryValueListener.java</a></td>
+          <td>The user defined Listener class for the value change event in the h:selectOneMenu component</td>
+        </tr>     
+             
+      </tbody>
+    </table>
+<h3>Action Events</h3>
+ <p>Action events are fired by action sources—for example,<b> h:commandButton and h:commandLink</b>—when the button or link is activated.</p>
+    
+        <table border="1" cellpadding="1">
+            <thead>
+                <tr>
+                    <th>Output</th>
+                    <th>Source Code</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr>
+          <td rowspan="2"><a href="faces/index_4.xhtml">/index_4</a></td>
+          <td><a href="sources/index_4.xhtml.html">index_4.xhtml</a></td>
+          <td>A JSF page with a command button with a <b>actionlistener</b> attribute whose value performs the event handling for a click action on the button</td>
+        </tr>
+          <tr>
+         
+          <td><a href="sources/NormalBean.java.html">NormalBean.java</a></td>
+          <td>The managed bean for the JSF form</td>
+        </tr>
+          <tr>
+        
+         <td rowspan="3"><a href="faces/index_5.xhtml">/index_5</a></td>
+          <td><a href="sources/index_5.xhtml.html">index_5.xhtml</a></td>
+          <td>A JSF page with a command button with a <b>f:actionlistener</b> tag. The class name in the <b>type</b> attribute performs the event handling for a click action on the button</td>
+                </tr>
+                 <tr>
+     
+          <td><a href="sources/NormalBean.java.html">NormalBean.java</a></td>
+          <td>The managed bean for the JSF form</td>
+        </tr>        
+          <tr>
+     
+          <td><a href="sources/NormalActionListener.java.html">NormalActionListener.java</a></td>
+          <td>The user defined Listener class for the action event in the h:commandButton component</td>
+        </tr>     
+            
+                
+      </tbody>
+        </table>
+ <p></p>
+  <table border="1" cellpadding="1">
+      <thead>
+        <tr><td colspan="3"><b>JSF 2 f:setPropertyActionListener tag example</b></td></tr>
+        <tr>
+          <th>Output</th>
+          <th>Source code</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="2"><a href="faces/default.xhtml">/setPropertyActionListener</a></td>
+          <td><a href="sources/default.xhtml.html">default.xhtml</a></td>
+          <td>The f:setPropertyActionListener tag is used to provide  a value directly into the property of the bean</td>
+        </tr>
+          <tr>
+         
+          <td><a href="sources/result.xhtml.html">result.xhtml</a></td>
+          <td>The f:setPropertyActionListener Result</td>
+        </tr>
+         
+      </tbody>
+    </table>
+<h2>Lifecycle Events</h2>
+<p><b>Goal</b>: Display the syntax and different ways of handling lifecycle events, that are <b>phase and system</b>events</p> 
+<h3>Phase Events</h3>
+    <p>The JSF implementation fires events before and after each life cycle phase </p>
+        <table border="1" cellpadding="1">
+            <thead>
+                <tr>
+                    <th>Output</th>
+                    <th>Source Code</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+          <td  rowspan="4"><a href="faces/index_6.xhtml">/index_6.xhtml</a></td>
+          <td><a href="sources/index_6.xhtml.html">index_6.xhtml</a></td>
+          <td>A JSF file with a form to select a specific phase that also has a <b>valueChangeListener</b> set for the <b>selectOneListBox</b></td>
+        </tr>
+          <tr>
+             
+          <td><a href="sources/FormBean.java.html">FormBean.java</a></td>
+          <td>The managed bean for the form</td>
+        </tr>
+                <tr>
+             
+          <td><a href="sources/PhaseTracker.java.html">PhaseTracker.java</a></td>
+          <td>The PhaseListener class that implements the PhaseListener interface</td>
+          </tr>
+              <tr>
+             
+          <td><a href="sources/faces-config.xml.html">faces-config.xml</a></td>
+          <td>The configuration file where you register the <b>PhaseTracker</b> class which is the <b>PhaseListener</b> in this example</td>
+          </tr>
+            </tbody>
+        </table>
+        <h3>System Events</h3>
+    <p>Individual components as well as the JSF implementation notify listeners of many events.
+ </p>
+        <table border="1" cellpadding="1">
+            <thead>
+                <tr>
+                    <th>Output</th>
+                    <th>Source Code</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+          <td  rowspan="8"><a href="faces/index_7.xhtml">/index_7.xhtml</a></td>
+          <td><a href="sources/index_7.xhtml.html">index_7.xhtml</a></td>
+          <td>A JSF file that uses <b>f:event </b> tag with  <b>type = preRenderView </b></td>
+        </tr>
+          <tr>
+             
+          <td><a href="sources/login.xhtml.html">login.xhtml</a></td>
+          <td>The login page that opens if user is not logged in</td>
+        </tr>
+                 <tr>
+             
+          <td><a href="sources/UserBean1.java.html">UserBean1.java</a></td>
+          <td>The bean for the login form</td>
+          </tr>
+                <tr>
+             
+          <td><a href="sources/enterDate.xhtml.html">enterDate.xhtml</a></td>
+          <td>The form that opens when a logged in user wishes to continue and uses <b>f:event type= postValidate and a listener</b> attribute </td>
+                </tr>
+          <tr>
+             
+          <td><a href="sources/BackingBean.java.html">BackingBean.java</a></td>
+          <td>The bean for the JSF form whose <b>validateDate</b> method is invoked at the <b>postValidate</b> system event </td>
+          </tr>
+                <tr>
+             
+          <td><a href="sources/Messages.java.html">Messages.java</a></td>
+          <td>The class that <b>validateDate</b> method uses to append to the message properties file</td>
+          </tr>
+               <tr>
+             
+          <td><a href="sources/messages.properties.html">messages property file</a></td>
+          <td>The message properties file</td>
+          </tr>
+              <tr>
+             
+          <td><a href="sources/result_2.xhtml.html">result_2.xhtml</a></td>
+          <td>The file that opens after user submits the form:enterDate.xhtml</td>
+          </tr>
+            </tbody>
+        </table>  
+       
+    </h:body>
+</html>
+

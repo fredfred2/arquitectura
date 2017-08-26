@@ -1,0 +1,248 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>index.xhtml</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST0 {color: #628fb5; background-color: #e9eff8}
+.ST1 {color: #628fb5}
+.ST3 {color: #009900}
+.ST4 {color: #ce7b00}
+.ST2 {color: #0000e6}
+.ST5 {color: #0000e6; font-family: Monospaced; font-weight: bold}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">D:\toUpload\EventExamples\web\index.xhtml</td></tr></table>
+<pre>
+<span class="ST0">&lt;?xml version=&#39;1.0&#39; encoding=&#39;UTF-8&#39; ?&gt;</span>
+<span class="ST1">&lt;!DOCTYPE</span> <span class="ST1">html</span> <span class="ST1">PUBLIC</span> <span class="ST1">&quot;-//W3C//DTD</span> <span class="ST1">XHTML</span> <span class="ST1">1.0</span> <span class="ST1">Transitional//EN&quot;</span> <span class="ST1">&quot;</span><span class="ST1">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd</span><span class="ST1">&quot;</span><span class="ST1">&gt;</span>
+<span class="ST2">&lt;</span><span class="ST2">html</span> <span class="ST3">xmlns</span><span class="ST3">=</span><span class="ST4">&quot;</span><span class="ST4">http://www.w3.org/1999/xhtml</span><span class="ST4">&quot;</span>
+      <span class="ST3">xmlns:h</span><span class="ST3">=</span><span class="ST4">&quot;</span><span class="ST4">http://java.sun.com/jsf/html</span><span class="ST4">&quot;</span><span class="ST2">&gt;</span>
+   <span class="ST5">&lt;</span><span class="ST5">h:head</span><span class="ST5">&gt;</span>
+        <span class="ST2">&lt;</span><span class="ST2">title</span><span class="ST2">&gt;</span>Lesson_10_Event Examples<span class="ST2">&lt;/</span><span class="ST2">title</span><span class="ST2">&gt;</span>
+           
+                <span class="ST5">&lt;</span><span class="ST5">h:outputStylesheet</span> <span class="ST3">library</span><span class="ST3">=</span><span class="ST4">&quot;css&quot;</span> <span class="ST3">name</span><span class="ST3">=</span><span class="ST4">&quot;styles.css&quot;</span><span class="ST2">/</span><span class="ST5">&gt;</span>
+    <span class="ST5">&lt;/</span><span class="ST5">h:head</span><span class="ST5">&gt;</span>
+    <span class="ST5">&lt;</span><span class="ST5">h:body</span><span class="ST5">&gt;</span>
+           <span class="ST2">&lt;</span><span class="ST2">h2</span><span class="ST2">&gt;</span>JSF Event Model Examples<span class="ST2">&lt;/</span><span class="ST2">h2</span><span class="ST2">&gt;</span>
+
+    
+    <span class="ST2">&lt;</span><span class="ST2">table</span><span class="ST2">&gt;</span>
+      <span class="ST2">&lt;</span><span class="ST2">thead</span><span class="ST2">&gt;</span>
+        <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">td</span> <span class="ST3">colspan</span><span class="ST3">=</span><span class="ST4">&quot;3&quot;</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>JSF 2 f:setPropertyActionListener tag example<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+        <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Output<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Source code<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Description<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+        <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+      <span class="ST2">&lt;/</span><span class="ST2">thead</span><span class="ST2">&gt;</span>
+      <span class="ST2">&lt;</span><span class="ST2">tbody</span><span class="ST2">&gt;</span>
+        <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span> <span class="ST3">rowspan</span><span class="ST3">=</span><span class="ST4">&quot;2&quot;</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;faces/default.xhtml&quot;</span><span class="ST2">&gt;</span>/setPropertyActionListener<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/default.xhtml.html&quot;</span><span class="ST2">&gt;</span>default.xhtml<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The f:setPropertyActionListener tag is used to provide  a value directly into the property of the bean<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+        <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+         
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/result.xhtml.html&quot;</span><span class="ST2">&gt;</span>result.xhtml<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The f:setPropertyActionListener Result<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+        <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+         
+      <span class="ST2">&lt;/</span><span class="ST2">tbody</span><span class="ST2">&gt;</span>
+    <span class="ST2">&lt;/</span><span class="ST2">table</span><span class="ST2">&gt;</span>
+        <span class="ST2">&lt;</span><span class="ST2">h2</span><span class="ST2">&gt;</span>Application Events<span class="ST2">&lt;/</span><span class="ST2">h2</span><span class="ST2">&gt;</span>
+     
+      <span class="ST2">&lt;</span><span class="ST2">p</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>Goal<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span>: Display the syntax and different ways of handling application events, that are <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>value change and action<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span>events<span class="ST2">&lt;/</span><span class="ST2">p</span><span class="ST2">&gt;</span>
+    <span class="ST2">&lt;</span><span class="ST2">h3</span><span class="ST2">&gt;</span>Value Change Events<span class="ST2">&lt;/</span><span class="ST2">h3</span><span class="ST2">&gt;</span>
+    <span class="ST2">&lt;</span><span class="ST2">p</span><span class="ST2">&gt;</span>Value change events are fired by editable value holders—such as <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>h:inputText, h:selectOneRadio, and h:selectManyMenu <span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span>—when the component’s value changes <span class="ST2">&lt;/</span><span class="ST2">p</span><span class="ST2">&gt;</span>   
+        <span class="ST2">&lt;</span><span class="ST2">table</span> <span class="ST3">border</span><span class="ST3">=</span><span class="ST4">&quot;1&quot;</span> <span class="ST3">cellpadding</span><span class="ST3">=</span><span class="ST4">&quot;1&quot;</span><span class="ST2">&gt;</span>
+            <span class="ST2">&lt;</span><span class="ST2">thead</span><span class="ST2">&gt;</span>
+                <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+                    <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Output<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+                    <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Source Code<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+                    <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Description<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+                <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+            <span class="ST2">&lt;/</span><span class="ST2">thead</span><span class="ST2">&gt;</span>
+            <span class="ST2">&lt;</span><span class="ST2">tbody</span><span class="ST2">&gt;</span>
+             <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+                    <span class="ST2">&lt;</span><span class="ST2">td</span> <span class="ST3">rowspan</span><span class="ST3">=</span><span class="ST4">&quot;2&quot;</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;faces/index_1.xhtml&quot;</span><span class="ST2">&gt;</span>/index_1<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/index_1.xhtml.html&quot;</span><span class="ST2">&gt;</span>index_1.xhtml<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>A JSF page that captures a value change event in, <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>h:inputText inputzip<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span>by using the <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>valueChangeListener <span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span> atrribute. Note the use of <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span> binding, immediate and onchange <span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span> attributes.<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+             <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span> 
+          <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+     
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/AutoFillBean.java.html&quot;</span><span class="ST2">&gt;</span>AutoFillBean.java<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The backing bean for the JSF Address form<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+        <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span> 
+                <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+                    <span class="ST2">&lt;</span><span class="ST2">td</span> <span class="ST3">rowspan</span><span class="ST3">=</span><span class="ST4">&quot;2&quot;</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;faces/index_2.xhtml&quot;</span><span class="ST2">&gt;</span>/index_2<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/index_2.xhtml.html&quot;</span><span class="ST2">&gt;</span>index_2.xhtml<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>A JSF page that captures a value change event in, <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>h:selectOneMenup<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span>by using the <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>valueChangeListener <span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span> atrribute. <span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+                <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+     
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/CountryBean.java.html&quot;</span><span class="ST2">&gt;</span>CountryBean.java<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The managed bean for the JSF form<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+        <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>    
+          <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+                    <span class="ST2">&lt;</span><span class="ST2">td</span> <span class="ST3">rowspan</span><span class="ST3">=</span><span class="ST4">&quot;3&quot;</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;faces/index_3.xhtml&quot;</span><span class="ST2">&gt;</span>/index_3<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/index_3.xhtml.html&quot;</span><span class="ST2">&gt;</span>index_3.xhtml<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>A JSF page that captures a value change event in, <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>h:selectOneMenup<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span>by using the <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>f:valueChangeListener <span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span> tag <span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+                <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+                 <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+     
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/CountryBean.java.html&quot;</span><span class="ST2">&gt;</span>CountryBean.java<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The managed bean for the JSF form<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+        <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>        
+          <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+     
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/CountryValueListener.java.html&quot;</span><span class="ST2">&gt;</span>CountryValueListener.java<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The user defined Listener class for the value change event in the h:selectOneMenu component<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+        <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>     
+             
+      <span class="ST2">&lt;/</span><span class="ST2">tbody</span><span class="ST2">&gt;</span>
+    <span class="ST2">&lt;/</span><span class="ST2">table</span><span class="ST2">&gt;</span>
+<span class="ST2">&lt;</span><span class="ST2">h3</span><span class="ST2">&gt;</span>Action Events<span class="ST2">&lt;/</span><span class="ST2">h3</span><span class="ST2">&gt;</span>
+ <span class="ST2">&lt;</span><span class="ST2">p</span><span class="ST2">&gt;</span>Action events are fired by action sources—for example,<span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span> h:commandButton and h:commandLink<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span>—when the button or link is activated.<span class="ST2">&lt;/</span><span class="ST2">p</span><span class="ST2">&gt;</span>
+    
+        <span class="ST2">&lt;</span><span class="ST2">table</span> <span class="ST3">border</span><span class="ST3">=</span><span class="ST4">&quot;1&quot;</span> <span class="ST3">cellpadding</span><span class="ST3">=</span><span class="ST4">&quot;1&quot;</span><span class="ST2">&gt;</span>
+            <span class="ST2">&lt;</span><span class="ST2">thead</span><span class="ST2">&gt;</span>
+                <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+                    <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Output<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+                    <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Source Code<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+                    <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Description<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+                <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+            <span class="ST2">&lt;/</span><span class="ST2">thead</span><span class="ST2">&gt;</span>
+            <span class="ST2">&lt;</span><span class="ST2">tbody</span><span class="ST2">&gt;</span>
+              <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span> <span class="ST3">rowspan</span><span class="ST3">=</span><span class="ST4">&quot;2&quot;</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;faces/index_4.xhtml&quot;</span><span class="ST2">&gt;</span>/index_4<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/index_4.xhtml.html&quot;</span><span class="ST2">&gt;</span>index_4.xhtml<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>A JSF page with a command button with a <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>actionlistener<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span> attribute whose value performs the event handling for a click action on the button<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+        <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+         
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/NormalBean.java.html&quot;</span><span class="ST2">&gt;</span>NormalBean.java<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The managed bean for the JSF form<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+        <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+        
+         <span class="ST2">&lt;</span><span class="ST2">td</span> <span class="ST3">rowspan</span><span class="ST3">=</span><span class="ST4">&quot;3&quot;</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;faces/index_5.xhtml&quot;</span><span class="ST2">&gt;</span>/index_5<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/index_5.xhtml.html&quot;</span><span class="ST2">&gt;</span>index_5.xhtml<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>A JSF page with a command button with a <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>f:actionlistener<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span> tag. The class name in the <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>type<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span> attribute performs the event handling for a click action on the button<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+                <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+                 <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+     
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/NormalBean.java.html&quot;</span><span class="ST2">&gt;</span>NormalBean.java<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The managed bean for the JSF form<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+        <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>        
+          <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+     
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/NormalActionListener.java.html&quot;</span><span class="ST2">&gt;</span>NormalActionListener.java<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The user defined Listener class for the action event in the h:commandButton component<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+        <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>     
+            
+                
+      <span class="ST2">&lt;/</span><span class="ST2">tbody</span><span class="ST2">&gt;</span>
+        <span class="ST2">&lt;/</span><span class="ST2">table</span><span class="ST2">&gt;</span>
+<span class="ST2">&lt;</span><span class="ST2">h2</span><span class="ST2">&gt;</span>Lifecycle Events<span class="ST2">&lt;/</span><span class="ST2">h2</span><span class="ST2">&gt;</span>
+<span class="ST2">&lt;</span><span class="ST2">p</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>Goal<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span>: Display the syntax and different ways of handling lifecycle events, that are <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>phase and system<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span>events<span class="ST2">&lt;/</span><span class="ST2">p</span><span class="ST2">&gt;</span> 
+<span class="ST2">&lt;</span><span class="ST2">h3</span><span class="ST2">&gt;</span>Phase Events<span class="ST2">&lt;/</span><span class="ST2">h3</span><span class="ST2">&gt;</span>
+    <span class="ST2">&lt;</span><span class="ST2">p</span><span class="ST2">&gt;</span>The JSF implementation fires events before and after each life cycle phase <span class="ST2">&lt;/</span><span class="ST2">p</span><span class="ST2">&gt;</span>
+        <span class="ST2">&lt;</span><span class="ST2">table</span> <span class="ST3">border</span><span class="ST3">=</span><span class="ST4">&quot;1&quot;</span> <span class="ST3">cellpadding</span><span class="ST3">=</span><span class="ST4">&quot;1&quot;</span><span class="ST2">&gt;</span>
+            <span class="ST2">&lt;</span><span class="ST2">thead</span><span class="ST2">&gt;</span>
+                <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+                    <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Output<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+                    <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Source Code<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+                    <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Description<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+                <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+            <span class="ST2">&lt;/</span><span class="ST2">thead</span><span class="ST2">&gt;</span>
+            <span class="ST2">&lt;</span><span class="ST2">tbody</span><span class="ST2">&gt;</span>
+                <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span>  <span class="ST3">rowspan</span><span class="ST3">=</span><span class="ST4">&quot;4&quot;</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;faces/index_6.xhtml&quot;</span><span class="ST2">&gt;</span>/index_6.xhtml<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/index_6.xhtml.html&quot;</span><span class="ST2">&gt;</span>index_6.xhtml<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>A JSF file with a form to select a specific phase that also has a <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>valueChangeListener<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span> set for the <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>selectOneListBox<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+        <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+             
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/FormBean.java.html&quot;</span><span class="ST2">&gt;</span>FormBean.java<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The managed bean for the form<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+        <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+                <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+             
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/PhaseTracker.java.html&quot;</span><span class="ST2">&gt;</span>PhaseTracker.java<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The PhaseListener class that implements the PhaseListener interface<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+              <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+             
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/faces-config.xml.html&quot;</span><span class="ST2">&gt;</span>faces-config.xml<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The configuration file where you register the <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>PhaseTracker<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span> class which is the <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>PhaseListener<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span> in this example<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+            <span class="ST2">&lt;/</span><span class="ST2">tbody</span><span class="ST2">&gt;</span>
+        <span class="ST2">&lt;/</span><span class="ST2">table</span><span class="ST2">&gt;</span>
+        <span class="ST2">&lt;</span><span class="ST2">h3</span><span class="ST2">&gt;</span>System Events<span class="ST2">&lt;/</span><span class="ST2">h3</span><span class="ST2">&gt;</span>
+    <span class="ST2">&lt;</span><span class="ST2">p</span><span class="ST2">&gt;</span>Individual components as well as the JSF implementation notify listeners of many events.
+ <span class="ST2">&lt;/</span><span class="ST2">p</span><span class="ST2">&gt;</span>
+        <span class="ST2">&lt;</span><span class="ST2">table</span> <span class="ST3">border</span><span class="ST3">=</span><span class="ST4">&quot;1&quot;</span> <span class="ST3">cellpadding</span><span class="ST3">=</span><span class="ST4">&quot;1&quot;</span><span class="ST2">&gt;</span>
+            <span class="ST2">&lt;</span><span class="ST2">thead</span><span class="ST2">&gt;</span>
+                <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+                    <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Output<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+                    <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Source Code<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+                    <span class="ST2">&lt;</span><span class="ST2">th</span><span class="ST2">&gt;</span>Description<span class="ST2">&lt;/</span><span class="ST2">th</span><span class="ST2">&gt;</span>
+                <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+            <span class="ST2">&lt;/</span><span class="ST2">thead</span><span class="ST2">&gt;</span>
+            <span class="ST2">&lt;</span><span class="ST2">tbody</span><span class="ST2">&gt;</span>
+                <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span>  <span class="ST3">rowspan</span><span class="ST3">=</span><span class="ST4">&quot;8&quot;</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;faces/index_7.xhtml&quot;</span><span class="ST2">&gt;</span>/index_7.xhtml<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/index_7.xhtml.html&quot;</span><span class="ST2">&gt;</span>index_7.xhtml<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>A JSF file that uses <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>f:event <span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span> tag with  <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>type = preRenderView <span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+        <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+             
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/login.xhtml.html&quot;</span><span class="ST2">&gt;</span>login.xhtml<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The login page that opens if user is not logged in<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+        <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+                 <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+             
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/UserBean1.java.html&quot;</span><span class="ST2">&gt;</span>UserBean1.java<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The bean for the login form<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+                <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+             
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/enterDate.xhtml.html&quot;</span><span class="ST2">&gt;</span>enterDate.xhtml<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The form that opens when a logged in user wishes to continue and uses <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>f:event type= postValidate and a listener<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span> attribute <span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+                <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+             
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/BackingBean.java.html&quot;</span><span class="ST2">&gt;</span>BackingBean.java<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The bean for the JSF form whose <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>validateDate<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span> method is invoked at the <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>postValidate<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span> system event <span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+                <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+             
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/Messages.java.html&quot;</span><span class="ST2">&gt;</span>Messages.java<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The ckass that <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>validateDate<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span> method uses ro append to the message properties file<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+               <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+             
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/messages.properties.html&quot;</span><span class="ST2">&gt;</span>messages property file<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The ckass that <span class="ST2">&lt;</span><span class="ST2">b</span><span class="ST2">&gt;</span>validateDate<span class="ST2">&lt;/</span><span class="ST2">b</span><span class="ST2">&gt;</span> method uses ro append to the message properties file<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+              <span class="ST2">&lt;</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+             
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;sources/result_2.xml.html&quot;</span><span class="ST2">&gt;</span>result_2.xml<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;</span><span class="ST2">td</span><span class="ST2">&gt;</span>The file that opens after user submits the form:enterDate.xhtml<span class="ST2">&lt;/</span><span class="ST2">td</span><span class="ST2">&gt;</span>
+          <span class="ST2">&lt;/</span><span class="ST2">tr</span><span class="ST2">&gt;</span>
+            <span class="ST2">&lt;/</span><span class="ST2">tbody</span><span class="ST2">&gt;</span>
+        <span class="ST2">&lt;/</span><span class="ST2">table</span><span class="ST2">&gt;</span>  
+        <span class="ST2">&lt;</span><span class="ST2">p</span><span class="ST2">&gt;</span><span class="ST2">&lt;</span><span class="ST2">a</span> <span class="ST3">href</span><span class="ST3">=</span><span class="ST4">&quot;index.html&quot;</span><span class="ST2">&gt;</span> Back Home<span class="ST2">&lt;/</span><span class="ST2">a</span><span class="ST2">&gt;</span><span class="ST2">&lt;/</span><span class="ST2">p</span><span class="ST2">&gt;</span>      
+    <span class="ST5">&lt;/</span><span class="ST5">h:body</span><span class="ST5">&gt;</span>
+<span class="ST2">&lt;/</span><span class="ST2">html</span><span class="ST2">&gt;</span>
+
+
+</pre></body>
+</html>

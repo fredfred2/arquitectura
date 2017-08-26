@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>UserBean.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.comment {color: #969696}
+.character {color: #ce7b00}
+.keyword-directive {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">D:\toUpload\EventExamples\src\java\com\example\beans\UserBean.java</td></tr></table>
+<pre>
+<span class="keyword-directive">package</span> com.example.beans;
+
+<span class="keyword-directive">import</span> javax.enterprise.context.SessionScoped;
+<span class="keyword-directive">import</span> javax.inject.Named;
+
+@Named(<span class="character">&quot;</span><span class="character">user</span><span class="character">&quot;</span>)
+<span class="comment">//@ManagedBean(name=&quot;user&quot;)</span>
+@SessionScoped
+<span class="comment">//@RequestScoped</span>
+<span class="keyword-directive">public</span> <span class="keyword-directive">class</span> UserBean <span class="keyword-directive">implements</span> java.io.Serializable{
+
+        <span class="keyword-directive">private</span> String username;
+        <span class="keyword-directive">private</span> String displayName;
+
+    <span class="keyword-directive">public</span> String getDisplayName() {
+        <span class="keyword-directive">return</span> displayName;
+    }
+
+    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> setDisplayName(String displayName) {
+        <span class="keyword-directive">this</span>.displayName = displayName;
+    }
+        <span class="keyword-directive">public</span> String outcome(){
+           
+                <span class="keyword-directive">return</span> <span class="character">&quot;</span><span class="character">result</span><span class="character">&quot;</span>;
+        }
+
+        <span class="keyword-directive">public</span> String getUsername() {
+                <span class="keyword-directive">return</span> username;
+        }
+        <span class="keyword-directive">public</span> String display(){
+           System.out.println(<span class="character">&quot;</span><span class="character">outcome invoked</span><span class="character">&quot;</span>)        ; 
+                <span class="keyword-directive">return</span> <span class="character">&quot;</span><span class="character">result1</span><span class="character">&quot;</span>;
+        }
+
+
+        <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> setUsername(String username) {
+        System.out.println(<span class="character">&quot;</span><span class="character"> set property invoked</span><span class="character">&quot;</span>)     ;
+            <span class="keyword-directive">this</span>.username = username;
+        }
+        
+}
+</pre></body>
+</html>

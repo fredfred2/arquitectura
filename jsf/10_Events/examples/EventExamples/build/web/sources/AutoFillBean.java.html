@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>AutoFillBean.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.comment {color: #969696}
+.character {color: #ce7b00}
+.keyword-directive {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">D:\toUpload\EventExamples\src\java\com\example\beans\AutoFillBean.java</td></tr></table>
+<pre>
+<span class="comment">/*</span>
+<span class="comment"> * To change this template, choose Tools | Templates</span>
+<span class="comment"> * and open the template in the editor.</span>
+<span class="comment"> */</span>
+<span class="keyword-directive">package</span> com.example.beans;
+
+
+ 
+
+<span class="keyword-directive">import</span> java.io.IOException;
+<span class="keyword-directive">import</span> javax.faces.bean.ManagedBean;
+<span class="keyword-directive">import</span> javax.faces.bean.RequestScoped;
+<span class="keyword-directive">import</span> javax.faces.component.html.HtmlInputText;
+<span class="keyword-directive">import</span> javax.faces.event.ValueChangeEvent;
+<span class="comment">//import javax.inject.Named;</span>
+@ManagedBean(name=<span class="character">&quot;</span><span class="character">zipAutoFill</span><span class="character">&quot;</span>) 
+<span class="comment">//@Named(&quot;zipAutoFill&quot;)</span>
+@RequestScoped 
+<span class="keyword-directive">public</span> <span class="keyword-directive">class</span> AutoFillBean <span class="keyword-directive">implements</span> java.io.Serializable{ 
+ <span class="keyword-directive">private</span> HtmlInputText inputName, inputZip, inputCity, inputState;
+ 
+  <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> zipAutoFillListener(ValueChangeEvent vce) <span class="keyword-directive">throws</span> IOException { 
+    String zip = vce.getNewValue().toString(); 
+ System.out.println(zip+<span class="character">&quot;</span><span class="character">value change</span><span class="character">&quot;</span>);
+    StringBuilder city = <span class="keyword-directive">new</span> StringBuilder(); 
+    StringBuilder state = <span class="keyword-directive">new</span> StringBuilder(); 
+   <span class="comment">// performLookup(zip, city, state);</span>
+      city.append(<span class="character">&quot;</span><span class="character">Dallas</span><span class="character">&quot;</span>); 
+    state.append(<span class="character">&quot;</span><span class="character">Texas</span><span class="character">&quot;</span>); 
+   
+             inputCity.setValue(city.toString()); 
+   inputState.setValue(state.toString()); 
+  
+  } 
+
+    <span class="keyword-directive">public</span> HtmlInputText  getInputName() {
+        <span class="keyword-directive">return</span> inputName;
+    }
+
+    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> setInputName(HtmlInputText inputName) {
+        <span class="keyword-directive">this</span>.inputName = inputName;
+    }
+
+    <span class="keyword-directive">public</span> HtmlInputText getInputZip() {
+        <span class="keyword-directive">return</span> inputZip;
+    }
+
+    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> setInputZip(HtmlInputText inputZip) {
+        <span class="keyword-directive">this</span>.inputZip = inputZip;
+    }
+
+    <span class="keyword-directive">public</span> HtmlInputText getInputCity() {
+        <span class="keyword-directive">return</span> inputCity;
+    }
+
+    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> setInputCity(HtmlInputText inputCity) {
+        <span class="keyword-directive">this</span>.inputCity = inputCity;
+    }
+
+    <span class="keyword-directive">public</span> HtmlInputText getInputState() {
+        <span class="keyword-directive">return</span> inputState;
+    }
+
+    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> setInputState(HtmlInputText inputState) {
+        <span class="keyword-directive">this</span>.inputState = inputState;
+    }
+ 
+  <span class="keyword-directive">private</span> <span class="keyword-directive">void</span> performLookup(String zip, StringBuilder city, 
+        StringBuilder state) { 
+    <span class="comment">// In real life, you would actually perform the lookup. </span>
+    <span class="comment">// For now, we assume that every possible zip code is </span>
+    <span class="comment">// in Dallas, Texas. </span>
+    city.append(<span class="character">&quot;</span><span class="character">Dallas</span><span class="character">&quot;</span>); 
+    state.append(<span class="character">&quot;</span><span class="character">Texas</span><span class="character">&quot;</span>); 
+ 
+  } 
+ 
+ 
+}
+</pre></body>
+</html>

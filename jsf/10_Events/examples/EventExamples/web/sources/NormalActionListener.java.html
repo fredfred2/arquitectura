@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NormalActionListener.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.comment {color: #969696}
+.character {color: #ce7b00}
+.keyword-directive {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">D:\toUpload\EventExamples\src\java\com\example\listeners\NormalActionListener.java</td></tr></table>
+<pre>
+<span class="keyword-directive">package</span> com.example.listeners;
+
+<span class="keyword-directive">import</span> javax.faces.application.FacesMessage;
+<span class="keyword-directive">import</span> javax.faces.context.FacesContext;
+<span class="keyword-directive">import</span> javax.faces.event.AbortProcessingException;
+<span class="keyword-directive">import</span> javax.faces.event.ActionEvent;
+<span class="keyword-directive">import</span> javax.faces.event.ActionListener;
+
+<span class="keyword-directive">public</span> <span class="keyword-directive">class</span> NormalActionListener <span class="keyword-directive">implements</span> ActionListener{
+
+        @Override
+        <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> processAction(ActionEvent event)
+                        <span class="keyword-directive">throws</span> AbortProcessingException {
+                
+        
+        String value= (String)event.getComponent().getClientId().toString();
+       <span class="comment">//FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put(&quot;msg:&quot;, value+&quot;  new&quot;);</span>
+        
+        FacesContext.getCurrentInstance().addMessage(value,<span class="keyword-directive">new</span> FacesMessage( <span class="character">&quot;</span><span class="character">clicked</span><span class="character">&quot;</span>));
+        }
+        }
+        
+
+</pre></body>
+</html>

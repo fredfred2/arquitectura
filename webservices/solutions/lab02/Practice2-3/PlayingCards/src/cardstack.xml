@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<stack xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="cardschema.xsd">
+    <card>
+        <rank>4</rank>
+        <suit>SPADES</suit>
+    </card>
+    <card>
+        <rank>2</rank>
+        <suit>CLUBS</suit>
+    </card>
+    <card>
+        <rank>JOKER</rank>
+        <color>RED</color>
+    </card>
+</stack>

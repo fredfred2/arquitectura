@@ -28,7 +28,7 @@ public class JavaSERestClient {
 			Authenticator authinstance = new Authenticator() {
 				@Override
 				public PasswordAuthentication getPasswordAuthentication() {
-					return new PasswordAuthentication("weblogic", "welcome1".toCharArray());
+					return new PasswordAuthentication("weblogic", "weblogic1".toCharArray());
 				}
 			};
 			Authenticator.setDefault(authinstance);

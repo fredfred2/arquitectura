@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+
+
+    <security-constraint>
+        <display-name>Indian Rummy Root Path</display-name>
+        <web-resource-collection>
+            <web-resource-name>everything</web-resource-name>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>player</role-name>
+            <role-name>admin</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+
+    <security-constraint>
+        <display-name>Indian Rummy WADL</display-name>
+        <web-resource-collection>
+            <web-resource-name>WADL GET</web-resource-name>
+            <description>Game resource hierarchy</description>
+            <url-pattern>/resources/application.wadl</url-pattern>
+            <http-method>GET</http-method>
+        </web-resource-collection>
+    </security-constraint>
+
+    <security-constraint>
+        <display-name>Indian Rummy DELETE</display-name>
+        <web-resource-collection>
+            <web-resource-name>DELETE resources</web-resource-name>
+            <description>Game resource hierarchy</description>
+            <url-pattern>/resources/*</url-pattern>
+            <http-method>DELETE</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>admin</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <display-name>Indian Rummy Add Player</display-name>
+        <web-resource-collection>
+            <web-resource-name>Add player PUT and OPTIONS</web-resource-name>
+            <description>Navigate to resource</description>
+            <url-pattern>/resources/players/*</url-pattern>
+            <http-method>PUT</http-method>
+        </web-resource-collection>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <login-config>
+        <auth-method>BASIC</auth-method>
+    </login-config>
+
+    <security-role>
+        <description>A person that is allowed to play rummy.</description>
+        <role-name>player</role-name>
+    </security-role>
+    <security-role>
+        <description>A person that is allowed to perform administration tasks.</description>
+        <role-name>admin</role-name>
+    </security-role>
+
+
+</web-app>

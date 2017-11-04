@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Employee Management: Delete Employee</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+        <h:panelGroup id="messagePanel" layout="block">
+            <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+        </h:panelGroup>
+        <h:form>
+            <h1>Employee Management System: Delete Employee</h1>
+            <h2><h:outputText value="#{msg.DeleteConfirmation}" style="color: red" rendered="#{!listBean.deleteSucceeded}"/></h2>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="#{msg.EditEmployeeLabel_id}" for="id" />
+                <h:inputText id="id" value="#{listBean.emp.id}" readonly="true"/>
+                <h:outputLabel value="#{msg.EditEmployeeLabel_firstname}" for="firstname" />
+                <h:inputText id="firstname" value="#{listBean.emp.firstName}" readonly="true" required="true" requiredMessage="#{msg.EditEmployeeRequiredMessage_firstname}"/>
+                <h:outputLabel value="#{msg.EditEmployeeLabel_lastname}" for="lastname" />
+                <h:inputText id="lastname" value="#{listBean.emp.lastName}" readonly="true" required="true" requiredMessage="#{msg.EditEmployeeRequiredMessage_lastname}"/>
+                <h:outputLabel value="#{msg.EditEmployeeLabel_birthdate}" for="birthdate" />
+                <h:inputText id="birthdate" value="#{listBean.emp.birthDate}" readonly="true"  >
+                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                </h:inputText>
+                <h:outputLabel value="#{msg.EditEmployeeLabel_salary}" for="salary" />
+                <h:inputText id="salary" value="#{listBean.emp.salary}" readonly="true" >
+                    <f:convertNumber currencyCode="USD" currencySymbol="$" type="currency"/>
+                </h:inputText>
+                <h:commandButton value="Delete" action="#{listBean.deleteEmployee()}" disabled="#{listBean.deleteSucceeded}"/>
+                <h:commandButton value="Cancel" action="home" disabled="#{listBean.deleteSucceeded}"/>
+            </h:panelGrid>
+
+            <h:commandLink value="#{msg.ViewEmployeeShowAllLink}" action="home"/>
+        </h:form>
+    </h:body>
+</html>
+

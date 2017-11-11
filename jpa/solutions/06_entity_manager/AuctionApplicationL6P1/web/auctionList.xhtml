@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./templates/masterLayout.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <f:metadata>
+        <f:viewParam name="listAll" value="#{list.listAll}"/>
+        <f:viewParam name="watchesOnly" value="#{list.watchesOnly}"/>
+        <f:viewParam name="header" value="#{list.listHeader}"/>
+    </f:metadata>
+
+    <ui:define name="content">
+        <h:outputText styleClass="header" value="#{msg.appName} : #{list.listHeader}"/>
+        <h:panelGroup id="messagePanel" layout="block">
+            <h:messages warnStyle="color: blue" errorStyle="color: red" infoStyle="color: green" layout="table"/>
+        </h:panelGroup>
+        <h:form styleClass="jsfcrud_list_form">
+            <h:dataTable value="#{list.allItems}" var="auct" border="1" cellpadding="2" cellspacing="5" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px;">
+                <h:column>
+                    <h:graphicImage library="images" name="NoImage.gif" height="120" rendered="#{auct.imageId le 0}"/>
+                    <h:graphicImage value="/download/#{auct.imageId}?thumb=yes" rendered="#{auct.imageId gt 0}"/>
+                </h:column>
+                <h:column>
+                    <h:panelGrid columns="1" >
+                        <h:commandLink value="#{auct.title}" action="#{list.prepareDetailView(auct)}"/>
+                        <h:panelGroup >
+                            <h:outputLabel value="#{msg.list_cond}"/><h:outputText value="#{auct.condition}"/>
+                        </h:panelGroup>
+                    </h:panelGrid>
+                </h:column>
+                <h:column>
+                    <h:panelGroup>
+                        <h:outputText value="#{auct.numWatches}"/><h:outputLabel value="#{msg.list_watches}"/>
+                    </h:panelGroup>
+                </h:column>
+                <h:column>
+                    <h:panelGroup>
+                        <h:outputText value="#{auct.numBids}"/><h:outputLabel value="#{msg.list_bids}"/>
+                    </h:panelGroup>
+                </h:column>
+                <h:column>
+                    <h:panelGroup>
+                        <h:outputLabel value="#{msg.list_price}"/><h:outputText value="#{auct.currPrice}">
+                            <f:convertNumber currencyCode="USD" minFractionDigits="2" type="currency"/>
+                        </h:outputText>
+                    </h:panelGroup>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{auct.timeRemaining}"/>
+                </h:column>
+
+                <h:column rendered="#{not list.listAll and list.watchesOnly and not manager.user.displayName eq 'admin'}">
+                    <h:panelGrid columns="1">   
+                        <h:commandLink value="#{msg.admin_clear_watch}" action="#{list.removeWatch(auct.auctionId)}"/>
+                    </h:panelGrid>
+                </h:column>
+
+                <h:column rendered="#{manager.loggedIn and manager.user.displayName eq 'admin'}">
+                    <h:panelGrid columns="1">    
+                        <h:commandLink value="#{msg.admin_end}" action="#{list.endAuction(auct.auctionId)}"/>
+                        <h:commandLink value="#{msg.admin_cancel}" action="#{list.cancelAuction(auct.auctionId)}"/>
+                        <h:commandLink value="#{msg.admin_remove}" action="#{list.removeAuction(auct.auctionId)}"/>
+                    </h:panelGrid>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </ui:define>
+</ui:composition>

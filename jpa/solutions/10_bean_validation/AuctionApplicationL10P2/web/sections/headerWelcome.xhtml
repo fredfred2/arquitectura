@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <head><title>IGNORED</title></head>
+    <body>
+        <ui:composition>
+            <div >
+                <h:form>
+                    <h:graphicImage library="images" name="java2.jpg" />
+                    <h:outputFormat value="#{msg.welcome}" styleClass="header">
+                        <f:param value="#{not manager.loggedIn ? 'Guest' : manager.user.displayName}"/>
+                    </h:outputFormat>
+                    <h:panelGroup rendered="#{not manager.loggedIn}">
+                        <h:commandLink value="#{msg.login_title}" action="login" />
+                        <h:outputText value=" or "/> 
+                        <h:commandLink value="#{msg.createUser}" action="newUser"/>
+                    </h:panelGroup>
+                </h:form>
+            </div>
+        </ui:composition>
+    </body>
+</html>

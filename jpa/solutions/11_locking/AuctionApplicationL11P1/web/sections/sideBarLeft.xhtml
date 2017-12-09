@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head><title>IGNORED</title></h:head>
+    <body>
+        <ui:composition>
+            <h:form>
+                <hr/>
+                <h:inputText id="search" value="#{list.searchStr}" size="20"/>
+                <h:commandButton value="#{msg.link_search}" action="auctionSearchList" /><p/>
+                <h:link value="#{msg.link_list}" outcome="auctionList" >
+                    <f:param name="listAll" value="true"/>
+                    <f:param name="watchesOnly" value="false"/>
+                    <f:param name="header" value="#{msg.list_all_view}"/>
+                </h:link><p/>
+                <h:link value="#{msg.link_my_auctions}" rendered="#{manager.loggedIn and manager.user.displayName ne 'admin'}" outcome="auctionList">
+                    <f:param name="listAll" value="false"/>
+                    <f:param name="watchesOnly" value="false"/>
+                    <f:param name="header" value="#{msg.list_my_auctions}"/>
+                </h:link><p/>
+                <h:link value="#{msg.link_my_watches}" rendered="#{manager.loggedIn and manager.user.displayName ne 'admin'}" outcome="auctionList">
+                    <f:param name="listAll" value="false"/>
+                    <f:param name="watchesOnly" value="true"/>
+                    <f:param name="header" value="#{msg.list_my_watches}"/>
+                </h:link><p/>
+                <h:commandLink value="#{msg.link_show}" action="#{list.toggleShowFilter()}" rendered="#{not list.showFilter and manager.user.displayName ne 'admin'}"/><p/>
+                <h:commandLink value="#{msg.link_hide}" action="#{list.toggleShowFilter()}" rendered="#{list.showFilter and manager.user.displayName ne 'admin'}"/><p/>
+                <h:panelGroup rendered="#{list.showFilter and manager.user.displayName ne 'admin'}">
+                    <h:outputLabel value="#{msg.link_condition}"/>
+                    <h:selectOneMenu id="condition" value="#{list.itemCondition}" >
+                        <f:selectItem itemLabel="All" itemValue="All"/>
+                        <f:selectItem itemLabel="New" itemValue="NEW"/>
+                        <f:selectItem itemLabel="Used" itemValue="USED"/>
+                        <f:selectItem itemLabel="Parts" itemValue="PARTS"/>
+                        <f:ajax render="condition"/>
+                    </h:selectOneMenu><p/>
+                    <h:outputLabel value="#{msg.list_auction_status}"/>
+                    <h:selectOneRadio id="status" value="#{list.auctionStatus}" layout="pageDirection">
+                        <f:selectItem itemLabel="Active" itemValue="0"/>
+                        <f:selectItem itemLabel="Completed" itemValue="1"/>
+                        <f:ajax rendered="status"/> 
+                    </h:selectOneRadio>
+                    <h:commandLink value="#{msg.link_apply}" action="auctionList"/><p/>
+                </h:panelGroup>
+                <h:link value="#{msg.link_sell}" outcome="add" rendered="#{manager.user.displayName ne 'admin'}"/><p/>
+                <h:commandLink value="#{msg.link_logout}" action="#{manager.logout()}" rendered="#{manager.loggedIn}" />
+                <h:commandLink value="#{msg.link_login}" action="login" rendered="#{not manager.loggedIn}" />
+                <hr/>
+            </h:form>
+        </ui:composition>
+    </body>
+</html>
+

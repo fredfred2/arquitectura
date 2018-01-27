@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      >
+    <h:head>
+        <title>Auction Items - @ConversationScoped</title>
+    </h:head>
+    <h:body>
+        <h1>Auction Items - @ConversationScoped</h1>
+        <p><ul>
+                <li>
+            When you click the Delete button, the specific item will get deleted and page gets reloaded</li>
+            <li>When you click the Refresh button, the page gets submitted but the items that were deleted still does not appear.</li>
+            <li>When you click the Home button and then get back to this page, the items will remain as in the previous state. </li>
+            <li> When you click the End button, the conversation scope comes to an end. When you visit this page, the original set of items are displayed.            </li>
+
+            </ul>
+        </p>
+        <h:form>
+            <h:dataTable id="namesTable" value="#{auctionBean.items}" var="item">
+                <f:facet name="header">
+                    <h:outputText value="Auction Items"/>
+                </f:facet>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Item Name"/>
+                    </f:facet>
+                    <h:outputText value="#{item}" />
+                </h:column>
+                <h:column>
+                    <h:commandButton value="Delete" action="#{auctionBean.delete(item)}"/>
+                </h:column>
+                <f:facet name="footer">
+                    <h:outputText value="Count: #{auctionBean.items.size()}"/>
+                </f:facet>
+            </h:dataTable>
+            <h:panelGroup>
+                <h:commandButton value="Refresh"/>
+                <h:commandButton action="#{auctionBean.end()}" value="End"/>
+                <h:commandButton value="Home" action="index.xhtml"/>
+               
+            </h:panelGroup>
+        </h:form>
+    </h:body>
+</html>
+

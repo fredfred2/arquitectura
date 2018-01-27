@@ -1,0 +1,18 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Guess the Number Game!</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:outputText value="I am thinking of a number between 1 and 100!"/><p/>
+            <h:outputLabel value="Enter your guess: "/>
+            <h:inputText value="#{guessBean.guess}"/><p/>
+            <h:commandButton value="Submit" 
+                    action="#{guessBean.checkAnswer()}"/>
+            <h:commandButton value="Reset" 
+                    action="#{guessBean.reset()}"/>
+        </h:form>
+    </h:body>
+</html>
+

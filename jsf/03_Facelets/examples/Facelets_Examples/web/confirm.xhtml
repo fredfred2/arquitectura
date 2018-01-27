@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <title>CONFIRMATION</title>
+    </head>
+    <body>
+        <h:form>
+
+            <h2>JSF Registration App</h2> 
+    <h4>Registration Confirmation</h4> 
+                        <h:panelGrid columns="2">
+
+        <h:outputText value="First Name: "/>      <h:outputText value="#{userBean.firstName}"/> 
+<h:outputText value="Last Name: "/> <h:outputText value="#{userBean.lastName}"/>
+<h:outputText value="Gender: "/> <h:outputText value="#{userBean.sex}"/>
+<h:outputText value="Date Of Birth: "/> <h:outputText value="#{userBean.dob}"/>
+<h:outputText value="Email Address: "/> <h:outputText value="#{userBean.email}"/>
+<h:outputText value="Service Level: "/> <h:outputText value="#{userBean.serviceLevel}"/>
+      <h:commandButton value="Edit" action="register" /> 
+<h:commandButton value="Confirm" action="#{userBean.addConfirmedUser}" />
+</h:panelGrid >
+</h:form>
+        <p>  <a href="home.xhtml">Go Home</a> </p>
+    </body>   
+</html>

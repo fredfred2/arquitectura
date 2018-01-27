@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Lesson_03_Facelet Examples</title>
+           
+                <h:outputStylesheet library="css" name="styles.css"/>
+    </h:head>
+    <h:body>
+           <h2>UI Components Example</h2>
+
+    <p>This is a sample JSF page containing several UI components that are used in JSF pages.</p>
+    <table>
+      <thead>
+        <tr><td colspan="3"><b>UI Components</b></td></tr>
+        <tr>
+          <th>Output</th>
+          <th>Source code</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="3"><a href="faces/components_examples.xhtml">/components_examples</a></td>
+          <td><a href="sources/components_examples.xhtml.html">components_examples</a></td>
+          <td>A JSF page showing several UI components as illustrated in Slide 6 of SG</td>
+        </tr>
+          <tr>
+         
+          <td><a href="sources/RegisterForm.java.html">RegisterForm.java</a></td>
+          <td>The managed bean for the JSF page</td>
+        </tr>
+          <tr>
+         
+          <td><a href="sources/showInformation.xhtml.html">ShowInformation.xhtml</a></td>
+          <td>The page that opens up after user clicks the Submit information button</td>
+        </tr>
+      </tbody>
+    </table>
+        <h3>HTML Tags</h3>
+        
+    <p><b>Goal</b>: HTML tags and their <b>attributes</b>.</p>
+    
+        <table border="1" cellpadding="1">
+            <thead>
+                <tr>
+                    <th>Output</th>
+                    <th>Source Code</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="faces/index.xhtml">/index</a></td>
+          <td><a href="sources/index.xhtml.html">Simple Form</a></td>
+          <td>A JSF page showing a text box, a command button and a implicit object, <b>username </b>in a form. It has a label with a <b>rendered</b> attribute </td>
+        </tr>
+           <tr>
+          <td rowspan="3"><a href="faces/Login.xhtml">/Login</a></td>
+          <td><a href="sources/Login.xhtml.html">Login Form</a></td>
+          <td>A JSF page showing a login screen</td>
+        </tr>
+          <tr>
+         
+          <td><a href="sources/Login.java.html">Login.java</a></td>
+          <td>The managed bean for the JSF page</td>
+        </tr>
+                <tr>
+         
+          <td><a href="sources/invalid.xhtml.html">invalid.xhtml</a></td>
+          <td>The JSF page that opens up when the user is not authenticated</td>
+        </tr>
+                  
+      </tbody>
+    </table>
+<h3>Core Tags</h3>
+ <p><b>Goal</b>: Core tags implements the core actions of a JSF application.</p>
+    
+        <table border="1" cellpadding="1">
+            <thead>
+                <tr>
+                    <th>Output</th>
+                    <th>Source Code</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr>
+          <td rowspan="3"><a href="faces/CoreTags.xhtml">/CoreTags</a></td>
+          <td><a href="sources/CoreTags.xhtml.html">Core Tags</a></td>
+          <td>A JSF page showing the use of<b> f:param, f:attribute, f:facet and f:setPropertyActionListener </b>core tags</td>
+        </tr>
+          <tr>
+         
+          <td><a href="sources/Customer.java.html">Customer.java</a></td>
+          <td>The managed bean for the JSF page</td>
+        </tr>
+          <tr>
+        
+          <td><a href="sources/custinfo.xhtml.html">custinfo.xhtml</a></td>
+          <td>The page that opens up after user clicks one of the buttons</td>
+        </tr>
+                <tr>
+          <td rowspan="4"><a href="faces/register.xhtml">/Registration Form</a></td>
+          <td><a href="sources/register.xhtml.html">Registration</a></td>
+          <td>A JSF page showing the use of<b> f:selectItem and f:convertDateTime </b>core tags</td>
+        </tr>
+          <tr>
+         
+          <td><a href="sources/UserBean.java.html">UserBean.java</a></td>
+          <td>The managed bean for the JSF page</td>
+        </tr>
+          <tr>
+        
+          <td><a href="sources/confirm.xhtml.html">confirm.xhtml</a></td>
+          <td>The page that opens up after user clicks the Register button</td>
+        </tr>
+                <tr>
+        
+          <td><a href="sources/done.xhtml.html">done.xhtml</a></td>
+          <td>The page that opens up after user clicks the Confirm button</td>
+        </tr>
+      </tbody>
+        </table>
+<h3>Facelet Tags</h3>
+<p><b>Goal</b>: Facelet tags are also called template tags and are prefixed with ui:</p>
+        <table border="1" cellpadding="1">
+            <thead>
+                <tr>
+                    <th>Output</th>
+                    <th>Source Code</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+          <td ><a href="faces/newTemplate.xhtml">/newTemplate</a></td>
+          <td><a href="sources/newTemplate.xhtml.html">newTemplate</a></td>
+          <td>A template file that uses <b>ui:insert</b> tag</td>
+        </tr>
+          <tr>
+              <td><a href="faces/newTemplateClient.xhtml">/newTemplateClient</a></td>
+          <td><a href="sources/newTemplateClient.xhtml.html">newTemplateClient</a></td>
+          <td>A client template file that uses the template file and <b>ui:define and ui:composition</b> tags</td>
+        </tr>
+            </tbody>
+        </table>
+<h3>JSTL Core Tags</h3>
+<p><b>Goal</b>: JSTL core tags and function tags are supported in JSF</p>
+        <table border="1" cellpadding="1">
+            <thead>
+                <tr>
+                    <th>Output</th>
+                    <th>Source Code</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+          <td rowspan="2"><a href="faces/JstlJsf.xhtml">/JSTL tags</a></td>
+          <td><a href="sources/JstlJsf.xhtml.html">JSTL Tags</a></td>
+          <td>A JSF page showing the use of<b> JSTL </b>core tags</td>
+        </tr>
+          <tr>
+         
+          <td><a href="sources/BooksBean.java.html">Booksbean.java</a></td>
+          <td>The managed bean for the JSF page</td>
+        </tr>
+            </tbody>
+        </table>
+    </h:body>
+</html>
+

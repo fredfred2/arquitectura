@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>RegisterForm.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.comment {color: #969696}
+.character {color: #ce7b00}
+.keyword-directive {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">D:\toUpload\Facelets_Examples\src\java\com\example\componentsEg\RegisterForm.java</td></tr></table>
+<pre>
+  1 <span class="keyword-directive">package</span> com.example.componentsEg;
+  2 
+  3 <span class="keyword-directive">import</span> java.awt.Color;
+  4 <span class="keyword-directive">import</span> java.io.Serializable;
+  5 <span class="keyword-directive">import</span> java.text.DateFormatSymbols;
+  6 <span class="keyword-directive">import</span> java.util.ArrayList;
+  7 <span class="keyword-directive">import</span> java.util.Arrays;
+  8 <span class="keyword-directive">import</span> java.util.Calendar;
+  9 <span class="keyword-directive">import</span> java.util.Collection;
+ 10 <span class="keyword-directive">import</span> java.util.LinkedHashMap;
+ 11 <span class="keyword-directive">import</span> java.util.Map;
+ 12 <span class="keyword-directive">import</span> java.util.Set;
+ 13 <span class="keyword-directive">import</span> java.util.TreeSet;
+ 14 
+ 15 <span class="keyword-directive">import</span> javax.inject.Named; 
+ 16    <span class="comment">// or import javax.faces.bean.ManagedBean;</span>
+ 17 <span class="keyword-directive">import</span> javax.enterprise.context.SessionScoped; 
+ 18    <span class="comment">// or import javax.faces.bean.SessionScoped;</span>
+ 19 <span class="keyword-directive">import</span> javax.faces.model.SelectItem;
+ 20 
+ 21 @Named(<span class="character">&quot;</span><span class="character">form</span><span class="character">&quot;</span>) <span class="comment">// or @ManagedBean(name=&quot;form&quot;)</span>
+ 22 @SessionScoped
+ 23 <span class="keyword-directive">public</span> <span class="keyword-directive">class</span> RegisterForm <span class="keyword-directive">implements</span> Serializable {
+ 24    <span class="keyword-directive">public</span> <span class="keyword-directive">enum</span> Education { HIGH_SCHOOL, BACHELOR, MASTER, DOCTOR };
+ 25 
+ 26    <span class="keyword-directive">public</span> <span class="keyword-directive">static</span> <span class="keyword-directive">class</span> Weekday {
+ 27       <span class="keyword-directive">private</span> <span class="keyword-directive">int</span> dayOfWeek;
+ 28       <span class="keyword-directive">public</span> Weekday(<span class="keyword-directive">int</span> dayOfWeek) {
+ 29          <span class="keyword-directive">this</span>.dayOfWeek = dayOfWeek;
+ 30       }
+ 31       
+ 32       <span class="keyword-directive">public</span> String getDayName() {
+ 33          DateFormatSymbols symbols = <span class="keyword-directive">new</span> DateFormatSymbols();
+ 34          String[] weekdays = symbols.getWeekdays();
+ 35          <span class="keyword-directive">return</span> weekdays[dayOfWeek];
+ 36       }
+ 37       
+ 38       <span class="keyword-directive">public</span> <span class="keyword-directive">int</span> getDayNumber() { 
+ 39          <span class="keyword-directive">return</span> dayOfWeek;
+ 40       }
+ 41    }
+ 42    
+ 43    <span class="keyword-directive">private</span> String name;
+ 44    <span class="keyword-directive">private</span> <span class="keyword-directive">boolean</span> contactMe;
+ 45    <span class="keyword-directive">private</span> <span class="keyword-directive">int</span>[] bestDaysToContact;
+ 46    <span class="keyword-directive">private</span> Integer yearOfBirth;
+ 47    <span class="keyword-directive">private</span> <span class="keyword-directive">int</span>[] colors;
+ 48    <span class="keyword-directive">private</span> Set&lt;String&gt; languages = <span class="keyword-directive">new</span> TreeSet&lt;String&gt;();
+ 49    <span class="keyword-directive">private</span> Education education = Education.BACHELOR;
+ 50 
+ 51    <span class="keyword-directive">public</span> String getName() { <span class="keyword-directive">return</span> name; }
+ 52    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> setName(String newValue) { name = newValue; }
+ 53 
+ 54    <span class="keyword-directive">public</span> <span class="keyword-directive">boolean</span> getContactMe() { <span class="keyword-directive">return</span> contactMe; }
+ 55    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> setContactMe(<span class="keyword-directive">boolean</span> newValue) { contactMe = newValue; }
+ 56 
+ 57    <span class="keyword-directive">public</span> <span class="keyword-directive">int</span>[] getBestDaysToContact() { <span class="keyword-directive">return</span> bestDaysToContact; }
+ 58    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> setBestDaysToContact(<span class="keyword-directive">int</span>[] newValue) { bestDaysToContact = newValue; }
+ 59 
+ 60    <span class="keyword-directive">public</span> Integer getYearOfBirth() { <span class="keyword-directive">return</span> yearOfBirth; }
+ 61    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> setYearOfBirth(Integer newValue) { yearOfBirth = newValue; }
+ 62 
+ 63    <span class="keyword-directive">public</span> <span class="keyword-directive">int</span>[] getColors() { <span class="keyword-directive">return</span> colors; }
+ 64    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> setColors(<span class="keyword-directive">int</span>[] newValue) { colors = newValue; }
+ 65 
+ 66    <span class="keyword-directive">public</span> Set&lt;String&gt; getLanguages() { <span class="keyword-directive">return</span> languages; }
+ 67    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> setLanguages(Set&lt;String&gt; newValue) { languages = newValue; }
+ 68 
+ 69    <span class="keyword-directive">public</span> Education getEducation() { <span class="keyword-directive">return</span> education; }   
+ 70    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> setEducation(Education newValue) { education = newValue; }
+ 71 
+ 72    <span class="keyword-directive">public</span> Collection&lt;SelectItem&gt; getYearItems() { <span class="keyword-directive">return</span> birthYears; }
+ 73 
+ 74    <span class="keyword-directive">public</span> Weekday[] getDaysOfTheWeek() { <span class="keyword-directive">return</span> daysOfTheWeek; }
+ 75 
+ 76    <span class="keyword-directive">public</span> SelectItem[] getLanguageItems() { <span class="keyword-directive">return</span> languageItems; }
+ 77    
+ 78    <span class="keyword-directive">public</span> SelectItem[] getColorItems() { <span class="keyword-directive">return</span> colorItems; }
+ 79    
+ 80    <span class="keyword-directive">public</span> Map&lt;String, Education&gt; getEducationItems() { <span class="keyword-directive">return</span> educationItems; }
+ 81    
+ 82    <span class="keyword-directive">public</span> String getBestDaysConcatenated() { 
+ 83       <span class="keyword-directive">return</span> Arrays.toString(bestDaysToContact); 
+ 84    }
+ 85 
+ 86    <span class="keyword-directive">public</span> String getColorsConcatenated() {
+ 87       StringBuilder result = <span class="keyword-directive">new</span> StringBuilder();
+ 88       <span class="keyword-directive">for</span> (<span class="keyword-directive">int</span> color : colors) result.append(String.format(<span class="character">&quot;</span><span class="character">%06x </span><span class="character">&quot;</span>, color));
+ 89       <span class="keyword-directive">return</span> result.toString();
+ 90    }
+ 91 
+ 92    <span class="keyword-directive">private</span> SelectItem[] colorItems = {
+ 93       <span class="keyword-directive">new</span> SelectItem(Color.RED.getRGB(), <span class="character">&quot;</span><span class="character">Red</span><span class="character">&quot;</span>), <span class="comment">// value, label</span>
+ 94       <span class="keyword-directive">new</span> SelectItem(Color.GREEN.getRGB(), <span class="character">&quot;</span><span class="character">Green</span><span class="character">&quot;</span>),
+ 95       <span class="keyword-directive">new</span> SelectItem(Color.BLUE.getRGB(), <span class="character">&quot;</span><span class="character">Blue</span><span class="character">&quot;</span>),
+ 96       <span class="keyword-directive">new</span> SelectItem(Color.YELLOW.getRGB(), <span class="character">&quot;</span><span class="character">Yellow</span><span class="character">&quot;</span>),
+ 97       <span class="keyword-directive">new</span> SelectItem(Color.ORANGE.getRGB(), <span class="character">&quot;</span><span class="character">Orange</span><span class="character">&quot;</span>, <span class="character">&quot;&quot;</span>, <span class="keyword-directive">true</span>) <span class="comment">// disabled</span>
+ 98    };
+ 99 
+100    <span class="keyword-directive">private</span> <span class="keyword-directive">static</span> Map&lt;String, Education&gt; educationItems;
+101    <span class="keyword-directive">static</span> {
+102       educationItems = <span class="keyword-directive">new</span> LinkedHashMap&lt;String, Education&gt;();
+103       educationItems.put(<span class="character">&quot;</span><span class="character">High School</span><span class="character">&quot;</span>, Education.HIGH_SCHOOL); <span class="comment">// label, value</span>
+104       educationItems.put(<span class="character">&quot;</span><span class="character">Bachelor&#39;s</span><span class="character">&quot;</span>, Education.BACHELOR);
+105       educationItems.put(<span class="character">&quot;</span><span class="character">Master&#39;s</span><span class="character">&quot;</span>, Education.MASTER);
+106       educationItems.put(<span class="character">&quot;</span><span class="character">Doctorate</span><span class="character">&quot;</span>, Education.DOCTOR);
+107    };
+108 
+109    <span class="keyword-directive">private</span> <span class="keyword-directive">static</span> SelectItem[] languageItems = {
+110       <span class="keyword-directive">new</span> SelectItem(<span class="character">&quot;</span><span class="character">English</span><span class="character">&quot;</span>),
+111       <span class="keyword-directive">new</span> SelectItem(<span class="character">&quot;</span><span class="character">French</span><span class="character">&quot;</span>),
+112       <span class="keyword-directive">new</span> SelectItem(<span class="character">&quot;</span><span class="character">Russian</span><span class="character">&quot;</span>),
+113       <span class="keyword-directive">new</span> SelectItem(<span class="character">&quot;</span><span class="character">Italian</span><span class="character">&quot;</span>),
+114       <span class="keyword-directive">new</span> SelectItem(<span class="character">&quot;</span><span class="character">Esperanto</span><span class="character">&quot;</span>, <span class="character">&quot;</span><span class="character">Esperanto</span><span class="character">&quot;</span>, <span class="character">&quot;&quot;</span>, <span class="keyword-directive">true</span>) <span class="comment">// disabled</span>
+115    };
+116    
+117    <span class="keyword-directive">private</span> <span class="keyword-directive">static</span> Collection&lt;SelectItem&gt; birthYears;
+118    <span class="keyword-directive">static</span> {
+119       birthYears = <span class="keyword-directive">new</span> ArrayList&lt;SelectItem&gt;();
+120       <span class="comment">// The first item is a &quot;no selection&quot; item</span>
+121       birthYears.add(<span class="keyword-directive">new</span> SelectItem(<span class="keyword-directive">null</span>, <span class="character">&quot;</span><span class="character">Pick a year:</span><span class="character">&quot;</span>, <span class="character">&quot;&quot;</span>, <span class="keyword-directive">false</span>, <span class="keyword-directive">false</span>, <span class="keyword-directive">true</span>));
+122       <span class="keyword-directive">for</span> (<span class="keyword-directive">int</span> i = 1900; i &lt; 2020; ++i) birthYears.add(<span class="keyword-directive">new</span> SelectItem(i));
+123    }
+124       
+125    <span class="keyword-directive">private</span> <span class="keyword-directive">static</span> Weekday[] daysOfTheWeek;
+126    <span class="keyword-directive">static</span> {
+127       daysOfTheWeek = <span class="keyword-directive">new</span> Weekday[7];
+128       <span class="keyword-directive">for</span> (<span class="keyword-directive">int</span> i = Calendar.SUNDAY; i &lt;= Calendar.SATURDAY; i++) {
+129          daysOfTheWeek[i - Calendar.SUNDAY] = <span class="keyword-directive">new</span> Weekday(i); 
+130       }      
+131    }
+132 }
+133 
+</pre></body>
+</html>

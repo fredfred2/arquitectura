@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+<title>Facelets Example Page</title>
+</head>
+<body>
+ <h:form>
+ Please Enter your name: <h:inputText value="#{username}"/>
+ <h:commandButton value="Submit" />
+ </h:form>
+ <hr/>
+ <h:outputText value="You entered the user name #{username}." rendered="#{not empty username}"/>
+ <p>
+       <a href="home.xhtml">Go Home</a> </p>
+    </body>
+</html>
+

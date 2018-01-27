@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>UserBean.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST0 {color: #969696; font-family: Monospaced; font-weight: bold}
+.comment {color: #969696}
+.character {color: #ce7b00}
+.keyword-directive {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">D:\toUpload\Facelets_Examples\src\java\com\example\beans\UserBean.java</td></tr></table>
+<pre>
+  1 <span class="comment">/*</span>
+  2 <span class="comment"> * To change this template, choose Tools | Templates</span>
+  3 <span class="comment"> * and open the template in the editor.</span>
+  4 <span class="comment"> */</span>
+  5 <span class="keyword-directive">package</span> com.example.beans;
+  6 
+  7 <span class="keyword-directive">import</span> java.util.Date;
+  8 <span class="keyword-directive">import</span> javax.enterprise.context.SessionScoped;
+  9 <span class="keyword-directive">import</span> javax.faces.application.FacesMessage;
+ 10 <span class="keyword-directive">import</span> javax.faces.component.UIComponent;
+ 11 <span class="keyword-directive">import</span> javax.faces.context.FacesContext;
+ 12 <span class="keyword-directive">import</span> javax.faces.validator.ValidatorException;
+ 13 <span class="keyword-directive">import</span> javax.inject.Named;
+ 14 
+ 15 <span class="comment">/**</span>
+ 16 <span class="comment"> *</span>
+ 17 <span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">admin</span>
+ 18  <span class="comment">*/</span>
+ 19 @Named
+ 20 @SessionScoped
+ 21 <span class="keyword-directive">public</span> <span class="keyword-directive">class</span> UserBean <span class="keyword-directive">implements</span> java.io.Serializable {
+ 22 
+ 23     <span class="keyword-directive">public</span> UserBean() {
+ 24     }
+ 25     
+ 26    <span class="keyword-directive">protected</span> String firstName; 
+ 27     <span class="keyword-directive">protected</span> String lastName; 
+ 28     <span class="keyword-directive">protected</span> Date dob; 
+ 29     <span class="keyword-directive">protected</span> String sex; 
+ 30     <span class="keyword-directive">protected</span> String email; 
+ 31     <span class="keyword-directive">protected</span> String serviceLevel = <span class="character">&quot;</span><span class="character">medium</span><span class="character">&quot;</span>; 
+ 32 
+ 33     <span class="keyword-directive">public</span> String getFirstName() {
+ 34         <span class="keyword-directive">return</span> firstName;
+ 35     }
+ 36 
+ 37     <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> setFirstName(String firstName) {
+ 38         <span class="keyword-directive">this</span>.firstName = firstName;
+ 39     }
+ 40 
+ 41     <span class="keyword-directive">public</span> String getLastName() {
+ 42         <span class="keyword-directive">return</span> lastName;
+ 43     }
+ 44 
+ 45     <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> setLastName(String lastName) {
+ 46         <span class="keyword-directive">this</span>.lastName = lastName;
+ 47     }
+ 48 
+ 49     <span class="keyword-directive">public</span> Date getDob() {
+ 50         <span class="keyword-directive">return</span> dob;
+ 51     }
+ 52 
+ 53     <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> setDob(Date dob) {
+ 54         <span class="keyword-directive">this</span>.dob = dob;
+ 55     }
+ 56 
+ 57     <span class="keyword-directive">public</span> String getSex() {
+ 58         <span class="keyword-directive">return</span> sex;
+ 59     }
+ 60 
+ 61     <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> setSex(String sex) {
+ 62         <span class="keyword-directive">this</span>.sex = sex;
+ 63     }
+ 64 
+ 65     <span class="keyword-directive">public</span> String getEmail() {
+ 66         <span class="keyword-directive">return</span> email;
+ 67     }
+ 68 
+ 69     <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> setEmail(String email) {
+ 70         <span class="keyword-directive">this</span>.email = email;
+ 71     }
+ 72 
+ 73     <span class="keyword-directive">public</span> String getServiceLevel() {
+ 74         <span class="keyword-directive">return</span> serviceLevel;
+ 75     }
+ 76 
+ 77     <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> setServiceLevel(String serviceLevel) {
+ 78         <span class="keyword-directive">this</span>.serviceLevel = serviceLevel;
+ 79     }
+ 80       <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> validateEmail(FacesContext context,UIComponent toValidate, 
+ 81             Object value) <span class="keyword-directive">throws</span> ValidatorException { 
+ 82         String emailStr = (String) value; 
+ 83         <span class="keyword-directive">if</span> (-1 == emailStr.indexOf(<span class="character">&quot;</span><span class="character">@</span><span class="character">&quot;</span>)) { 
+ 84             FacesMessage message = <span class="keyword-directive">new</span> FacesMessage(<span class="character">&quot;</span><span class="character">Invalid email address</span><span class="character">&quot;</span>); 
+ 85             <span class="keyword-directive">throw</span> <span class="keyword-directive">new</span> ValidatorException(message); 
+ 86         } 
+ 87   } 
+ 88  
+ 89   <span class="keyword-directive">public</span> String addConfirmedUser() { 
+ 90       <span class="keyword-directive">boolean</span> added = <span class="keyword-directive">true</span>; <span class="comment">// actual application may fail to add user </span>
+ 91       FacesMessage doneMessage = <span class="keyword-directive">null</span>; 
+ 92       String outcome = <span class="keyword-directive">null</span>; 
+ 93       <span class="keyword-directive">if</span> (added) { 
+ 94         doneMessage = <span class="keyword-directive">new</span> FacesMessage(<span class="character">&quot;</span><span class="character">Successfully added new user</span><span class="character">&quot;</span>); 
+ 95         outcome = <span class="character">&quot;</span><span class="character">done</span><span class="character">&quot;</span>; 
+ 96       } <span class="keyword-directive">else</span> { 
+ 97         doneMessage = <span class="keyword-directive">new</span> FacesMessage(<span class="character">&quot;</span><span class="character">Failed to add new user</span><span class="character">&quot;</span>); 
+ 98         outcome = <span class="character">&quot;</span><span class="character">register</span><span class="character">&quot;</span>; 
+ 99       } 
+100       FacesContext.getCurrentInstance().addMessage(<span class="keyword-directive">null</span>, doneMessage); 
+101       <span class="keyword-directive">return</span> outcome; 
+102 }
+103 }
+</pre></body>
+</html>

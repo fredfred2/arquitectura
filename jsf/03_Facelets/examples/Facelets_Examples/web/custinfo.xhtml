@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <title>Core Tags Example</title>
+    </head>
+    <body>
+        <div>Core Tags</div>
+        <h:panelGrid columns="1">
+          <f:facet name="header">
+                    <h:outputText value="Customer Information"/>
+                </f:facet>
+            <h:outputText value="#{customer.name}"/>
+           
+            <h:outputText value="#{customer.number}"/> 
+            
+            <h:outputText value="#{customer.type}"/> 
+        
+           <f:facet name="footer">
+              <h:outputText value= "Thank you"/>
+                            
+          
+          </f:facet>
+            </h:panelGrid>
+        <p>   <a href="home.xhtml">Go Home</a> </p>
+    </body>
+</html>

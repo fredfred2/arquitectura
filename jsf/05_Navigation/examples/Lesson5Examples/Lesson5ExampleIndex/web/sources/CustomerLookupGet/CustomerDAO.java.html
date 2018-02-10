@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title>CustomerDAO.java</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../res/styles.css" type="text/css">
+    <style type="text/css">
+      <!--
+      .ST1 {font-weight: bold}
+      .ST0 {color: #969696; font-weight: bold}
+      .comment {color: #969696}
+      .character {color: #ce7b00}
+      .ST2 {color: #009900; font-style: italic}
+      .keyword-directive {color: #0000e6}
+      -->
+    </style>
+  </head>
+  <body>
+<script src="../../res/jquery.js" type="text/javascript"></script>
+<script src="../../res/jquery.tooltip.js" type="text/javascript"></script>
+<script src="../../res/tooltip.js" type="text/javascript"></script>
+<p>
+<a href="../../">Go back</a>
+</p>
+    <table width="100%"><tr><td align="center">D:\MyProjects\JSF-Dev\D77738GC10\05_Navigation\examples\CustomerLookupGet\src\java\com\example\CustomerDAO.java</td></tr></table>
+    <pre>
+<span class="comment">/*</span>
+<span class="comment"> * To change this template, choose Tools | Templates</span>
+<span class="comment"> * and open the template in the editor.</span>
+<span class="comment"> */</span>
+<span class="keyword-directive">package</span> com.example;
+
+<span class="keyword-directive">import</span> java.util.HashMap;
+
+<span class="comment">/**</span>
+<span class="comment"> *</span>
+<span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">anshenoy</span>
+ <span class="comment">*/</span>
+<span class="keyword-directive">public</span> <span class="keyword-directive">class</span> <span class="ST1">CustomerDAO</span> {
+    
+    <span class="keyword-directive">static</span> HashMap&lt;String, Customer&gt; <span class="ST2">data</span>;
+ 
+    <span class="keyword-directive">static</span> {
+        <span class="ST2">data</span> = <span class="keyword-directive">new</span> HashMap&lt;String, Customer&gt;();
+ 
+        <span class="ST2">data</span>.put(<span class="character">&quot;</span><span class="character">E001</span><span class="character">&quot;</span>, <span class="keyword-directive">new</span> Customer(<span class="character">&quot;</span><span class="character">E001</span><span class="character">&quot;</span>, <span class="character">&quot;</span><span class="character">Bugs Bunny</span><span class="character">&quot;</span>));
+        <span class="ST2">data</span>.put(<span class="character">&quot;</span><span class="character">E002</span><span class="character">&quot;</span>, <span class="keyword-directive">new</span> Customer(<span class="character">&quot;</span><span class="character">E002</span><span class="character">&quot;</span>, <span class="character">&quot;</span><span class="character">Daffy Duck</span><span class="character">&quot;</span>));
+        <span class="ST2">data</span>.put(<span class="character">&quot;</span><span class="character">E003</span><span class="character">&quot;</span>, <span class="keyword-directive">new</span> Customer(<span class="character">&quot;</span><span class="character">E003</span><span class="character">&quot;</span>, <span class="character">&quot;</span><span class="character">Samity Sam</span><span class="character">&quot;</span>));
+    }
+ 
+    <span class="keyword-directive">public</span> Customer <span class="ST1">findCustomer</span>(String id) {
+        <span class="keyword-directive">return</span> <span class="ST2">data</span>.get(id);
+    }
+    
+}
+
+</pre>
+<div id="tt-overview">
+</div>
+<p>
+<a href="../../">Go back</a>
+</p>
+</body>
+</html>

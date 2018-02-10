@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title>MainController.java</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../res/styles.css" type="text/css">
+    <style type="text/css">
+      <!--
+      .ST1 {font-weight: bold}
+      .ST0 {color: #969696; font-weight: bold}
+      .comment {color: #969696}
+      .ST2 {color: #009900}
+      .character {color: #ce7b00}
+      .keyword-directive {color: #0000e6}
+      -->
+    </style>
+  </head>
+  <body>
+<script src="../../res/jquery.js" type="text/javascript"></script>
+<script src="../../res/jquery.tooltip.js" type="text/javascript"></script>
+<script src="../../res/tooltip.js" type="text/javascript"></script>
+<p>
+<a href="../../">Go back</a>
+</p>
+    <table width="100%"><tr><td align="center">D:\MyProjects\JSF-Dev\D77738GC10\05_Navigation\examples\CustomerLookupGet\src\java\com\example\MainController.java</td></tr></table>
+    <pre>
+<span class="comment">/*</span>
+<span class="comment"> * To change this template, choose Tools | Templates</span>
+<span class="comment"> * and open the template in the editor.</span>
+<span class="comment"> */</span>
+<span class="keyword-directive">package</span> com.example;
+
+<span class="keyword-directive">import</span> javax.inject.Named;
+<span class="keyword-directive">import</span> javax.enterprise.context.Dependent;
+<span class="keyword-directive">import</span> javax.enterprise.context.RequestScoped;
+
+<span class="comment">/**</span>
+<span class="comment"> *</span>
+<span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">anshenoy</span>
+ <span class="comment">*/</span>
+@Named(value = <span class="character">&quot;</span><span class="character">mainController</span><span class="character">&quot;</span>)
+@RequestScoped
+<span class="keyword-directive">public</span> <span class="keyword-directive">class</span> <span class="ST1">MainController</span> {
+
+    <span class="comment">/**</span>
+<span class="comment">     * </span><span class="comment">Creates</span> <span class="comment">a</span> <span class="comment">new</span> <span class="comment">instance</span> <span class="comment">of</span> <span class="comment">MainController</span>
+     <span class="comment">*/</span>
+   String <span class="ST2">lookupId</span>;
+    Customer <span class="ST2">customer</span> = <span class="keyword-directive">new</span> Customer();
+ 
+    <span class="keyword-directive">public</span> String <span class="ST1">getLookupId</span>() {
+        <span class="keyword-directive">return</span> <span class="ST2">lookupId</span>;
+    }
+    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> <span class="ST1">setLookupId</span>(String lookupId) {
+        <span class="keyword-directive">this</span>.<span class="ST2">lookupId</span> = lookupId;
+    }
+    <span class="keyword-directive">public</span> Customer <span class="ST1">getCustomer</span>() {
+        <span class="keyword-directive">return</span> <span class="ST2">customer</span>;
+    }
+    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> <span class="ST1">setCustomer</span>(Customer customer) {
+        <span class="keyword-directive">this</span>.<span class="ST2">customer</span> = customer;
+    }
+    <span class="keyword-directive">public</span> String <span class="ST1">doLookup</span>() {
+        CustomerDAO dao = <span class="keyword-directive">new</span> CustomerDAO();
+ 
+        <span class="ST2">customer</span> = dao.findCustomer(<span class="ST2">lookupId</span>);
+ 
+        <span class="keyword-directive">return</span> <span class="character">&quot;</span><span class="character">result</span><span class="character">&quot;</span>;
+    }
+}
+
+</pre>
+<div id="tt-overview">
+</div>
+<p>
+<a href="../../">Go back</a>
+</p>
+</body>
+</html>

@@ -1,0 +1,536 @@
+/*
+ * Sets the style for a page's body element.
+*/
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif !important;
+    background: rgb(206,219,235);
+    color: #000000;
+}
+
+/*
+ * Sets the style for a page's form element.
+*/
+form {
+    width: 100%;
+    padding: 0;
+}
+
+/*
+ * Classes below applies to the following components respectively:
+ * active Prev/Next link of table
+ * goLink and commandLink
+ * breadCrumb
+ * panelTabbed
+ * links of a navigationPane whose hint is either 'button'or 'list'
+*/
+.OraNavBarActiveLink,
+.OraLink:link,
+af|breadCrumbs::step,
+af|panelTabbed::tab  a,
+af|navigationPane::buttons-content a, 
+af|navigationPane::list-content a {
+    color: rgb(0,52,154);
+    font-size: 13px;
+}
+
+/*
+ * Classes below applies to the links of a navigationPane whose hints is  
+ * either 'bar' or 'tab'.
+*/
+af|navigationPane::bar-content a, 
+af|navigationPane::tabs-mid  a {
+    color: rgb(0,52,154) !important;
+    font-size: 13px;
+}
+
+/*
+ * Class below applies to goLink and commandLink if the link is visited
+*/
+.OraLink:visited {
+    color: #336666;
+    font-size: 13px;
+}
+
+/*
+ * Class below applies to goLink and commandLink if the link is active
+*/
+.OraLink:active {
+    color: rgb(0,52,154);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/*
+ * Class below applies for table component's inactive pagination-links
+*/
+.OraNavBarInActiveLink{
+    font-size: 13px;
+}
+
+/*
+ * Class below set the color for a selected panelTabbed
+*/
+af|panelTabbed::tab-selected  a {
+    color: rgb(0,52,154);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* 
+ * Class below applies to a table component's pagination-controller.  
+*/   
+af|table::control-bar-top {
+    background-color: #FFFFFF; 
+    border: none;
+    border-top: 1px solid #E0E0E0;
+    border-bottom: 1px solid #E0E0E0;
+    font-size: 13px;
+}
+
+/* 
+ * Class below applies to the column header of a table component.  
+*/
+af|table::content tr th {
+    background-color: #E9E8E8;
+    color: rgb(112,74,0);
+    font-size: 16px;
+    padding-left: 10px;
+    padding-right: 2px;
+    border: none;
+    border-left:1px solid #E0E0E0
+}
+
+/* 
+ * Classes below removes border of a table component.  
+*/
+af|table::content tr th:first-child,
+.OraTableBorder0001,
+.OraTableBorder0101,
+.OraTableBorder1101, 
+.OraTableBorder1001,
+.OraTableBorder1111 {
+    border: none;
+}
+
+/* 
+ * Class below applies to a table-component's content.  
+*/
+af|table::content {
+    border-collapse: collapse; 
+    border-color: none;
+    border-style: none;
+    background: #FFFFFF;
+}
+
+/* 
+ * Class below applies to each cell of a table component.  
+*/
+af|column::cell-text {
+    border-bottom: 1px solid #E0E0E0 !important;
+    background: #FFFFFF; 
+    padding: 4px 2px 4px 10px;
+    font-size: 14px;
+    list-style: none;
+    vertical-align: middle;
+}
+
+/*
+ * Class below is applied to the detail facet of a table component
+*/
+af|table::detail {
+    border-bottom: 1px solid #E0E0E0 !important;
+}
+
+.af_panelTabbed_body {
+    text-align: center;
+}
+
+/* 
+ * Class below applies to a panelFormLayout 
+*/
+af|panelFormLayout {
+    background: #FFFFFF;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    display: inline-block;
+    padding: 10px;
+}
+
+/* 
+ * Class below applies to the label cell of a panelFormLayout component.
+*/
+af|panelFormLayout::label-cell {
+    font-size: 15px;
+    font-weight: bold;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-weight: bold;
+    color: black;
+    text-align: right;
+    height: 20px;
+}
+
+/* 
+ * Class below applies to the content cell of a panelFormLayout component.
+*/
+af|panelFormLayout::content-cell {
+    font-size: 15px;
+    color: #000000;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 2px;
+    text-align: left;
+    text-decoration: inherit;
+    vertical-align: middle;
+    height: 20px;
+    white-space:normal;
+}
+
+/* 
+ * Expression below makes all children of a panelForm's content-cell to inherit 
+ * the font-size.
+*/
+af|panelFormLayout::content-cell * {
+    font-size: inherit;
+}
+
+/* 
+ * Class below applies to showDetail links.
+*/
+af|showDetail::prompt-link,
+af|showDetail::disclosure-icon-link {
+    text-decoration: none;
+}
+
+/*
+ * Expression below applies to a panelList component.
+*/
+af|panelList ul {
+    background: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    border-top:1px solid #E0E0E0;
+}
+
+af|panelList ul > li {
+    margin: 0;
+    border-bottom: 1px solid #E0E0E0;
+    padding: 8px 0 8px 10px ;
+    list-style: none 
+}
+
+/*
+ * This expression is applied to all links in a panelList. 
+*/
+af|panelList ul > li  a {
+    display: block ;
+    text-decoration: none;
+    color: rgb(0,52,154);
+    background: url(/images/listArrow.png) no-repeat right center ;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+/*
+ * Classes below sets the background for navigationPane components. 
+ * af|navigationPane applies to the hints 'list' and 'button'.
+ * af|navigationPane::bar applies to the hint 'bar'
+*/
+af|navigationPane, 
+af|navigationPane::bar {
+    background: #FFFFFF;
+}
+
+/* 
+ * Expression below applies to panelFormLayout's label if it is a child of a  
+ * table's detailStamp facet
+*/
+af|table::detail af|panelFormLayout::label-cell {
+    font-size: 14px;
+    font-weight: normal;
+    padding: 2px 2px 2px 8px;
+    color: black;
+    text-align: left;
+    height: auto;
+}
+
+/* 
+ * Expression below applies to panelFormLayout's field if it is a child of a  
+ * table's detailStamp facet
+*/
+af|table::detail af|panelFormLayout::content-cell {
+    font-size: 14px;
+    font-weight: normal;
+    padding: 2px 2px 2px 0px;
+    color: black;
+    text-align: left;
+    height: auto;
+}
+
+/* 
+ * Expression below applies to all children of a panelForm's field-cell if it  
+ * is a child of a table's detailStamp facet
+*/
+af|table::detail af|panelFormLayout::content-cell * {
+    font-size: inherit;
+}
+
+/*
+ * This expression applies to a date-picker icon
+*/
+img[src$="dfb.gif"] {
+    vertical-align: top;
+}
+
+/* 
+ * A table with "rowSelection" attribute as "single" renders a "Select" column 
+ * with radio buttons. The class below applies to the "Select" column.
+*/ 
+af|tableSelectOne::cell-icon-format {
+    border-bottom: 1px solid #E0E0E0 !important;
+    background-color: rgb(240,240,240);
+}
+
+.titlebar {
+    -webkit-box-sizing: border-box ;
+    padding: 10px;
+    width:100%;
+    height: 45px;
+    background: url(/images/toolbar.png) #6d84a2 repeat-x ;
+    display: block
+}
+
+.titlebar > h1 {
+    position: absolute;
+    overflow: hidden;
+    left: 50%;
+    margin: 1px 0 0 -75px;
+    height: 45px;
+    font-size: 20px;
+    width: 155px;
+    text-shadow: rgba(0, 0, 0, 0.4) 0px -1px 0;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #FFFFFF;
+    border-bottom: none;
+}
+
+.titlebar .titlebar-back {
+    position: absolute;
+    left: 5px;
+    padding: 7px 5px 7px 11px;
+    text-align: center;
+    text-decoration: none;
+    overflow: hidden;
+    border-width: 0 5px;
+    font-size: 14px !important;
+    font-weight: bold !important;
+    color: #FFFFFF  !important;
+    text-shadow: rgba(0, 0, 0, 0.6) 0px -1px 0;
+    -webkit-border-image: url(/images/backButton.png) 0 5 0 5;
+}
+
+.titlebar .titlebar-link {
+    position: absolute;
+    right: 5px;
+    padding: 7px 5px;
+    text-align: center;
+    text-decoration: none;
+    overflow: hidden;
+    border-width: 0 5px;
+    font-size: 14px !important;
+    font-weight: bold !important;
+    color: #FFFFFF  !important;
+    text-shadow: rgba(0, 0, 0, 0.6) 0px -1px 0;
+    -webkit-border-image: url(/images/toolButton.png) 0 5 0 5;
+}
+
+.titlebar .titlebar-search {
+    display: none;
+}
+
+.media-header {
+    display: none;
+}
+
+.media-tile-image {
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 60px;
+    max-width: 60px;
+    display: inline;
+}
+
+.media-large-image {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.media-large-video {
+    min-height: 160px;
+    min-width: 160px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.group-header {
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: -1px;
+    text-align: center;
+    vertical-align: center;
+    border: 1px solid #999999;
+    line-height: 45px;
+    -webkit-border-top-left-radius: 8px;
+    -webkit-border-top-right-radius: 8px;
+    background: url(/images/toolbar.png) #6d84a2 repeat-x ;
+}
+
+.media-tile-id {
+    margin-left: 8px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+ul.media-tiles {
+    list-style: none;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 0;
+    padding: 0;
+}
+
+ul.media-tiles li a {
+    background: #FFFFFF url(/images/listArrow.png) no-repeat right center;
+    border: 1px solid #999999;
+    color: #222222;
+    display: block;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: -1px;
+    padding: 12px 10px;
+    text-decoration: none;
+}
+
+ul.media-tiles li:last-of-type a {
+    -webkit-border-bottom-left-radius: 8px;
+    -webkit-border-bottom-right-radius: 8px;
+}
+
+.nav-footer {
+    color: white;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    background-color: #6d84a2;
+    height:20px;
+    width: 100%;
+}
+
+.nav-footer form {
+    display: inline;
+}
+
+.nav-footer * {
+    color: white !important;
+    font-size: inherit !important;
+}
+
+.settings-form {
+    width: auto !important;
+    padding: 10px;
+}
+
+.settings-form input[type="submit"] {
+    display: block;
+}
+
+.af_panelTabbed_orientation-top, .af_panelTabbed_orientation-bottom {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: auto;
+}
+
+.af_panelTabbed_orientation-top *, .af_panelTabbed_orientation-bottom *{
+    text-decoration: none;
+}
+
+.af_panelTabbed_cell-start {
+    -webkit-border-top-left-radius: 8px;
+    -webkit-border-bottom-left-radius: 8px;
+    -moz-border-top-left-radius: 8px;
+    -moz-border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    width: 12px;
+    border: solid 1px #9a9a99;
+    background: url(/images/segend.png) #646464 repeat-x;
+}
+
+.af_panelTabbed_tab-selected {
+    padding: 10px;
+    border: solid 1px #9a9a99;
+    border-left: none;
+    background: url(/images/segactive.png) #6297f2 repeat-x;
+}
+
+.af_panelTabbed_tab-selected * {
+    color: white !important;
+    font-weight: normal !important;
+}
+
+.af_panelTabbed_separator-after-selected {
+    width: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.af_panelTabbed_tab {
+    padding: 10px;
+    border: solid 1px #9a9a99;
+    border-left: none;
+    background: url(/images/segbutton.png) #bdbdbd repeat-x ;
+}
+
+.af_panelTabbed_tab * {
+    color: #6b6b6b !important;
+    font-weight: normal !important;
+}
+
+.af_panelTabbed_tab .p_OraDisabled {
+    color: whitesmoke !important;
+}
+
+.af_panelTabbed_separator {
+    width: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.af_panelTabbed_cell-end {
+    -webkit-border-top-right-radius: 8px;
+    -webkit-border-bottom-right-radius: 8px;
+    -moz-border-top-right-radius: 8px;
+    -moz-border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    width: 12px;
+    border: solid 1px #9a9a99;
+    border-left: none;
+    background: url(/images/segend.png) #646464 repeat-x;
+}

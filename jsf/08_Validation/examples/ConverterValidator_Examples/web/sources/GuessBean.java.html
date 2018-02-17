@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>GuessBean.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.character {color: #ce7b00}
+.keyword-directive {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">D:\toUpload\ConverterValidator_Examples\src\java\com\example\convertervalidator\GuessBean.java</td></tr></table>
+<pre>
+<span class="keyword-directive">package</span> com.example.convertervalidator;
+
+<span class="keyword-directive">import</span> java.io.Serializable;
+<span class="keyword-directive">import</span> java.util.Random;
+<span class="keyword-directive">import</span> javax.annotation.PostConstruct;
+<span class="keyword-directive">import</span> javax.enterprise.context.SessionScoped;
+<span class="keyword-directive">import</span> javax.faces.application.FacesMessage;
+<span class="keyword-directive">import</span> javax.faces.context.FacesContext;
+<span class="keyword-directive">import</span> javax.inject.Named;
+
+@Named
+@SessionScoped
+<span class="keyword-directive">public</span> <span class="keyword-directive">class</span> GuessBean <span class="keyword-directive">implements</span> Serializable {
+
+    <span class="keyword-directive">private</span> <span class="keyword-directive">static</span> <span class="keyword-directive">final</span> <span class="keyword-directive">int</span> max = 100;
+    <span class="keyword-directive">private</span> <span class="keyword-directive">int</span> answer;
+    <span class="keyword-directive">private</span> <span class="keyword-directive">int</span> guess;
+
+    <span class="keyword-directive">public</span> GuessBean() {
+    }
+
+    <span class="keyword-directive">public</span> <span class="keyword-directive">int</span> getGuess() {
+        <span class="keyword-directive">return</span> guess;
+    }
+
+    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> setGuess(<span class="keyword-directive">int</span> guess) {
+        <span class="keyword-directive">this</span>.guess = guess;
+    }
+
+    <span class="keyword-directive">public</span> <span class="keyword-directive">int</span> getMax() {
+        <span class="keyword-directive">return</span> max;
+    }
+
+    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> checkAnswer() {
+        String s = <span class="character">&quot;&quot;</span>;
+        <span class="keyword-directive">if</span> (guess == answer) {
+            s = <span class="character">&quot;</span><span class="character">Congratulations! You guessed my number!</span><span class="character">&quot;</span>;
+        } <span class="keyword-directive">else</span> <span class="keyword-directive">if</span> (guess &gt; answer) {
+            s = <span class="character">&quot;</span><span class="character">Too high!</span><span class="character">&quot;</span>;
+        } <span class="keyword-directive">else</span> <span class="keyword-directive">if</span> (guess &lt; answer) {
+            s = <span class="character">&quot;</span><span class="character">Too Low</span><span class="character">&quot;</span>;
+        }
+        FacesContext.getCurrentInstance().addMessage(<span class="keyword-directive">null</span>, <span class="keyword-directive">new</span> FacesMessage(s));
+    }
+
+    @PostConstruct
+    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> reset() {
+        guess = 0;
+        answer = <span class="keyword-directive">new</span> Random().nextInt(max);
+        System.out.println(<span class="character">&quot;</span><span class="character">Number is: </span><span class="character">&quot;</span> + answer);
+    }
+}
+
+</pre></body>
+</html>

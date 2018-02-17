@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>LicenseBean.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST0 {font-family: Monospaced; font-weight: bold}
+.ST1 {color: #009900}
+.character {color: #ce7b00}
+.keyword-directive {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">D:\toUpload\ConverterValidator_Examples\src\java\com\example\custom\beanvalidation\LicenseBean.java</td></tr></table>
+<pre>
+<span class="keyword-directive">package</span> com.example.custom.beanvalidation;
+
+<span class="keyword-directive">import</span> com.example.custom.beanvalidation.constraints.ValidLicenseKey;
+<span class="keyword-directive">import</span> javax.enterprise.context.RequestScoped;
+<span class="keyword-directive">import</span> javax.inject.Named;
+
+@Named
+@RequestScoped
+<span class="keyword-directive">public</span> <span class="keyword-directive">class</span> <span class="ST0">LicenseBean</span> {
+
+    @ValidLicenseKey
+    <span class="keyword-directive">private</span> String <span class="ST1">licenseKey</span>;
+
+    <span class="keyword-directive">public</span> <span class="ST0">LicenseBean</span>() {
+    }
+
+    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> <span class="ST0">setLicenseKey</span>(String licenseKey) {
+        <span class="keyword-directive">this</span>.<span class="ST1">licenseKey</span> = licenseKey;
+    }
+
+    <span class="keyword-directive">public</span> String <span class="ST0">getLicenseKey</span>() {
+        <span class="keyword-directive">return</span> <span class="ST1">licenseKey</span>;
+    }
+
+    <span class="keyword-directive">public</span> String <span class="ST0">validateLicense</span>() {
+        <span class="keyword-directive">return</span> <span class="character">&quot;</span><span class="character">success</span><span class="character">&quot;</span>;
+    }
+}
+</pre></body>
+</html>

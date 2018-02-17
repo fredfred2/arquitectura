@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>EMailValidator.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST0 {color: #969696; font-family: Monospaced; font-weight: bold}
+.comment {color: #969696}
+.character {color: #ce7b00}
+.keyword-directive {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">D:\toUpload\ConverterValidator_Examples\src\java\com\example\custom\validator\EMailValidator.java</td></tr></table>
+<pre>
+<span class="keyword-directive">package</span> com.example.custom.validator;
+
+<span class="keyword-directive">import</span> java.io.Serializable;
+<span class="keyword-directive">import</span> javax.faces.application.FacesMessage;
+<span class="keyword-directive">import</span> javax.faces.component.UIComponent;
+<span class="keyword-directive">import</span> javax.faces.component.UIInput;
+<span class="keyword-directive">import</span> javax.faces.context.FacesContext;
+<span class="keyword-directive">import</span> javax.faces.validator.FacesValidator;
+<span class="keyword-directive">import</span> javax.faces.validator.Validator;
+
+<span class="comment">/**</span>
+<span class="comment"> *</span>
+<span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">tmcginn</span>
+ <span class="comment">*/</span>
+@FacesValidator(<span class="character">&quot;</span><span class="character">com.java.example.EMailValidator</span><span class="character">&quot;</span>)
+<span class="keyword-directive">public</span> <span class="keyword-directive">class</span> EMailValidator <span class="keyword-directive">implements</span> Validator, Serializable {
+
+    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> validate (FacesContext context, UIComponent toValidate, Object value) {
+        String message = <span class="character">&quot;&quot;</span>;
+        String email = (String) value;
+        <span class="keyword-directive">if</span> (!email.contains(<span class="character">&quot;</span><span class="character">@</span><span class="character">&quot;</span>)) {
+            ((UIInput) toValidate).setValid(<span class="keyword-directive">false</span>);
+            message = <span class="character">&quot;</span><span class="character">Please be sure to enter a valid email address: name@provider</span><span class="character">&quot;</span>;
+            context.addMessage(toValidate.getClientId(context),
+                    <span class="keyword-directive">new</span> FacesMessage(message));
+        }
+    }
+}
+
+</pre></body>
+</html>

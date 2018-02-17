@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Payment.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST0 {color: #969696; font-family: Monospaced; font-weight: bold}
+.comment {color: #969696}
+.character {color: #ce7b00}
+.keyword-directive {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">D:\toUpload\ConverterValidator_Examples\src\java\com\example\custom\converter\Payment.java</td></tr></table>
+<pre>
+<span class="keyword-directive">package</span> com.example.custom.converter;
+
+<span class="keyword-directive">import</span> java.io.Serializable;
+<span class="keyword-directive">import</span> java.util.ArrayList;
+<span class="keyword-directive">import</span> javax.inject.Named;
+<span class="keyword-directive">import</span> javax.enterprise.context.SessionScoped;
+<span class="keyword-directive">import</span> javax.faces.model.SelectItem;
+
+<span class="comment">/**</span>
+<span class="comment"> *</span>
+<span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">tmcginn</span>
+ <span class="comment">*/</span>
+@Named
+@SessionScoped
+<span class="keyword-directive">public</span> <span class="keyword-directive">class</span> Payment <span class="keyword-directive">implements</span> Serializable {
+    <span class="keyword-directive">private</span> String name;
+    <span class="keyword-directive">private</span> CreditCard cardNumber = <span class="keyword-directive">new</span> CreditCard (<span class="character">&quot;&quot;</span>);
+    <span class="keyword-directive">private</span> String cardType;
+    <span class="keyword-directive">private</span> ArrayList cardTypesAccepted;
+
+    <span class="comment">/**</span> <span class="comment">Creates</span> <span class="comment">a</span> <span class="comment">new</span> <span class="comment">instance</span> <span class="comment">of</span> <span class="comment">CreditCard</span> <span class="comment">*/</span>
+    <span class="keyword-directive">public</span> Payment() {
+        
+    }
+
+    <span class="keyword-directive">public</span> ArrayList getCardTypesAccepted () {
+        cardTypesAccepted = <span class="keyword-directive">new</span> ArrayList ();
+        cardTypesAccepted.add (<span class="keyword-directive">new</span> SelectItem (<span class="character">&quot;</span><span class="character">AE</span><span class="character">&quot;</span>,<span class="character">&quot;</span><span class="character">American Express</span><span class="character">&quot;</span>));
+        cardTypesAccepted.add (<span class="keyword-directive">new</span> SelectItem (<span class="character">&quot;</span><span class="character">DC</span><span class="character">&quot;</span>,<span class="character">&quot;</span><span class="character">Diners Club</span><span class="character">&quot;</span>));
+        cardTypesAccepted.add (<span class="keyword-directive">new</span> SelectItem (<span class="character">&quot;</span><span class="character">MC</span><span class="character">&quot;</span>,<span class="character">&quot;</span><span class="character">Mastercard</span><span class="character">&quot;</span>));
+        cardTypesAccepted.add (<span class="keyword-directive">new</span> SelectItem (<span class="character">&quot;</span><span class="character">VS</span><span class="character">&quot;</span>, <span class="character">&quot;</span><span class="character">VISA</span><span class="character">&quot;</span>));
+        <span class="keyword-directive">return</span> cardTypesAccepted;
+    }
+
+    <span class="keyword-directive">public</span> CreditCard getCardNumber() {
+        <span class="keyword-directive">return</span> <span class="keyword-directive">this</span>.cardNumber;
+    }
+
+    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> setCardNumber(CreditCard cardNumber) {
+        <span class="keyword-directive">this</span>.cardNumber = cardNumber;
+        System.out.println(<span class="character">&quot;</span><span class="character">converted value: </span><span class="character">&quot;</span>+cardNumber.toString());
+    }
+
+    <span class="keyword-directive">public</span> String getCardType() {
+        <span class="keyword-directive">return</span> cardType;
+    }
+
+    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> setCardType(String cardType) {
+        <span class="keyword-directive">this</span>.cardType = cardType;
+    }
+
+    <span class="keyword-directive">public</span> String getName() {
+        <span class="keyword-directive">return</span> name;
+    }
+
+    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> setName(String name) {
+        <span class="keyword-directive">this</span>.name = name;
+    }
+
+}
+
+</pre></body>
+</html>

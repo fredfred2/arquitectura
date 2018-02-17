@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Simple Custom Converter Example</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            Enter your Payment information:
+            <h:panelGrid columns="2">
+                Type of Card:  <h:selectOneMenu value="#{payment.cardType}" >
+                                <f:selectItems value="#{payment.cardTypesAccepted}" />
+                                </h:selectOneMenu>
+                Name on Credit Card:   <h:inputText value="#{payment.name}" />
+                Credit Card Number:  <h:inputText value="#{payment.cardNumber}" converter="com.java.example.Card"/>
+            </h:panelGrid>
+            <h:commandButton value="Submit" action="response2" />
+        </h:form>
+         <p><a href="index.xhtml">Back</a></p>
+    </h:body>
+</html>

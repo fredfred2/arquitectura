@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Simple Custom Validator Example</title>
+    </h:head>
+    <h:body>
+        <h:form>
+        Enter your Contact information:
+        <h:panelGrid columns="2">
+            Name: <h:inputText required="true" value="#{contact.name}" />
+            E-mail: <h:inputText value="#{contact.email}">
+                    <f:validator validatorId="com.java.example.EMailValidator" />
+                    </h:inputText>
+        </h:panelGrid>
+        <h:commandButton value="Submit" action="response3" />
+        </h:form>
+    </h:body>
+</html>

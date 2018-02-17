@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>ValidLicenseKeyValidator.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.comment {color: #969696}
+.ST0 {color: #ce7b00; font-family: Monospaced; font-weight: bold}
+.character {color: #ce7b00}
+.keyword-directive {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">d:\labs\08_Validation\examples\ConverterValidator_Examples\src\java\com\example\custom\beanvalidation\constraints\ValidLicenseKeyValidator.java</td></tr></table>
+<pre>
+ 1 <span class="keyword-directive">package</span> com.example.custom.beanvalidation.constraints;
+ 2 
+ 3 <span class="keyword-directive">import</span> java.util.HashMap;
+ 4 <span class="keyword-directive">import</span> java.util.Map;
+ 5 <span class="keyword-directive">import</span> java.util.regex.Pattern;
+ 6 <span class="keyword-directive">import</span> javax.validation.ConstraintValidator;
+ 7 <span class="keyword-directive">import</span> javax.validation.ConstraintValidatorContext;
+ 8 
+ 9 <span class="keyword-directive">public</span> <span class="keyword-directive">class</span> ValidLicenseKeyValidator <span class="keyword-directive">implements</span> ConstraintValidator&lt;ValidLicenseKey, String&gt; {
+10     <span class="keyword-directive">private</span> Map&lt;String, String&gt; prodLicenseKey;
+11     
+12     @Override
+13     <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> initialize(ValidLicenseKey constraintAnnotation) {
+14         <span class="comment">// These could come from a properties file or better, a database</span>
+15         prodLicenseKey = <span class="keyword-directive">new</span> HashMap();
+16         prodLicenseKey.put(<span class="character">&quot;</span><span class="character">XRP</span><span class="character">&quot;</span>, <span class="character">&quot;</span><span class="character">[a-z]*</span><span class="character">&quot;</span>); <span class="comment">// XRP-xxxxxx </span>
+17         prodLicenseKey.put(<span class="character">&quot;</span><span class="character">RWS</span><span class="character">&quot;</span>, <span class="character">&quot;</span><span class="character">[1-9]*</span><span class="character">&quot;</span>); <span class="comment">// RWS-nnnnnn   </span>
+18     }
+19 
+20     @Override
+21     <span class="keyword-directive">public</span> <span class="keyword-directive">boolean</span> isValid(String licenseKey, ConstraintValidatorContext context) {
+22         <span class="comment">// break the string passed in into the product code and license key components</span>
+23         String[] keyComponents = licenseKey.split(<span class="character">&quot;</span><span class="ST0">\\</span><span class="character">s*-</span><span class="ST0">\\</span><span class="character">s*</span><span class="character">&quot;</span>);
+24         
+25         <span class="comment">// If the number of keyComponents is any number other than two then fail</span>
+26         <span class="keyword-directive">if</span> (keyComponents.length != 2) {
+27             <span class="keyword-directive">return</span> <span class="keyword-directive">false</span>;
+28         }
+29         
+30         <span class="comment">// Check if the character count for the key and value is correct - it must be</span>
+31         <span class="comment">// 3 characters for the product code and 6 characters for the license key</span>
+32         <span class="keyword-directive">if</span> (keyComponents[0].length() != 3 || keyComponents[1].length() !=6) {
+33             <span class="keyword-directive">return</span> <span class="keyword-directive">false</span>;
+34         }
+35         
+36         <span class="comment">// Now check if the product code exists as a key in the Map</span>
+37         <span class="keyword-directive">if</span> (!prodLicenseKey.containsKey(keyComponents[0])) {
+38             <span class="keyword-directive">return</span> <span class="keyword-directive">false</span>;
+39         }
+40         
+41         <span class="comment">// Now check if the license meets the pattern - actual validation of the</span>
+42         <span class="comment">// license key itself would be an additional step</span>
+43         <span class="keyword-directive">if</span> (!(Pattern.matches((String)prodLicenseKey.get(keyComponents[0]),keyComponents[1]))){
+44             <span class="keyword-directive">return</span> <span class="keyword-directive">false</span>;
+45         }
+46         
+47         <span class="comment">// Everything passed!</span>
+48         <span class="keyword-directive">return</span> <span class="keyword-directive">true</span>;
+49     }
+50 }
+</pre></body>
+</html>

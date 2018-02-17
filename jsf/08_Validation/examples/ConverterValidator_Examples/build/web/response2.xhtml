@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Converter Response Page</title>
+    </h:head>
+    <h:body>
+        Result:<b/>
+        <h:panelGrid columns="2">
+            Type of Card: <h:outputText value="#{payment.cardType}" />
+            Name on Credit Card: <h:outputText value="#{payment.name}" />
+            Credit Card Number: <h:outputText value="#{payment.cardNumber}" converter="com.java.example.Card"/>
+        </h:panelGrid>
+         <p><a href="index.xhtml">Back Home</a></p>
+    </h:body>
+</html>

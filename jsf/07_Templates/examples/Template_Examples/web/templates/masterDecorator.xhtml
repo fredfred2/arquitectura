@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="./../resources/css/styles.css" rel="stylesheet" type="text/css" />-->
+ 
+        <title>Decorator Template</title>
+    </h:head>
+    <h:body>
+      <ui:composition>
+   <h:outputStylesheet library="css" name="styles.css"/>
+  <ui:debug></ui:debug>
+   <div id="heading">
+      <ui:insert name="heading">Heading Template</ui:insert>
+   </div>
+   <div id="sidebarLeft">
+      <ui:insert name="sidebarLeft">SideBar Template</ui:insert>
+   </div>
+   <div id="content">
+       <ui:insert/>
+   </div>
+   
+</ui:composition>
+        
+    </h:body>
+</html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+    <h:body>
+    	
+    	<ui:composition template="/templates/commonLayout.xhtml">
+    	
+    		<ui:define name="content">
+    			<h:form> 
+<h3>Enquiry Form</h3> 
+<table>
+<tr>
+<td><h:outputText value="Enter Your Name : " /></td>
+<td><h:inputText value="#{user.name}" /></td>
+</tr>
+<tr>
+<td><h:outputText value="Enter Your e-mail : "/></td>
+<td><h:inputText value="#{user.email}"/></td>
+</tr>
+<tr>
+<td></td>
+<td><h:commandButton value="Submit" action="reply_1"/></td>
+</tr>
+</table>
+</h:form>
+    		</ui:define>
+    		
+    		<ui:define name="footer">
+    			<h:panelGrid columns="1" styleClass="t1">
+<h:dataTable value="" title="ui:composition tag example">
+
+<h:column>
+<h:link outcome="index">
+Back
+</h:link>
+</h:column>
+
+<h:column>
+<h:link outcome="welcome">
+Welcome
+</h:link>
+</h:column>
+
+<h:column>
+<h:link outcome="index">
+home
+</h:link>
+</h:column> 
+</h:dataTable>
+<h:panelGroup>
+<h:graphicImage value="/images/Footer.jpg" />
+</h:panelGroup>
+</h:panelGrid>
+
+    		</ui:define>
+    		
+    	</ui:composition>
+    	
+    </h:body>
+
+</html>

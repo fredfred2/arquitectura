@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core">
+<body>
+<ui:decorate template="/templates/layout.xhtml">
+<ui:define name="content">
+   
+<h3>User Information</h3>
+<table>
+<tr>
+<td><h:outputText value="Your Name is :"/></td>
+<td><h:outputText value="#{user.name}"/></td>
+</tr>
+<tr>
+<td><h:outputText value="Your email id is :" /></td>
+<td><h:outputText value="#{user.email}"/></td>
+</tr> 
+</table>
+<p><b>Thank You for visiting. We will contact you shortly.</b></p> 
+
+</ui:define>
+</ui:decorate>
+
+</body>
+</html>

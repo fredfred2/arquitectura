@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Customer.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST1 {font-family: Monospaced; font-weight: bold}
+.ST0 {color: #969696; font-family: Monospaced; font-weight: bold}
+.comment {color: #969696}
+.ST2 {color: #009900}
+.keyword-directive {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">D:\Paromita\JavaEE\D77738GC10\LabFiles\D77738GC10_latest\trunk\labs\07_Templates\examples\Template_Examples\src\java\com\example\beans\Customer.java</td></tr></table>
+<pre>
+<span class="comment">/*</span>
+<span class="comment"> * To change this template, choose Tools | Templates</span>
+<span class="comment"> * and open the template in the editor.</span>
+<span class="comment"> */</span>
+
+<span class="keyword-directive">package</span> com.example.beans;
+
+<span class="keyword-directive">import</span> java.io.Serializable;
+
+<span class="comment">/**</span>
+<span class="comment"> *</span>
+<span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">tmcginn</span>
+ <span class="comment">*/</span>
+<span class="keyword-directive">public</span> <span class="keyword-directive">class</span> <span class="ST1">Customer</span> <span class="keyword-directive">implements</span> Serializable {
+
+    <span class="keyword-directive">private</span> String <span class="ST2">customerID</span>;
+    <span class="keyword-directive">private</span> String <span class="ST2">lastName</span>;
+    <span class="keyword-directive">private</span> String <span class="ST2">firstName</span>;
+
+    <span class="keyword-directive">public</span> <span class="ST1">Customer</span> (String ID, String last, String first) {
+        <span class="ST2">customerID</span> = ID;
+        <span class="ST2">lastName</span> = last;
+        <span class="ST2">firstName</span> = first;
+    }
+
+    <span class="keyword-directive">public</span> String <span class="ST1">getCustomerID</span>() {
+        <span class="keyword-directive">return</span> <span class="ST2">customerID</span>;
+    }
+
+    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> <span class="ST1">setCustomerID</span>(String customerID) {
+        <span class="keyword-directive">this</span>.<span class="ST2">customerID</span> = customerID;
+    }
+
+    <span class="keyword-directive">public</span> String <span class="ST1">getFirstName</span>() {
+        <span class="keyword-directive">return</span> <span class="ST2">firstName</span>;
+    }
+
+    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> <span class="ST1">setFirstName</span>(String firstName) {
+        <span class="keyword-directive">this</span>.<span class="ST2">firstName</span> = firstName;
+    }
+
+    <span class="keyword-directive">public</span> String <span class="ST1">getLastName</span>() {
+        <span class="keyword-directive">return</span> <span class="ST2">lastName</span>;
+    }
+
+    <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> <span class="ST1">setLastName</span>(String lastName) {
+        <span class="keyword-directive">this</span>.<span class="ST2">lastName</span> = lastName;
+    }
+
+}
+
+</pre></body>
+</html>

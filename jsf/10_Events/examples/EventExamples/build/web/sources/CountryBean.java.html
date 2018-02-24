@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>CountryBean.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST0 {font-family: Monospaced; font-weight: bold}
+.comment {color: #969696}
+.ST2 {color: #009900}
+.character {color: #ce7b00}
+.ST1 {color: #009900; font-family: Monospaced; font-style: italic}
+.keyword-directive {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">D:\toUpload\EventExamples\src\java\com\example\beans\CountryBean.java</td></tr></table>
+<pre>
+<span class="keyword-directive">package</span> com.example.beans;
+
+<span class="keyword-directive">import</span> java.io.Serializable;
+<span class="keyword-directive">import</span> java.util.LinkedHashMap;
+<span class="keyword-directive">import</span> java.util.Map;
+<span class="comment">//import javax.enterprise.context.SessionScoped;</span>
+
+<span class="keyword-directive">import</span> javax.faces.bean.ManagedBean;
+<span class="keyword-directive">import</span> javax.faces.bean.SessionScoped;
+<span class="keyword-directive">import</span> javax.faces.event.ValueChangeEvent;
+<span class="comment">//import javax.inject.Named;</span>
+ 
+@ManagedBean(name=<span class="character">&quot;</span><span class="character">country</span><span class="character">&quot;</span>)
+<span class="comment">//@Named(&quot;country&quot;)</span>
+@SessionScoped
+<span class="keyword-directive">public</span> <span class="keyword-directive">class</span> <span class="ST0">CountryBean</span> <span class="keyword-directive">implements</span> Serializable{
+        
+        <span class="keyword-directive">private</span> <span class="keyword-directive">static</span> <span class="keyword-directive">final</span> <span class="keyword-directive">long</span> <span class="ST1">serialVersionUID</span> = 1L;
+        
+        <span class="keyword-directive">private</span> <span class="keyword-directive">static</span> Map&lt;String,String&gt; <span class="ST1">countries</span>;
+        
+        <span class="keyword-directive">private</span> String <span class="ST2">localeCode</span> = <span class="character">&quot;</span><span class="character">en</span><span class="character">&quot;</span>; <span class="comment">//default value </span>
+        
+        <span class="keyword-directive">static</span>{
+                <span class="ST1">countries</span> = <span class="keyword-directive">new</span> LinkedHashMap&lt;String,String&gt;();
+                <span class="ST1">countries</span>.put(<span class="character">&quot;</span><span class="character">United Kingdom</span><span class="character">&quot;</span>, <span class="character">&quot;</span><span class="character">en</span><span class="character">&quot;</span>); <span class="comment">//label, value</span>
+                <span class="ST1">countries</span>.put(<span class="character">&quot;</span><span class="character">French</span><span class="character">&quot;</span>, <span class="character">&quot;</span><span class="character">fr</span><span class="character">&quot;</span>);
+                <span class="ST1">countries</span>.put(<span class="character">&quot;</span><span class="character">German</span><span class="character">&quot;</span>, <span class="character">&quot;</span><span class="character">de</span><span class="character">&quot;</span>);
+                <span class="ST1">countries</span>.put(<span class="character">&quot;</span><span class="character">China</span><span class="character">&quot;</span>, <span class="character">&quot;</span><span class="character">zh_CN</span><span class="character">&quot;</span>);
+        }
+
+        <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> <span class="ST0">countryLocaleCodeChanged</span>(ValueChangeEvent e){
+                <span class="comment">//assign new value to localeCode</span>
+                <span class="ST2">localeCode</span> = e.getNewValue().toString();
+                
+        }
+
+        <span class="keyword-directive">public</span> Map&lt;String,String&gt; <span class="ST0">getCountryInMap</span>() {
+                <span class="keyword-directive">return</span> <span class="keyword-directive">this</span>.<span class="ST1">countries</span>;
+        }
+
+        <span class="keyword-directive">public</span> String <span class="ST0">getLocaleCode</span>() {
+                <span class="keyword-directive">return</span> <span class="ST2">localeCode</span>;
+        }
+
+        <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> <span class="ST0">setLocaleCode</span>(String localeCode) {
+                <span class="keyword-directive">this</span>.<span class="ST2">localeCode</span> = localeCode;
+        }
+
+}
+</pre></body>
+</html>

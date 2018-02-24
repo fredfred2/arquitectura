@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>BackingBean.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST4 {font-family: Monospaced; font-weight: bold; font-style: italic}
+.ST2 {font-family: Monospaced; font-style: italic}
+.ST0 {font-family: Monospaced; font-weight: bold}
+.comment {color: #969696}
+.ST1 {color: #009900}
+.character {color: #ce7b00}
+.ST3 {color: #009900; font-family: Monospaced; font-style: italic}
+.keyword-directive {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">D:\toUpload\EventExamples\src\java\com\example\beans\BackingBean.java</td></tr></table>
+<pre>
+<span class="keyword-directive">package</span> com.example.beans;
+
+<span class="keyword-directive">import</span> java.io.Serializable;
+<span class="keyword-directive">import</span> javax.enterprise.context.SessionScoped;
+<span class="keyword-directive">import</span> javax.faces.application.FacesMessage;
+<span class="keyword-directive">import</span> javax.faces.component.UIComponent;
+<span class="keyword-directive">import</span> javax.faces.component.UIInput;
+<span class="keyword-directive">import</span> javax.faces.context.FacesContext;
+<span class="keyword-directive">import</span> javax.faces.event.ComponentSystemEvent;
+<span class="keyword-directive">import</span> javax.inject.Named;
+
+@Named(<span class="character">&quot;</span><span class="character">bb</span><span class="character">&quot;</span>) <span class="comment">// or @ManagedBean(name=&quot;bb&quot;)</span>
+@SessionScoped
+<span class="keyword-directive">public</span> <span class="keyword-directive">class</span> <span class="ST0">BackingBean</span> <span class="keyword-directive">implements</span> Serializable {
+   <span class="keyword-directive">private</span> <span class="keyword-directive">int</span> <span class="ST1">day</span>;
+   <span class="keyword-directive">private</span> <span class="keyword-directive">int</span> <span class="ST1">month</span>;
+   <span class="keyword-directive">private</span> <span class="keyword-directive">int</span> <span class="ST1">year</span>;
+
+   <span class="keyword-directive">public</span> <span class="keyword-directive">int</span> <span class="ST0">getDay</span>() { <span class="keyword-directive">return</span> <span class="ST1">day</span>; }
+   <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> <span class="ST0">setDay</span>(<span class="keyword-directive">int</span> newValue) { <span class="ST1">day</span> = newValue; }
+
+   <span class="keyword-directive">public</span> <span class="keyword-directive">int</span> <span class="ST0">getMonth</span>() { <span class="keyword-directive">return</span> <span class="ST1">month</span>; }
+   <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> <span class="ST0">setMonth</span>(<span class="keyword-directive">int</span> newValue) { <span class="ST1">month</span> = newValue; }
+
+   <span class="keyword-directive">public</span> <span class="keyword-directive">int</span> <span class="ST0">getYear</span>() { <span class="keyword-directive">return</span> <span class="ST1">year</span>; }
+   <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> <span class="ST0">setYear</span>(<span class="keyword-directive">int</span> newValue) { <span class="ST1">year</span> = newValue; }
+
+   <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> <span class="ST0">validateDate</span>(ComponentSystemEvent event) {
+      UIComponent source = event.getComponent();
+      UIInput dayInput = (UIInput) source.findComponent(<span class="character">&quot;</span><span class="character">day</span><span class="character">&quot;</span>);
+      UIInput monthInput = (UIInput) source.findComponent(<span class="character">&quot;</span><span class="character">month</span><span class="character">&quot;</span>);
+      UIInput yearInput = (UIInput) source.findComponent(<span class="character">&quot;</span><span class="character">year</span><span class="character">&quot;</span>);
+      <span class="keyword-directive">int</span> d = ((Integer) dayInput.getLocalValue()).intValue();
+      <span class="keyword-directive">int</span> m = ((Integer) monthInput.getLocalValue()).intValue();
+      <span class="keyword-directive">int</span> y = ((Integer) yearInput.getLocalValue()).intValue();
+      <span class="keyword-directive">if</span> (!<span class="ST2">isValidDate</span>(d, m, y)) {
+         FacesMessage message = com.example.util.Messages.<span class="ST2">getMessage</span>(
+            <span class="character">&quot;</span><span class="character">com.example.util.messages</span><span class="character">&quot;</span>, <span class="character">&quot;</span><span class="character">invalidDate</span><span class="character">&quot;</span>, <span class="keyword-directive">null</span>);
+         message.setSeverity(FacesMessage.<span class="ST3">SEVERITY_ERROR</span>);
+         FacesContext context = FacesContext.<span class="ST2">getCurrentInstance</span>();
+         context.addMessage(source.getClientId(), message);
+         context.renderResponse();
+      }
+   }
+
+   <span class="keyword-directive">private</span> <span class="keyword-directive">static</span> <span class="keyword-directive">boolean</span> <span class="ST4">isValidDate</span>(<span class="keyword-directive">int</span> d, <span class="keyword-directive">int</span> m, <span class="keyword-directive">int</span> y) {
+      <span class="keyword-directive">if</span> (d &lt; 1 || m &lt; 1 || m &gt; 12) <span class="keyword-directive">return</span> <span class="keyword-directive">false</span>;
+      <span class="keyword-directive">if</span> (m == 2) {
+         <span class="keyword-directive">if</span> (<span class="ST2">isLeapYear</span>(y)) <span class="keyword-directive">return</span> d &lt;= 29;
+         <span class="keyword-directive">else</span> <span class="keyword-directive">return</span> d &lt;= 28;
+      }
+      <span class="keyword-directive">else</span> <span class="keyword-directive">if</span> (m == 4 || m == 6 || m == 9 || m == 11)
+         <span class="keyword-directive">return</span> d &lt;= 30;
+      <span class="keyword-directive">else</span> 
+         <span class="keyword-directive">return</span> d &lt;= 31;
+   }
+    
+   <span class="keyword-directive">private</span> <span class="keyword-directive">static</span> <span class="keyword-directive">boolean</span> <span class="ST4">isLeapYear</span>(<span class="keyword-directive">int</span> y) {
+      <span class="keyword-directive">return</span> y % 4 == 0 &amp;&amp; (y % 400 == 0 || y % 100 != 0); 
+   }
+}
+</pre></body>
+</html>

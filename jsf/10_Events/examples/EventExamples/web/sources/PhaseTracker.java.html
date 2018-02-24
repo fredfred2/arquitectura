@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>PhaseTracker.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.character {color: #ce7b00}
+.keyword-directive {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">D:\toUpload\EventExamples\src\java\com\example\listeners\PhaseTracker.java</td></tr></table>
+<pre>
+<span class="keyword-directive">package</span> com.example.listeners;
+
+<span class="keyword-directive">import</span> java.util.logging.Level;
+<span class="keyword-directive">import</span> java.util.logging.Logger;
+<span class="keyword-directive">import</span> javax.faces.context.FacesContext;
+<span class="keyword-directive">import</span> javax.faces.event.PhaseEvent;
+<span class="keyword-directive">import</span> javax.faces.event.PhaseId;
+<span class="keyword-directive">import</span> javax.faces.event.PhaseListener;
+
+<span class="keyword-directive">public</span> <span class="keyword-directive">class</span> PhaseTracker <span class="keyword-directive">implements</span> PhaseListener {
+   <span class="keyword-directive">private</span> <span class="keyword-directive">static</span> <span class="keyword-directive">final</span> String PHASE_PARAMETER =<span class="character">&quot;</span><span class="character">com.corejsf.phaseTracker.phase</span><span class="character">&quot;</span>;
+   <span class="keyword-directive">private</span> <span class="keyword-directive">static</span> <span class="keyword-directive">final</span> Logger logger = Logger.getLogger(<span class="character">&quot;</span><span class="character">com.corejsf.phases</span><span class="character">&quot;</span>);
+   <span class="keyword-directive">private</span> <span class="keyword-directive">static</span> String phase = <span class="keyword-directive">null</span>;
+
+   <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> setPhase(String newValue) { phase = newValue; }
+   
+    @Override
+   <span class="keyword-directive">public</span> PhaseId getPhaseId() {
+      <span class="keyword-directive">if</span> (phase == <span class="keyword-directive">null</span>) {
+         FacesContext context = FacesContext.getCurrentInstance();
+         phase = (String) context.getExternalContext().getInitParameter(
+                                                         PHASE_PARAMETER);
+      }
+      PhaseId phaseId = PhaseId.ANY_PHASE;
+
+      <span class="keyword-directive">if</span> (phase != <span class="keyword-directive">null</span>) {
+         <span class="keyword-directive">if</span> (<span class="character">&quot;</span><span class="character">RESTORE_VIEW</span><span class="character">&quot;</span>.equals(phase)) {
+              phaseId = PhaseId.RESTORE_VIEW;
+          }
+         <span class="keyword-directive">else</span> <span class="keyword-directive">if</span> (<span class="character">&quot;</span><span class="character">APPLY_REQUEST_VALUES</span><span class="character">&quot;</span>.equals(phase)) {
+              phaseId = PhaseId.APPLY_REQUEST_VALUES;
+          }
+         <span class="keyword-directive">else</span> <span class="keyword-directive">if</span> (<span class="character">&quot;</span><span class="character">PROCESS_VALIDATIONS</span><span class="character">&quot;</span>.equals(phase)) {
+              phaseId = PhaseId.PROCESS_VALIDATIONS;
+          }
+         <span class="keyword-directive">else</span> <span class="keyword-directive">if</span> (<span class="character">&quot;</span><span class="character">UPDATE_MODEL_VALUES</span><span class="character">&quot;</span>.equals(phase)) {
+              phaseId = PhaseId.UPDATE_MODEL_VALUES;
+          }
+         <span class="keyword-directive">else</span> <span class="keyword-directive">if</span> (<span class="character">&quot;</span><span class="character">INVOKE_APPLICATION</span><span class="character">&quot;</span>.equals(phase)) {
+              phaseId = PhaseId.INVOKE_APPLICATION;
+          }
+         <span class="keyword-directive">else</span> <span class="keyword-directive">if</span> (<span class="character">&quot;</span><span class="character">RENDER_RESPONSE</span><span class="character">&quot;</span>.equals(phase)) {
+              phaseId = PhaseId.RENDER_RESPONSE;
+          }
+         <span class="keyword-directive">else</span> <span class="keyword-directive">if</span> (<span class="character">&quot;</span><span class="character">ANY_PHASE</span><span class="character">&quot;</span>.equals(phase)) {
+              phaseId = PhaseId.ANY_PHASE;
+          }
+      }
+      <span class="keyword-directive">return</span> phaseId;
+   }
+    @Override
+   <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> beforePhase(PhaseEvent e) {
+      logger.log(Level.INFO, <span class="character">&quot;</span><span class="character">BEFORE {0}</span><span class="character">&quot;</span>, e.getPhaseId());
+   }
+    @Override
+   <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> afterPhase(PhaseEvent e) {
+      logger.log(Level.INFO, <span class="character">&quot;</span><span class="character">AFTER {0}</span><span class="character">&quot;</span>, e.getPhaseId());
+   }
+}
+</pre></body>
+</html>

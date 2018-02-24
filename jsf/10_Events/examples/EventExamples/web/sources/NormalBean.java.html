@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>NormalBean.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST0 {font-family: Monospaced; font-weight: bold}
+.comment {color: #969696}
+.ST1 {color: #009900}
+.character {color: #ce7b00}
+.keyword-directive {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">D:\toUpload\EventExamples\src\java\com\example\beans\NormalBean.java</td></tr></table>
+<pre>
+<span class="keyword-directive">package</span> com.example.beans;
+
+<span class="keyword-directive">import</span> javax.enterprise.context.SessionScoped;
+<span class="keyword-directive">import</span> javax.faces.event.ActionEvent;
+<span class="keyword-directive">import</span> javax.inject.Named;
+ 
+@Named(<span class="character">&quot;</span><span class="character">normal</span><span class="character">&quot;</span>)
+@SessionScoped
+<span class="keyword-directive">public</span> <span class="keyword-directive">class</span> <span class="ST0">NormalBean</span> <span class="keyword-directive">implements</span> java.io.Serializable{
+
+        <span class="keyword-directive">private</span> String <span class="ST1">buttonId</span>; 
+        
+        <span class="keyword-directive">public</span> String <span class="ST0">getButtonId</span>() {
+                <span class="keyword-directive">return</span> <span class="ST1">buttonId</span>;
+        }
+
+        <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> <span class="ST0">setButtonId</span>(String buttonId) {
+                <span class="keyword-directive">this</span>.<span class="ST1">buttonId</span> = buttonId;
+        }
+
+        <span class="keyword-directive">public</span> <span class="keyword-directive">void</span> <span class="ST0">printIt</span>(ActionEvent event){
+                
+                <span class="comment">//Get submit button id</span>
+                <span class="ST1">buttonId</span> = event.getComponent().getClientId();
+               setButtonId( <span class="character">&quot;</span><span class="character">my value</span><span class="character">&quot;</span>);
+                
+        }
+        
+        <span class="keyword-directive">public</span> String <span class="ST0">outcome</span>(){
+                <span class="keyword-directive">return</span> <span class="character">&quot;</span><span class="character">result_1</span><span class="character">&quot;</span>;
+        }
+}
+</pre></body>
+</html>

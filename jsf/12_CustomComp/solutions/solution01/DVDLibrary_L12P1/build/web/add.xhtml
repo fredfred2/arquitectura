@@ -23,29 +23,31 @@
                         <h:message for="title" styleClass="error" showSummary="true"
                                    showDetail="false" />
                         #{msg.column_Year}
-                    <corejsf:spinner value="#{dvd.releaseyear}" minimum="1909" maximum="#{dvd.currentYear}" size="5"/>                    
-                        <h:message id="yearError" for="year" styleClass="error"
-                                   showSummary="true" showDetail="false" /> 
-  
-                        #{msg.column_Genre}
-                        <h:selectOneMenu id="genre" value="#{dvd.genre}">
-                            <f:selectItems value="#{dvd.genreList}" />
-                        </h:selectOneMenu>
+                        <corejsf:spinner value="#{dvd.releaseyear}" minimum="1909" maximum="#{dvd.currentYear}" size="5">                    
+                           
+                    </corejsf:spinner>
+                    <h:message id="yearError" for="year" styleClass="error"
+                               showSummary="true" showDetail="false" /> 
 
-                        <h:message for="genre" styleClass="error" showSummary="true"
-                                   showDetail="false" />
-                        #{msg.add_genre}
-                        <h:inputText id="newGenre"
-                                     value="#{dvd.newGenre}" />
-                        <h:message for="newGenre" styleClass="error" showSummary="true"
-                                   showDetail="false" />
-                    </h:panelGrid>
-                    <h:commandButton value="#{msg.btn_addDVD}" action="#{dvd.addDVD}" />
-                    <h:commandButton value="#{msg.btn_cancel}" action="home" immediate="true" />
-                </h:form>
-            </ui:define>
-        </ui:composition>
-    </body>
+                    #{msg.column_Genre}
+                    <h:selectOneMenu id="genre" value="#{dvd.genre}">
+                        <f:selectItems value="#{dvd.genreList}" />
+                    </h:selectOneMenu>
+
+                    <h:message for="genre" styleClass="error" showSummary="true"
+                               showDetail="false" />
+                    #{msg.add_genre}
+                    <h:inputText id="newGenre"
+                                 value="#{dvd.newGenre}" />
+                    <h:message for="newGenre" styleClass="error" showSummary="true"
+                               showDetail="false" />
+                </h:panelGrid>
+                <h:commandButton value="#{msg.btn_addDVD}" action="#{dvd.addDVD}" />
+                <h:commandButton value="#{msg.btn_cancel}" action="home" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</body>
 </html>
 
 

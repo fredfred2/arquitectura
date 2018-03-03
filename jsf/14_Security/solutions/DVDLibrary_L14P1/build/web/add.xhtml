@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:corejsf="http://corejsf.com">
+    <head>
+        <title>IGNORED</title>
+    </head>
+    <body>
+        <ui:composition template="/templates/masterLayout.xhtml">
+            <ui:define name="heading">
+                #{msg.appName}:#{msg.title_add}
+            </ui:define>
+
+            <ui:define name="content">
+                <h:form>
+                    <h:panelGrid columns="3">
+                        #{msg.column_Title}
+                        <h:inputText id="title" value="#{dvd.title}"
+                                     required="true" />
+                        <h:message for="title" styleClass="error" showSummary="true"
+                                   showDetail="false" />
+                        #{msg.column_Year}
+                    <corejsf:spinner value="#{dvd.releaseyear}" minimum="1909" maximum="#{dvd.currentYear}" size="5"/>                    
+                        <h:message id="yearError" for="year" styleClass="error"
+                                   showSummary="true" showDetail="false" /> 
+  
+                        #{msg.column_Genre}
+                        <h:selectOneMenu id="genre" value="#{dvd.genre}">
+                            <f:selectItems value="#{dvd.genreList}" />
+                        </h:selectOneMenu>
+
+                        <h:message for="genre" styleClass="error" showSummary="true"
+                                   showDetail="false" />
+                        #{msg.add_genre}
+                        <h:inputText id="newGenre"
+                                     value="#{dvd.newGenre}" />
+                        <h:message for="newGenre" styleClass="error" showSummary="true"
+                                   showDetail="false" />
+                    </h:panelGrid>
+                    <h:commandButton value="#{msg.btn_addDVD}" action="#{dvd.addDVD}" />
+                    <h:commandButton value="#{msg.btn_cancel}" action="home" immediate="true" />
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
+
+
+

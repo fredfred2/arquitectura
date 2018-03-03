@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
-        <file>file:/d:/labs/11_AJAX/solutions/solution3/DVDLibrary_L11P3/web/prefs.xhtml</file>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/apps/code/curso/jsf/11_AJAX/solutions/solution3/DVDLibrary_L11P3/web/resources/util/signin.xhtml</file>
+            <file>file:/apps/code/curso/jsf/11_AJAX/solutions/solution3/DVDLibrary_L11P3/src/java/com/example/beans/DVDLibraryBean.java</file>
+            <file>file:/apps/code/curso/jsf/11_AJAX/solutions/solution3/DVDLibrary_L11P3/web/login.xhtml</file>
+            <file>file:/apps/code/curso/jsf/11_AJAX/solutions/solution3/DVDLibrary_L11P3/web/add.xhtml</file>
+        </group>
     </open-files>
 </project-private>

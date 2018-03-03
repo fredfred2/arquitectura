@@ -1,0 +1,46 @@
+
+<tr:document xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://java.sun.com/jsf/html"
+             xmlns:ui="http://java.sun.com/jsf/facelets"
+             xmlns:f="http://java.sun.com/jsf/core"
+             xmlns:tr="http://myfaces.apache.org/trinidad"
+          xmlns:util="http://java.sun.com/jsf/composite/comps"
+             title="DVD Manager">
+<f:facet name="metaContainer">
+    <meta name="viewport" content="user-scalable=no, width=device-width" />
+</f:facet>
+
+    <h2>DVDLibrary:Add DVD</h2>
+    
+    <tr:form>
+        <tr:panelTabbed position="above">
+            <tr:showDetailItem text="DVD Item">
+        
+   
+       <tr:panelFormLayout>
+                        <tr:inputText columns="25" label="Title:"  />
+                        <tr:inputText columns="25" label="Year:"   />
+                        <tr:inputText columns="25" label="genre" />
+                        
+                        <tr:commandButton action="#{dvd.addDVD}" text="Add DVD"/>
+                    </tr:panelFormLayout>
+      
+</tr:showDetailItem>
+            <tr:showDetailItem text="DVD Details">
+                <tr:subform>
+                    <tr:panelFormLayout>
+                        <tr:inputText columns="25" label="ID:" readOnly="true" />
+                        <tr:inputText columns="25" label="Title:" readOnly="true"  />
+                        <tr:inputText columns="25" label="Cast:" />
+                        <tr:inputText columns="25" label="Director:" />
+                        <tr:inputText columns="25" label="Clips:" />
+                        <tr:commandButton action="#{dvd.updateDVD}" text="Update"/>
+                    </tr:panelFormLayout>
+                </tr:subform>
+            </tr:showDetailItem>
+        </tr:panelTabbed>
+    </tr:form>
+
+   
+
+</tr:document>

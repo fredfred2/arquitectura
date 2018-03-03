@@ -59,7 +59,7 @@ public class DVDLibraryBean implements Serializable {
        itembean.addItem(item);
        title = "";
         genre = "";
-        return "index";
+        return "add";
 
         
     }

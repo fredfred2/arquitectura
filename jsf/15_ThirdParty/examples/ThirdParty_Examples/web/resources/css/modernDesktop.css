@@ -1,0 +1,284 @@
+.AFHeaderText:alias {
+    color: white;
+}
+
+.AFTextForeground:alias {
+    color: white;
+}
+
+.af_panelTabbed_body {
+    text-align: center;
+}
+
+/* 
+ * Class below applies to a panelFormLayout 
+*/
+af|panelFormLayout {
+    background: #FFFFFF;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    display: inline-block;
+    padding: 10px;
+}
+
+/* 
+ * Class below applies to the label cell of a panelFormLayout component.
+*/
+af|panelFormLayout::label-cell {
+    font-size: 15px;
+    font-weight: bold;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-weight: bold;
+    color: black;
+    text-align: right;
+    height: 20px;
+}
+
+/* 
+ * Class below applies to the content cell of a panelFormLayout component.
+*/
+af|panelFormLayout::content-cell {
+    font-size: 15px;
+    color: black;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 2px;
+    text-align: left;
+    text-decoration: inherit;
+    vertical-align: middle;
+    height: 20px;
+    white-space:normal;
+}
+
+/* 
+ * Expression below makes all children of a panelForm's content-cell to inherit 
+ * the font-size.
+*/
+af|panelFormLayout::content-cell * {
+    font-size: inherit;
+}
+
+af|inputText::content {
+    color: black;
+}
+
+body { 
+    background: url(../images/texture.png);
+    color: white;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    padding: 8px;
+}
+
+.titlebar {
+    overflow: hidden;
+}
+
+.titlebar h1 {
+    display: inline-block;
+    margin: 0;
+    float: left;
+}
+
+.titlebar .titlebar-search {
+    display: inline-block;
+    color: white;
+    margin: 0;
+    float: right;
+}
+
+.titlebar .titlebar-link {
+    display: none;
+}
+
+.titlebar .titlebar-back {
+    display: inline-block;
+    color: white;
+    margin: 0;
+    float: right;
+}
+
+.media-header {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 6px;
+}
+
+.group-header {
+    padding: 8px 0 10px 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: rgba(0,0,0,0.12);
+    border-style:solid;
+    border-width: 1px;
+    border-color: rgba(255,255,255,0.2) transparent rgba(255,255,255,0.2) transparent;
+    padding: 8px 6px 10px 6px;
+}
+
+
+ul.media-tiles {
+    display: inline;
+    list-style: none;
+    padding: 10px 0 10px 0;
+}
+
+li.media-tile {
+    display: inline-block;
+    vertical-align: bottom;
+    width: 160px;
+    height: 140px;
+    padding: 5px;
+}
+
+.media-tile:hover {
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 5px rgba(50, 50, 55, 0.8);
+    -webkit-box-shadow: 0 0 5px 5px rgba(50, 50, 255, 0.8); 
+    -moz-box-shadow: 0 0 5px 5px rgba(50, 50, 255, 0.8); 
+}
+
+.media-tile a {
+    text-decoration: none;
+}
+
+.media-tile-image {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-height: 120px;
+    max-width: 120px;
+}
+
+.media-tile-id {
+    color: white;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0px;
+    padding: 0px;
+    outline: none;
+}
+
+.media-large-image {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.media-large-video {
+    min-height: 160px;
+    min-width: 160px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.nav-footer {
+    margin-top: 10px;
+    text-align: center;
+    background-color: transparent;
+}
+
+.nav-footer form {
+    display: inline;
+}
+
+.nav-footer * {
+    color: white !important;
+    font-size: inherit !important;
+}
+
+.settings-form {
+    padding: 10px;
+}
+
+.settings-form > input, .settings-form > select {
+    margin-bottom: 10px;
+}
+
+.settings-form input[type="submit"] {
+    display: block;
+}
+
+
+.af_panelTabbed_orientation-top, .af_panelTabbed_orientation-bottom {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: auto;
+}
+
+.af_panelTabbed_orientation-top *, .af_panelTabbed_orientation-bottom *{
+    text-decoration: none;
+}
+
+.af_panelTabbed_cell-start {
+    -webkit-border-top-left-radius: 8px;
+    -webkit-border-bottom-left-radius: 8px;
+    -moz-border-top-left-radius: 8px;
+    -moz-border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    width: 12px;
+    border: solid 1px #9a9a99;
+    background: url(../images/segend.png) #646464 repeat-x;
+}
+
+.af_panelTabbed_tab-selected {
+    padding: 10px;
+    border: solid 1px #9a9a99;
+    border-left: none;
+    background: url(../images/segactive.png) #6297f2 repeat-x;
+}
+
+.af_panelTabbed_tab-selected * {
+    color: white !important;
+    font-weight: normal !important;
+}
+
+.af_panelTabbed_separator-after-selected {
+    width: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.af_panelTabbed_tab {
+    padding: 10px;
+    border: solid 1px #9a9a99;
+    border-left: none;
+    background: url(../images/segbutton.png) #bdbdbd repeat-x ;
+}
+
+.af_panelTabbed_tab * {
+    color: #6b6b6b !important;
+    font-weight: normal !important;
+}
+
+.af_panelTabbed_tab .p_OraDisabled {
+    color: whitesmoke !important;
+}
+
+.af_panelTabbed_separator {
+    width: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.af_panelTabbed_cell-end {
+    -webkit-border-top-right-radius: 8px;
+    -webkit-border-bottom-right-radius: 8px;
+    -moz-border-top-right-radius: 8px;
+    -moz-border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    width: 12px;
+    border: solid 1px #9a9a99;
+    border-left: none;
+    background: url(../images/segend.png) #646464 repeat-x;
+}

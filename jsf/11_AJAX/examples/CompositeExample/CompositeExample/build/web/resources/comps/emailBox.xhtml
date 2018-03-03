@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:composite="http://java.sun.com/jsf/composite">
+<head><title>This is not displayed</title></head>
+<body>
+    <composite:interface>
+        <composite:attribute name="email" required="true"/>
+        <composite:attribute name="image"/>
+        <composite:attribute name="actionMethod"
+                             method-signature="java.lang.String action ()"/>
+        <composite:editableValueHolder name="emailInput" targets="form:email"/>
+    </composite:interface>
+    <composite:implementation>
+        <h:form id="form" >
+            Email: <h:inputText id="email" value="#{cc.attrs.email}"/>
+            <h:commandLink action="#{cc.attrs.actionMethod}">
+                <h:graphicImage url="#{cc.attrs.image}" styleClass="icon"/>
+            </h:commandLink>
+        </h:form>
+    </composite:implementation>
+</body>
+</html>
+

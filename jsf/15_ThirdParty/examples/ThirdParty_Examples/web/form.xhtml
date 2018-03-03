@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<tr:document xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://java.sun.com/jsf/html"
+             xmlns:tr="http://myfaces.apache.org/trinidad"
+             title="Facelet Title">
+
+    <tr:form>
+        <tr:inputText id="name" label="Name:" value="#{mybean.prop}" required="true"/>
+        <tr:commandButton text="Submit" action="#{mybean.submitForm}"/>
+    </tr:form>
+
+</tr:document>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Canvas Demo</title>
+        <script type="text/javascript">
+            window.onload = function() 
+            {
+                var c=document.getElementById("myCanvas");
+                var ctx=c.getContext("2d");
+                ctx.fillStyle="#FF0000";
+                ctx.fillRect(0,0,150,75);
+            }   
+        </script>
+    </h:head>
+    <h:body>
+        <canvas id="myCanvas" width="200" height="100"
+                style="border:1px solid #000000;">
+        </canvas> 
+    </h:body>
+</html>

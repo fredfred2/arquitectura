@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>GeoLocation.html</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../res/styles.css" type="text/css">
+<style type="text/css">
+<!--
+.highlight-caret-row {background-color: #e9eff8}
+.ST3 {color: #0000e6; background-color: #e3f2e1}
+.ST0 {color: #628fb5; background-color: #e9eff8}
+.ST5 {color: #ce7b00; background-color: #e3f2e1}
+.ST4 {color: #009900; background-color: #e3f2e1}
+.ST1 {color: #007c00; background-color: #e3f2e1; font-weight: bold}
+.ST2 {background-color: #e3f2e1}
+.argument {color: #009900}
+.ST6 {background-color: #e3f2e1; font-weight: bold}
+.value {color: #ce7b00}
+.tag {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<script src="../res/jquery.js" type="text/javascript"></script>
+<script src="../res/jquery.tooltip.js" type="text/javascript"></script>
+<script src="../res/tooltip.js" type="text/javascript"></script>
+<p>
+<a href="../">Go back</a>
+</p>
+<table width="100%"><tr><td align="center">D:\MyProjects\JSF-Dev\D77738GC10\13_html5\HTML5FeaturesDemo\GeoLocation.html</td></tr></table>
+<pre>
+<span class="ST0">&lt;!DOCTYPE</span> <span class="ST0">html</span><span class="ST0">&gt;</span>
+<span class="tag">&lt;</span><span class="tag">html</span><span class="tag">&gt;</span>
+<span class="tag">&lt;</span><span class="tag">body</span><span class="tag">&gt;</span>
+<span class="tag">&lt;</span><span class="tag">p</span> <span class="argument">id</span><span class="argument">=</span><span class="value">&quot;</span><span class="ST1">demo</span><span class="value">&quot;</span><span class="tag">&gt;</span>Click the button to get your position:<span class="tag">&lt;/</span><span class="tag">p</span><span class="tag">&gt;</span>
+<span class="tag">&lt;</span><span class="tag">button</span> <span class="argument">onclick</span><span class="argument">=</span><span class="value">&quot;</span><span class="ST2">getLocation</span><span class="ST2">(</span><span class="ST2">)</span><span class="value">&quot;</span><span class="tag">&gt;</span>Try It<span class="tag">&lt;/</span><span class="tag">button</span><span class="tag">&gt;</span>
+<span class="tag">&lt;</span><span class="tag">div</span> <span class="argument">id</span><span class="argument">=</span><span class="value">&quot;</span><span class="ST1">mapholder</span><span class="value">&quot;</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag">div</span><span class="tag">&gt;</span>
+<span class="tag">&lt;</span><span class="tag">script</span><span class="tag">&gt;</span>
+<span class="ST3">var</span> <span class="ST4">x</span><span class="ST2">=</span><span class="ST4">document</span><span class="ST2">.</span><span class="ST2">getElementById</span><span class="ST2">(</span><span class="ST5">&quot;</span><span class="ST5">demo</span><span class="ST5">&quot;</span><span class="ST2">)</span><span class="ST2">;</span>
+<span class="ST3">function</span> <span class="ST6">getLocation</span><span class="ST2">(</span><span class="ST2">)</span>
+  <span class="ST2">{</span>
+  <span class="ST3">if</span> <span class="ST2">(</span><span class="ST4">navigator</span><span class="ST2">.</span><span class="ST2">geolocation</span><span class="ST2">)</span>
+    <span class="ST2">{</span>
+    <span class="ST4">navigator</span><span class="ST2">.</span><span class="ST2">geolocation</span><span class="ST2">.</span><span class="ST2">getCurrentPosition</span><span class="ST2">(</span><span class="ST4">showPosition</span><span class="ST2">,</span><span class="ST4">showError</span><span class="ST2">)</span><span class="ST2">;</span>
+    <span class="ST2">}</span>
+  <span class="ST3">else</span><span class="ST2">{</span><span class="ST4">x</span><span class="ST2">.</span><span class="ST2">innerHTML</span><span class="ST2">=</span><span class="ST5">&quot;</span><span class="ST5">Geolocation is not supported by this browser.</span><span class="ST5">&quot;</span><span class="ST2">;</span><span class="ST2">}</span>
+  <span class="ST2">}</span>
+
+<span class="ST3">function</span> <span class="ST6">showPosition</span><span class="ST2">(</span><span class="ST2">position</span><span class="ST2">)</span>
+  <span class="ST2">{</span>
+  <span class="ST3">var</span> <span class="ST2">latlon</span><span class="ST2">=</span><span class="ST2">position</span><span class="ST2">.</span><span class="ST2">coords</span><span class="ST2">.</span><span class="ST2">latitude</span><span class="ST2">+</span><span class="ST5">&quot;</span><span class="ST5">,</span><span class="ST5">&quot;</span><span class="ST2">+</span><span class="ST2">position</span><span class="ST2">.</span><span class="ST2">coords</span><span class="ST2">.</span><span class="ST2">longitude</span><span class="ST2">;</span>
+
+  <span class="ST3">var</span> <span class="ST2">img_url</span><span class="ST2">=</span><span class="ST5">&quot;</span><span class="ST5">http://maps.googleapis.com/maps/api/staticmap?center=</span><span class="ST5">&quot;</span>
+  <span class="ST2">+</span><span class="ST2">latlon</span><span class="ST2">+</span><span class="ST5">&quot;</span><span class="ST5">&amp;zoom=14&amp;size=400x300&amp;sensor=false</span><span class="ST5">&quot;</span><span class="ST2">;</span>
+  <span class="ST4">document</span><span class="ST2">.</span><span class="ST2">getElementById</span><span class="ST2">(</span><span class="ST5">&quot;</span><span class="ST5">mapholder</span><span class="ST5">&quot;</span><span class="ST2">)</span><span class="ST2">.</span><span class="ST2">innerHTML</span><span class="ST2">=</span><span class="ST5">&quot;</span><span class="ST5">&lt;img src=&#39;</span><span class="ST5">&quot;</span><span class="ST2">+</span><span class="ST2">img_url</span><span class="ST2">+</span><span class="ST5">&quot;</span><span class="ST5">&#39;&gt;</span><span class="ST5">&quot;</span><span class="ST2">;</span>
+  <span class="ST2">}</span>
+
+<span class="ST3">function</span> <span class="ST6">showError</span><span class="ST2">(</span><span class="ST2">error</span><span class="ST2">)</span>
+  <span class="ST2">{</span>
+  <span class="ST3">switch</span><span class="ST2">(</span><span class="ST2">error</span><span class="ST2">.</span><span class="ST2">code</span><span class="ST2">)</span> 
+    <span class="ST2">{</span>
+    <span class="ST3">case</span> <span class="ST2">error</span><span class="ST2">.</span><span class="ST2">PERMISSION_DENIED</span><span class="ST2">:</span>
+      <span class="ST4">x</span><span class="ST2">.</span><span class="ST2">innerHTML</span><span class="ST2">=</span><span class="ST5">&quot;</span><span class="ST5">User denied the request for Geolocation.</span><span class="ST5">&quot;</span>
+      <span class="ST3">break</span><span class="ST2">;</span>
+    <span class="ST3">case</span> <span class="ST2">error</span><span class="ST2">.</span><span class="ST2">POSITION_UNAVAILABLE</span><span class="ST2">:</span>
+      <span class="ST4">x</span><span class="ST2">.</span><span class="ST2">innerHTML</span><span class="ST2">=</span><span class="ST5">&quot;</span><span class="ST5">Location information is unavailable.</span><span class="ST5">&quot;</span>
+      <span class="ST3">break</span><span class="ST2">;</span>
+    <span class="ST3">case</span> <span class="ST2">error</span><span class="ST2">.</span><span class="ST2">TIMEOUT</span><span class="ST2">:</span>
+      <span class="ST4">x</span><span class="ST2">.</span><span class="ST2">innerHTML</span><span class="ST2">=</span><span class="ST5">&quot;</span><span class="ST5">The request to get user location timed out.</span><span class="ST5">&quot;</span>
+      <span class="ST3">break</span><span class="ST2">;</span>
+    <span class="ST3">case</span> <span class="ST2">error</span><span class="ST2">.</span><span class="ST2">UNKNOWN_ERROR</span><span class="ST2">:</span>
+      <span class="ST4">x</span><span class="ST2">.</span><span class="ST2">innerHTML</span><span class="ST2">=</span><span class="ST5">&quot;</span><span class="ST5">An unknown error occurred.</span><span class="ST5">&quot;</span>
+      <span class="ST3">break</span><span class="ST2">;</span>
+    <span class="ST2">}</span>
+  <span class="ST2">}</span>
+<span class="tag">&lt;/</span><span class="tag">script</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/</span><span class="tag">body</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/</span><span class="tag">html</span><span class="tag">&gt;</span>
+
+</pre>
+<div id="tt-overview">
+</div>
+<p>
+<a href="../">Go back</a>
+</p>
+</body>
+</html>

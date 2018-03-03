@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>WebWorkers.html</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../res/styles.css" type="text/css">
+<style type="text/css">
+<!--
+.highlight-caret-row {background-color: #e9eff8}
+.ST3 {color: #0000e6; background-color: #e3f2e1}
+.ST0 {color: #628fb5; background-color: #e9eff8}
+.ST6 {color: #ce7b00; background-color: #e3f2e1}
+.ST4 {color: #009900; background-color: #e3f2e1}
+.ST1 {color: #007c00; background-color: #e3f2e1; font-weight: bold}
+.ST2 {background-color: #e3f2e1}
+.argument {color: #009900}
+.ST5 {background-color: #e3f2e1; font-weight: bold}
+.value {color: #ce7b00}
+.tag {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<script src="../res/jquery.js" type="text/javascript"></script>
+<script src="../res/jquery.tooltip.js" type="text/javascript"></script>
+<script src="../res/tooltip.js" type="text/javascript"></script>
+<p>
+<a href="../">Go back</a>
+</p>
+<table width="100%"><tr><td align="center">D:\MyProjects\JSF-Dev\D77738GC10\13_html5\HTML5FeaturesDemo\WebWorkers.html</td></tr></table>
+<pre>
+<span class="ST0">&lt;!DOCTYPE</span> <span class="ST0">html</span><span class="ST0">&gt;</span>
+<span class="tag">&lt;</span><span class="tag">html</span><span class="tag">&gt;</span>
+<span class="tag">&lt;</span><span class="tag">body</span><span class="tag">&gt;</span>
+
+<span class="tag">&lt;</span><span class="tag">p</span><span class="tag">&gt;</span>Count numbers: <span class="tag">&lt;</span><span class="tag">output</span> <span class="argument">id</span><span class="argument">=</span><span class="value">&quot;</span><span class="ST1">result</span><span class="value">&quot;</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag">output</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag">p</span><span class="tag">&gt;</span>
+<span class="tag">&lt;</span><span class="tag">button</span> <span class="argument">onclick</span><span class="argument">=</span><span class="value">&quot;</span><span class="ST2">startWorker</span><span class="ST2">(</span><span class="ST2">)</span><span class="value">&quot;</span><span class="tag">&gt;</span>Start Worker<span class="tag">&lt;/</span><span class="tag">button</span><span class="tag">&gt;</span> 
+<span class="tag">&lt;</span><span class="tag">button</span> <span class="argument">onclick</span><span class="argument">=</span><span class="value">&quot;</span><span class="ST2">stopWorker</span><span class="ST2">(</span><span class="ST2">)</span><span class="value">&quot;</span><span class="tag">&gt;</span>Stop Worker<span class="tag">&lt;/</span><span class="tag">button</span><span class="tag">&gt;</span>
+<span class="tag">&lt;</span><span class="tag">br</span><span class="tag">&gt;</span><span class="tag">&lt;</span><span class="tag">br</span><span class="tag">&gt;</span>
+
+<span class="tag">&lt;</span><span class="tag">script</span><span class="tag">&gt;</span>
+<span class="ST3">var</span> <span class="ST4">w</span><span class="ST2">;</span>
+
+<span class="ST3">function</span> <span class="ST5">startWorker</span><span class="ST2">(</span><span class="ST2">)</span>
+<span class="ST2">{</span>
+<span class="ST3">if</span><span class="ST2">(</span><span class="ST3">typeof</span><span class="ST2">(</span><span class="ST2">Worker</span><span class="ST2">)</span><span class="ST2">!==</span><span class="ST6">&quot;</span><span class="ST6">undefined</span><span class="ST6">&quot;</span><span class="ST2">)</span>
+  <span class="ST2">{</span>
+  <span class="ST3">if</span><span class="ST2">(</span><span class="ST3">typeof</span><span class="ST2">(</span><span class="ST2">w</span><span class="ST2">)</span><span class="ST2">==</span><span class="ST6">&quot;</span><span class="ST6">undefined</span><span class="ST6">&quot;</span><span class="ST2">)</span>
+  <span class="ST2">{</span>
+  <span class="ST4">w</span><span class="ST2">=</span><span class="ST3">new</span> <span class="ST2">Worker</span><span class="ST2">(</span><span class="ST6">&quot;</span><span class="ST6">demo_workers.js</span><span class="ST6">&quot;</span><span class="ST2">)</span><span class="ST2">;</span>
+  <span class="ST2">}</span>
+  <span class="ST4">w</span><span class="ST2">.</span><span class="ST2">onmessage</span> <span class="ST2">=</span> <span class="ST3">function</span> <span class="ST2">(</span><span class="ST2">event</span><span class="ST2">)</span> <span class="ST2">{</span>
+    <span class="ST4">document</span><span class="ST2">.</span><span class="ST2">getElementById</span><span class="ST2">(</span><span class="ST6">&quot;</span><span class="ST6">result</span><span class="ST6">&quot;</span><span class="ST2">)</span><span class="ST2">.</span><span class="ST2">innerHTML</span><span class="ST2">=</span><span class="ST2">event</span><span class="ST2">.</span><span class="ST2">data</span><span class="ST2">;</span>
+    <span class="ST2">}</span><span class="ST2">;</span>
+  <span class="ST2">}</span>
+<span class="ST3">else</span>
+  <span class="ST2">{</span>
+  <span class="ST4">document</span><span class="ST2">.</span><span class="ST2">getElementById</span><span class="ST2">(</span><span class="ST6">&quot;</span><span class="ST6">result</span><span class="ST6">&quot;</span><span class="ST2">)</span><span class="ST2">.</span><span class="ST2">innerHTML</span><span class="ST2">=</span><span class="ST6">&quot;</span><span class="ST6">Sorry, your browser does not support Web Workers...</span><span class="ST6">&quot;</span><span class="ST2">;</span>
+  <span class="ST2">}</span>
+<span class="ST2">}</span>
+
+<span class="ST3">function</span> <span class="ST5">stopWorker</span><span class="ST2">(</span><span class="ST2">)</span>
+<span class="ST2">{</span> 
+<span class="ST4">w</span><span class="ST2">.</span><span class="ST2">terminate</span><span class="ST2">(</span><span class="ST2">)</span><span class="ST2">;</span>
+<span class="ST2">}</span>
+<span class="tag">&lt;/</span><span class="tag">script</span><span class="tag">&gt;</span>
+
+<span class="tag">&lt;/</span><span class="tag">body</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/</span><span class="tag">html</span><span class="tag">&gt;</span>
+</pre>
+<div id="tt-overview">
+</div>
+<p>
+<a href="../">Go back</a>
+</p>
+</body>
+</html>

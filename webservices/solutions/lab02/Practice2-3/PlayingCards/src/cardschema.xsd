@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+
+    <xs:simpleType name="suitType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="CLUBS" />
+            <xs:enumeration value="DIAMONDS" />
+            <xs:enumeration value="HEARTS" />
+            <xs:enumeration value="SPADES" />
+        </xs:restriction>
+    </xs:simpleType>
+   
+    <xs:simpleType name="colorType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="RED" />
+            <xs:enumeration value="BLACK" />
+        </xs:restriction>
+    </xs:simpleType>
+   
+    <xs:simpleType name="rankType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="2" />
+            <xs:enumeration value="3" />
+            <xs:enumeration value="4" />
+            <xs:enumeration value="5" />
+            <xs:enumeration value="6" />
+            <xs:enumeration value="7" />
+            <xs:enumeration value="8" />
+            <xs:enumeration value="9" />
+            <xs:enumeration value="10" />
+            <xs:enumeration value="J" />
+            <xs:enumeration value="Q" />
+            <xs:enumeration value="K" />
+            <xs:enumeration value="A" />
+            <xs:enumeration value="JOKER" />
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="cardType">
+        <xs:complexContent>
+            <xs:restriction base="xs:anyType">
+                <xs:sequence>
+                    <xs:element name="rank" type="rankType" />
+                    <xs:choice>
+                        <xs:element name="suit" type="suitType" />
+                        <xs:element name="color" type="colorType" />
+                    </xs:choice>
+                </xs:sequence>
+            </xs:restriction>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:complexType name="stackType">
+        <xs:sequence>
+            <xs:element name="card" type="cardType" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="stack" type="stackType" />
+    
+</xs:schema>

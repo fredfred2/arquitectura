@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" 
+             xmlns:wsp="http://www.w3.org/ns/ws-policy" 
+             xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" 
+             xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" 
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+             xmlns:tns="urn:auth" 
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+             xmlns="http://schemas.xmlsoap.org/wsdl/" 
+             targetNamespace="urn:auth"
+             name="user-management-service">
+    <types>
+        <xsd:schema xmlns:ns0="urn:auth" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:auth">
+            <xsd:complexType name="Exception">
+                <xsd:sequence>
+                    <xsd:element name="message" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="empty"/>
+            
+            <xsd:element name="Exception" type="ns0:Exception"/>
+            <xsd:element name="is-user-present">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="user-name" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="set-group-descriptionResponse" type="ns0:empty"/>
+            <xsd:element name="list-users" type="ns0:empty"/>
+            <xsd:element name="delete-group">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="group-name" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="check-group-membership">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="user-name" type="xsd:string" />
+                        <xsd:element name="group-name" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="set-password">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="user-name" type="xsd:string" />
+                        <xsd:element name="password" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="check-group-membershipResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="return" type="xsd:boolean"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="set-passwordResponse" type="ns0:empty"/>
+            <xsd:element name="get-group-description">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="group-name" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="list-groups" type="ns0:empty"/>
+            <xsd:element name="delete-groupResponse" type="ns0:empty"/>
+            <xsd:element name="is-group-present">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="group-name" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="create-group">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="group-name" type="xsd:string" />
+                        <xsd:element name="description" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="get-group-descriptionResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="return" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="leave-groupResponse" type="ns0:empty"/>
+            <xsd:element name="set-user-descriptionResponse" type="ns0:empty"/>
+            <xsd:element name="create-userResponse" type="ns0:empty"/>
+            <xsd:element name="get-user-descriptionResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="return" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="set-group-description">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="group-name" type="xsd:string" />
+                        <xsd:element name="description" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="delete-userResponse" type="ns0:empty"/>
+            <xsd:element name="list-joined-groups">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="user-name" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="join-groupResponse" type="ns0:empty"/>
+            <xsd:element name="list-usersResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="return" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="create-user">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="user-name" type="xsd:string" />
+                        <xsd:element name="password" type="xsd:string" />
+                        <xsd:element name="description" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="list-groupsResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="return" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="set-user-description">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="user-name" type="xsd:string" />
+                        <xsd:element name="description" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="join-group">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="user-name" type="xsd:string" />
+                        <xsd:element name="group-name" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="list-joined-groupsResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="return" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="delete-user">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="user-name" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="is-user-presentResponse">  
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="return" type="xsd:boolean"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="list-group-members">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="group-name" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="is-group-presentResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="return" type="xsd:boolean"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="list-group-membersResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="return" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="leave-group">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="user-name" type="xsd:string" />
+                        <xsd:element name="group-name" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="get-user-description">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="user-name" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="create-groupResponse" type="ns0:empty"/>
+        </xsd:schema>
+    </types>
+    
+    <message name="create-group">
+        <part name="parameters" element="tns:create-group"/>
+    </message>
+    <message name="create-groupResponse">
+        <part name="parameters" element="tns:create-groupResponse"/>
+    </message>
+    <message name="Exception">
+        <part name="fault" element="tns:Exception"/>
+    </message>
+    <message name="create-user">
+        <part name="parameters" element="tns:create-user"/>
+    </message>
+    <message name="create-userResponse">
+        <part name="parameters" element="tns:create-userResponse"/>
+    </message>
+    <message name="delete-group">
+        <part name="parameters" element="tns:delete-group"/>
+    </message>
+    <message name="delete-groupResponse">
+        <part name="parameters" element="tns:delete-groupResponse"/>
+    </message>
+    <message name="delete-user">
+        <part name="parameters" element="tns:delete-user"/>
+    </message>
+    <message name="delete-userResponse">
+        <part name="parameters" element="tns:delete-userResponse"/>
+    </message>
+    <message name="get-group-description">
+        <part name="parameters" element="tns:get-group-description"/>
+    </message>
+    <message name="get-group-descriptionResponse">
+        <part name="parameters" element="tns:get-group-descriptionResponse"/>
+    </message>
+    <message name="get-user-description">
+        <part name="parameters" element="tns:get-user-description"/>
+    </message>
+    <message name="get-user-descriptionResponse">
+        <part name="parameters" element="tns:get-user-descriptionResponse"/>
+    </message>
+    <message name="set-password">
+        <part name="parameters" element="tns:set-password"/>
+    </message>
+    <message name="set-passwordResponse">
+        <part name="parameters" element="tns:set-passwordResponse"/>
+    </message>
+    <message name="set-group-description">
+        <part name="parameters" element="tns:set-group-description"/>
+    </message>
+    <message name="set-group-descriptionResponse">
+        <part name="parameters" element="tns:set-group-descriptionResponse"/>
+    </message>
+    <message name="set-user-description">
+        <part name="parameters" element="tns:set-user-description"/>
+    </message>
+    <message name="set-user-descriptionResponse">
+        <part name="parameters" element="tns:set-user-descriptionResponse"/>
+    </message>
+    <message name="check-group-membership">
+        <part name="parameters" element="tns:check-group-membership"/>
+    </message>
+    <message name="check-group-membershipResponse">
+        <part name="parameters" element="tns:check-group-membershipResponse"/>
+    </message>
+    <message name="list-joined-groups">
+        <part name="parameters" element="tns:list-joined-groups"/>
+    </message>
+    <message name="list-joined-groupsResponse">
+        <part name="parameters" element="tns:list-joined-groupsResponse"/>
+    </message>
+    <message name="list-groups">
+        <part name="parameters" element="tns:list-groups"/>
+    </message>
+    <message name="list-groupsResponse">
+        <part name="parameters" element="tns:list-groupsResponse"/>
+    </message>
+    <message name="is-user-present">
+        <part name="parameters" element="tns:is-user-present"/>
+    </message>
+    <message name="is-user-presentResponse">
+        <part name="parameters" element="tns:is-user-presentResponse"/>
+    </message>
+    <message name="join-group">
+        <part name="parameters" element="tns:join-group"/>
+    </message>
+    <message name="join-groupResponse">
+        <part name="parameters" element="tns:join-groupResponse"/>
+    </message>
+    <message name="leave-group">
+        <part name="parameters" element="tns:leave-group"/>
+    </message>
+    <message name="leave-groupResponse">
+        <part name="parameters" element="tns:leave-groupResponse"/>
+    </message>
+    <message name="is-group-present">
+        <part name="parameters" element="tns:is-group-present"/>
+    </message>
+    <message name="is-group-presentResponse">
+        <part name="parameters" element="tns:is-group-presentResponse"/>
+    </message>
+    <message name="list-group-members">
+        <part name="parameters" element="tns:list-group-members"/>
+    </message>
+    <message name="list-group-membersResponse">
+        <part name="parameters" element="tns:list-group-membersResponse"/>
+    </message>
+    <message name="list-users">
+        <part name="parameters" element="tns:list-users"/>
+    </message>
+    <message name="list-usersResponse">
+        <part name="parameters" element="tns:list-usersResponse"/>
+    </message>
+    <portType name="user-management-type">
+        <operation name="create-group">
+            <input wsam:Action="urn:auth:user-management-type:create-groupRequest" message="tns:create-group"/>
+            <output wsam:Action="urn:auth:user-management-type:create-groupResponse" message="tns:create-groupResponse"/>
+            <fault message="tns:Exception" name="Exception" wsam:Action="urn:auth:user-management-type:create-group:Fault:Exception"/>
+        </operation>
+        <operation name="create-user">
+            <input wsam:Action="urn:auth:user-management-type:create-userRequest" message="tns:create-user"/>
+            <output wsam:Action="urn:auth:user-management-type:create-userResponse" message="tns:create-userResponse"/>
+            <fault message="tns:Exception" name="Exception" wsam:Action="urn:auth:user-management-type:create-user:Fault:Exception"/>
+        </operation>
+        <operation name="delete-group">
+            <input wsam:Action="urn:auth:user-management-type:delete-groupRequest" message="tns:delete-group"/>
+            <output wsam:Action="urn:auth:user-management-type:delete-groupResponse" message="tns:delete-groupResponse"/>
+            <fault message="tns:Exception" name="Exception" wsam:Action="urn:auth:user-management-type:delete-group:Fault:Exception"/>
+        </operation>
+        <operation name="delete-user">
+            <input wsam:Action="urn:auth:user-management-type:delete-userRequest" message="tns:delete-user"/>
+            <output wsam:Action="urn:auth:user-management-type:delete-userResponse" message="tns:delete-userResponse"/>
+            <fault message="tns:Exception" name="Exception" wsam:Action="urn:auth:user-management-type:delete-user:Fault:Exception"/>
+        </operation>
+        <operation name="get-group-description">
+            <input wsam:Action="urn:auth:user-management-type:get-group-descriptionRequest" message="tns:get-group-description"/>
+            <output wsam:Action="urn:auth:user-management-type:get-group-descriptionResponse" message="tns:get-group-descriptionResponse"/>
+            <fault message="tns:Exception" name="Exception" wsam:Action="urn:auth:user-management-type:get-group-description:Fault:Exception"/>
+        </operation>
+        <operation name="get-user-description">
+            <input wsam:Action="urn:auth:user-management-type:get-user-descriptionRequest" message="tns:get-user-description"/>
+            <output wsam:Action="urn:auth:user-management-type:get-user-descriptionResponse" message="tns:get-user-descriptionResponse"/>
+            <fault message="tns:Exception" name="Exception" wsam:Action="urn:auth:user-management-type:get-user-description:Fault:Exception"/>
+        </operation>
+        <operation name="set-password">
+            <input wsam:Action="urn:auth:user-management-type:set-passwordRequest" message="tns:set-password"/>
+            <output wsam:Action="urn:auth:user-management-type:set-passwordResponse" message="tns:set-passwordResponse"/>
+            <fault message="tns:Exception" name="Exception" wsam:Action="urn:auth:user-management-type:set-password:Fault:Exception"/>
+        </operation>
+        <operation name="set-group-description">
+            <input wsam:Action="urn:auth:user-management-type:set-group-descriptionRequest" message="tns:set-group-description"/>
+            <output wsam:Action="urn:auth:user-management-type:set-group-descriptionResponse" message="tns:set-group-descriptionResponse"/>
+            <fault message="tns:Exception" name="Exception" wsam:Action="urn:auth:user-management-type:set-group-description:Fault:Exception"/>
+        </operation>
+        <operation name="set-user-description">
+            <input wsam:Action="urn:auth:user-management-type:set-user-descriptionRequest" message="tns:set-user-description"/>
+            <output wsam:Action="urn:auth:user-management-type:set-user-descriptionResponse" message="tns:set-user-descriptionResponse"/>
+            <fault message="tns:Exception" name="Exception" wsam:Action="urn:auth:user-management-type:set-user-description:Fault:Exception"/>
+        </operation>
+        <operation name="check-group-membership">
+            <input wsam:Action="urn:auth:user-management-type:check-group-membershipRequest" message="tns:check-group-membership"/>
+            <output wsam:Action="urn:auth:user-management-type:check-group-membershipResponse" message="tns:check-group-membershipResponse"/>
+            <fault message="tns:Exception" name="Exception" wsam:Action="urn:auth:user-management-type:check-group-membership:Fault:Exception"/>
+        </operation>
+        <operation name="list-joined-groups">
+            <input wsam:Action="urn:auth:user-management-type:list-joined-groupsRequest" message="tns:list-joined-groups"/>
+            <output wsam:Action="urn:auth:user-management-type:list-joined-groupsResponse" message="tns:list-joined-groupsResponse"/>
+            <fault message="tns:Exception" name="Exception" wsam:Action="urn:auth:user-management-type:list-joined-groups:Fault:Exception"/>
+        </operation>
+        <operation name="list-groups">
+            <input wsam:Action="urn:auth:user-management-type:list-groupsRequest" message="tns:list-groups"/>
+            <output wsam:Action="urn:auth:user-management-type:list-groupsResponse" message="tns:list-groupsResponse"/>
+            <fault message="tns:Exception" name="Exception" wsam:Action="urn:auth:user-management-type:list-groups:Fault:Exception"/>
+        </operation>
+        <operation name="is-user-present">
+            <input wsam:Action="urn:auth:user-management-type:is-user-presentRequest" message="tns:is-user-present"/>
+            <output wsam:Action="urn:auth:user-management-type:is-user-presentResponse" message="tns:is-user-presentResponse"/>
+            <fault message="tns:Exception" name="Exception" wsam:Action="urn:auth:user-management-type:is-user-present:Fault:Exception"/>
+        </operation>
+        <operation name="join-group">
+            <input wsam:Action="urn:auth:user-management-type:join-groupRequest" message="tns:join-group"/>
+            <output wsam:Action="urn:auth:user-management-type:join-groupResponse" message="tns:join-groupResponse"/>
+            <fault message="tns:Exception" name="Exception" wsam:Action="urn:auth:user-management-type:join-group:Fault:Exception"/>
+        </operation>
+        <operation name="leave-group">
+            <input wsam:Action="urn:auth:user-management-type:leave-groupRequest" message="tns:leave-group"/>
+            <output wsam:Action="urn:auth:user-management-type:leave-groupResponse" message="tns:leave-groupResponse"/>
+            <fault message="tns:Exception" name="Exception" wsam:Action="urn:auth:user-management-type:leave-group:Fault:Exception"/>
+        </operation>
+        <operation name="is-group-present">
+            <input wsam:Action="urn:auth:user-management-type:is-group-presentRequest" message="tns:is-group-present"/>
+            <output wsam:Action="urn:auth:user-management-type:is-group-presentResponse" message="tns:is-group-presentResponse"/>
+            <fault message="tns:Exception" name="Exception" wsam:Action="urn:auth:user-management-type:is-group-present:Fault:Exception"/>
+        </operation>
+        <operation name="list-group-members">
+            <input wsam:Action="urn:auth:user-management-type:list-group-membersRequest" message="tns:list-group-members"/>
+            <output wsam:Action="urn:auth:user-management-type:list-group-membersResponse" message="tns:list-group-membersResponse"/>
+            <fault message="tns:Exception" name="Exception" wsam:Action="urn:auth:user-management-type:list-group-members:Fault:Exception"/>
+        </operation>
+        <operation name="list-users">
+            <input wsam:Action="urn:auth:user-management-type:list-usersRequest" message="tns:list-users"/>
+            <output wsam:Action="urn:auth:user-management-type:list-usersResponse" message="tns:list-usersResponse"/>
+            <fault message="tns:Exception" name="Exception" wsam:Action="urn:auth:user-management-type:list-users:Fault:Exception"/>
+        </operation>
+    </portType>
+    <binding name="user-management-portBinding" type="tns:user-management-type">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <operation name="create-group">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="create-user">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="delete-group">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="delete-user">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="get-group-description">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="get-user-description">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="set-password">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="set-group-description">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="set-user-description">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="check-group-membership">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="list-joined-groups">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="list-groups">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="is-user-present">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="join-group">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="leave-group">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="is-group-present">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="list-group-members">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="list-users">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </fault>
+        </operation>
+    </binding>
+    <service name="user-management-service">
+        <port name="user-management-port" binding="tns:user-management-portBinding">
+            <soap:address location="http://localhost:7001/UserManager/user-management-service"/>
+        </port>
+    </service>
+</definitions>

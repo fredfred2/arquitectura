@@ -28,7 +28,7 @@
     </target>
     <target name="wsimport-client-user-management-service" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/user-management-service"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/user-management-service" destdir="${build.generated.dir}/jax-wsCache/user-management-service" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/user-management-service/wsdl/localhost_7001/UserManager/user-management-service.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:7001/UserManager/user-management-service?wsdl" xnocompile="true" xendorsed="true" package="users">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/user-management-service" destdir="${build.generated.dir}/jax-wsCache/user-management-service" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/user-management-service/wsdl/localhost_7001/UserManager/user-management-service.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://localhost:7001/UserManager/user-management-service?wsdl" xnocompile="true" xendorsed="true" package="users">
             <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/user-management-service/wsdl/localhost_7001/UserManager/user-management-service.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/user-management-service"/>
         </wsimport>
@@ -44,7 +44,7 @@
     </target>
     <target name="wsimport-client-CardGameService" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/CardGameService"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/CardGameService" destdir="${build.generated.dir}/jax-wsCache/CardGameService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/CardGameService/wsdl/localhost_7001/GenericCardGameWS/CardGameService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:7001/GenericCardGameWS/CardGameService?wsdl" xnocompile="true" xendorsed="true" package="cards">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/CardGameService" destdir="${build.generated.dir}/jax-wsCache/CardGameService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/CardGameService/wsdl/localhost_7001/GenericCardGameWS/CardGameService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://localhost:7001/GenericCardGameWS/CardGameService?wsdl" xnocompile="true" xendorsed="true" package="cards">
             <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/CardGameService/wsdl/localhost_7001/GenericCardGameWS/CardGameService.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/CardGameService"/>
         </wsimport>

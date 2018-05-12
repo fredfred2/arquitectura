@@ -23,7 +23,7 @@
         <copy todir="${build.classes.dir}/META-INF">
             <fileset dir="${webinf.dir}" includes="wsit-games.CardGameService.xml"/>
         </copy>
-        <wsgen sourcedestdir="${build.generated.sources.dir}/jax-ws" resourcedestdir="${build.generated.sources.dir}/jax-ws/resources/" destdir="${build.generated.sources.dir}/jax-ws" verbose="true" xendorsed="true" keep="true" genwsdl="true" sei="games.CardGameService">
+        <wsgen sourcedestdir="${build.generated.sources.dir}/jax-ws" resourcedestdir="${build.generated.sources.dir}/jax-ws/resources/" destdir="${build.generated.sources.dir}/jax-ws" verbose="true" keep="true" genwsdl="true" sei="games.CardGameService" xendorsed="true">
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </wsgen>
     </target>
@@ -45,7 +45,7 @@
     </target>
     <target name="wsimport-client-CardDeckSessionBeanService" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/CardDeckSessionBeanService"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/CardDeckSessionBeanService" destdir="${build.generated.dir}/jax-wsCache/CardDeckSessionBeanService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/CardDeckSessionBeanService/wsdl/localhost_7001/CardDeckSessionBean/CardDeckSessionBeanService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:7001/CardDeckSessionBean/CardDeckSessionBeanService?wsdl" xnocompile="true" xendorsed="true" package="deckws">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/CardDeckSessionBeanService" destdir="${build.generated.dir}/jax-wsCache/CardDeckSessionBeanService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/CardDeckSessionBeanService/wsdl/localhost_7001/CardDeckSessionBean/CardDeckSessionBeanService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://localhost:7001/CardDeckSessionBean/CardDeckSessionBeanService?wsdl" xnocompile="true" xendorsed="true" package="deckws">
             <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/CardDeckSessionBeanService/wsdl/localhost_7001/CardDeckSessionBean/CardDeckSessionBeanService.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/CardDeckSessionBeanService"/>
         </wsimport>

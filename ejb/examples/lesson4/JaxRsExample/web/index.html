@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+<body>
+    <div id="msg"></div>
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function() {
+            var element = document.getElementById("msg");
+            if(xhr.status === 200) {
+                element.innerHTML = xhr.responseText;
+            } else {
+                element.innerHTML = "Failed to load message";
+            }
+        };
+        xhr.open("GET", "resources/message", true);
+        xhr.send();
+    </script>
+</body>
+</html>

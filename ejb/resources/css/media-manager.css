@@ -1,0 +1,57 @@
+/* 
+    Created on : Oct 22, 2014, 9:32:57 AM
+    Author     : mheimer
+*/
+
+body { 
+    background: url(../images/texture.png);
+    color: white;
+    padding: 10px 10px;
+}
+
+h1 {
+    font-size: 28px;
+}
+@media (min-width: 768px) {
+    h1 {
+        font-size: 36px;
+    }
+}
+
+.group-header {
+    padding: 8px 0 10px 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: rgba(0,0,0,0.12);
+    border-style:solid;
+    border-width: 1px;
+    border-color: rgba(255,255,255,0.2);
+    padding: 8px 6px 10px 6px;
+    margin-top: 0;
+}
+
+.thumbnail > a {
+    height: 140px;
+}
+
+.thumbnail {
+    max-height: 140px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.list-inline h5 {
+  text-align: center;
+}
+
+.glyphicon-tile {
+    font-size: 2em;
+}
+
+.glyphicon-tile > a > span{
+    padding: 60px;
+}
+
+.modal-content { 
+    background-color: lightgray;
+}

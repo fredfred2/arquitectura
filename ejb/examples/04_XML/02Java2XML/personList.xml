@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<personList>
+    <person>
+        <name>Tom</name>
+    </person>
+    <person>
+        <name>Edgar</name>
+    </person>
+    <person>
+        <name>Eduardo</name>
+    </person>
+    <person>
+        <name>Anjana</name>
+    </person>
+</personList>

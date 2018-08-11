@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<productList>
+    <product>
+        <name>Widget</name>
+        <price>25.0</price>
+        <description>The all new multifunction widget</description>
+    </product>
+    <product>
+        <name>Widget Pro</name>
+        <price>35.0</price>
+        <description>The all new multifunction widget pro</description>
+    </product>
+    <product>
+        <name>Widget Pro XL</name>
+        <price>45.0</price>
+        <description>The all new multifunction widget pro xl</description>
+    </product>
+</productList>

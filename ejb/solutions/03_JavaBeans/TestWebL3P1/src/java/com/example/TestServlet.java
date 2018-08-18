@@ -27,13 +27,13 @@ public class TestServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        Enumeration<String> headers = request.getHeaderNames();
-        String header;
-        while ((header = headers.nextElement()) != null) {
-            String message = header + " : " + request.getHeader(header);
-            logger.log(Level.INFO, message);
-        }
+       Enumeration<String> headers = request.getHeaderNames();
+       String header;
+while(headers.hasMoreElements() != false) {
+    header = headers.nextElement();
+    String message = header + " : " + request.getHeader(header);
+    logger.log(Level.INFO, message);
+}
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");

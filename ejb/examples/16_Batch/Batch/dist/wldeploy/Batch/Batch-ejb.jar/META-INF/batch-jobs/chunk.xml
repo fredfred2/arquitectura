@@ -1,0 +1,9 @@
+<job id="chunk" xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="1.0">
+    <step id="chunkStep1">
+        <chunk item-count="100">
+            <reader ref="chunkReader"></reader>
+            <processor ref="chunkProcessor"></processor>
+            <writer ref="chunkWriter"></writer>
+        </chunk>
+    </step>
+</job>

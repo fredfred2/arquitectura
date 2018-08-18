@@ -1,24 +1,20 @@
 ==Running the examples==
 
 === SETUP ===
- - Add the glassfish4 instance to netbeans.
-   1. Open the Services tab
-   2. Right click the Servers node
-   3. Select Add Server
-   4. Select GlassFish Server
-   5. Set the name to "GlassFish Server 4"
-   6. Click next
-   7. Set the location to: /home/oracle/glassfish4
-   8. Select local domain
-   9. click next
-   10. click finish
+
+
+-  Ensure WebLogic Server is configured in NetBeans and running.
+
+-  Open the example projects in NetBeans and remember to clean and build them.
+
+-  For executing, example, of Lesson 6,DataExampleJndi.java you need to configure the DataSource jndi/loginDb in WebLogic server thru Admin console
 
  - Add the LoginDb database
    1. Open the Services tab
    2. Open the databases node
    3. right click the Java DB and select Start Server if available
    4. right click the Jaba DB and select create database
-   5. Set the name of the database: "LoginDb", user name: "oracle" and password: "oracle"
+   5. Set the name of the database: "LoginDb", user name: "oracle" and password: <refer to the security credentials page>
    6. Click OK
    7. In the netbeans menu select window -> favorites
    8. Browse to /home/oracle/labs/resources
@@ -31,7 +27,7 @@
    2. Open the databases node
    3. right click the Java DB and select Start Server if available
    4. right click the Jaba DB and select create database
-   5. Set the name of the database: "EmployeeDB", user name: "oracle" and password: "oracle"
+   5. Set the name of the database: "EmployeeDB", user name: "oracle" and password: <refer to the security credentials page>
    6. Click OK
    7. In the netbeans menu select window -> favorites
    8. Browse to /home/oracle/labs/examples/14_JPA
@@ -41,4 +37,3 @@
 
 === 
 
-Open the example projects and remember to clean and build them.

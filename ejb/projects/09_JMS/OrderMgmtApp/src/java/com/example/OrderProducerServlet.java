@@ -54,7 +54,6 @@ public class OrderProducerServlet extends HttpServlet {
             logger.log(Level.INFO, "order sent: " + order);
             out.format("Message sent to orderQueue");
             //TODO: Create a receiver CDI Bean and get the message
-            out.println("<p/><a href=\"" + request.getContextPath() + "\">Send another</a>");
             out.println("</body>");
             out.println("</html>");
         }

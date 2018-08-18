@@ -4,9 +4,6 @@
     <service name="Calc">
       <implementation-class>com.example.jaxws.Calc</implementation-class>
     </service>
-    <service name="Calc1EJB">
-      <implementation-class>com.example.jaxws.Calc1EJB</implementation-class>
-    </service>
   </services>
   <clients/>
 </jax-ws>

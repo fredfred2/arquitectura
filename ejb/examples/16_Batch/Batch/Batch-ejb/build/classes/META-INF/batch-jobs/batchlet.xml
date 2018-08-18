@@ -1,0 +1,10 @@
+<job id="batchlet" xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="1.0">
+    <step id="batchletStep1">
+        <batchlet ref="exampleBatchlet">
+            <properties>
+                <property name="times" value="100" />
+                <property name="prefix" value="batchlet-class" />
+            </properties>
+        </batchlet>
+    </step>
+</job>

@@ -1,0 +1,29 @@
+<job id="multiStep" xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="1.0">
+    <step id="multiStep1" next="multiStep2">
+        <batchlet ref="exampleBatchlet">
+            <properties>
+                <property name="times" value="#{partitionPlan['times']}" />
+                <property name="prefix" value="#{partitionPlan['prefix']}" />
+            </properties>
+        </batchlet>
+        <partition>
+            <plan partitions="2">
+                <properties partition="0">
+                    <property name="times" value="300"/>
+                    <property name="prefix" value="partition-1-batchlet"/>
+                </properties>
+                <properties partition="1">
+                    <property name="times" value="100"/>
+                    <property name="prefix" value="partition-2-batchlet"/>
+                </properties>
+            </plan>
+        </partition>
+    </step>
+    <step id="multiStep2">
+        <chunk item-count="100">
+            <reader ref="chunkReader"></reader>
+            <processor ref="chunkProcessor"></processor>
+            <writer ref="chunkWriter"></writer>
+        </chunk>
+    </step>
+</job>

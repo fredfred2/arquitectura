@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:10080/ConcurrencyServices/WordWebService?wsdl" uri="src/conf/xml-resources/web-service-references/WordWebService/wsdl/localhost_10080/ConcurrencyServices/WordWebService.wsdl"/>
+    <system systemId="http://localhost:10080/ConcurrencyServices/WordWebService?xsd=1" uri="src/conf/xml-resources/web-service-references/WordWebService/wsdl/localhost_10080/ConcurrencyServices/WordWebService.xsd_1.xsd"/>
+    <system systemId="http://localhost:7005/ConcurrencyServices/WordWebService?wsdl" uri="src/conf/xml-resources/web-service-references/WordWebService/wsdl/localhost_7005/ConcurrencyServices/WordWebService.wsdl"/>
+    <system systemId="http://localhost:7005/ConcurrencyServices/WordWebService?xsd=1" uri="src/conf/xml-resources/web-service-references/WordWebService/wsdl/localhost_7005/ConcurrencyServices/WordWebService.xsd_1.xsd"/>
+</catalog>

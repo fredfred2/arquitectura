@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/C:/development/Oracle/course-JavaEE7-BackEnd/labs-instructor/solutions-projects/11_concurrency/Concurrency/Concurrency-ejb/WordWebService.wsdl" uri="wsdl/WordWebService.wsdl"/>
+    <system systemId="http://localhost:10080/ConcurrencyServices/WordWebService?xsd=1" uri="wsdl/localhost_10080/ConcurrencyServices/WordWebService.xsd_1.xsd"/>
+    <system systemId="http://localhost:10080/ConcurrencyServices/WordWebService?wsdl" uri="wsdl/localhost_10080/ConcurrencyServices/WordWebService.wsdl"/>
+    <system systemId="http://localhost:7005/ConcurrencyServices/WordWebService?wsdl" uri="wsdl/localhost_7005/ConcurrencyServices/WordWebService.wsdl"/>
+    <system systemId="http://localhost:7005/ConcurrencyServices/WordWebService?xsd=1" uri="wsdl/localhost_7005/ConcurrencyServices/WordWebService.xsd_1.xsd"/>
+</catalog>

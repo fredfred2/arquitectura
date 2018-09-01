@@ -3,19 +3,30 @@ package com.example.model;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 
-public class Product implements Serializable{
-    
+public class Product implements Serializable {
+
     @Id
+    @NotNull(message = "The primary key may not be null")
+    @Size(min = 1, message
+            = "The primary key, Product ID, cannot be empty")
     private String product_id;
+    
+    @NotNull(message = "The product name field may not be null")
+    @Size(min = 10, message = "The product name must be at least 10 characters")
     private String prod_name;
+    
+    @Min(value = 5, message="The price field must be greater than 5")
     private double price;
     private String prod_desc;
-    
+
     public Product() {
-}
+    }
 
     public Product(String id, String name, double price, String description) {
         this.product_id = id;
@@ -51,13 +62,13 @@ public class Product implements Serializable{
     public void setDescription(String description) {
         this.prod_desc = description;
     }
-    
+
     @Override
     public String toString() {
         String s = String.format("Product id: %s\n"
-        + "Name: %s\n"
-        + "Description: %s\n"
-        + "Price: $%f.2", product_id, prod_name, prod_desc, price);
+                + "Name: %s\n"
+                + "Description: %s\n"
+                + "Price: $%f.2", product_id, prod_name, prod_desc, price);
         return s;
     }
 
@@ -94,5 +105,5 @@ public class Product implements Serializable{
         }
         return true;
     }
-    
+
 }

@@ -12,7 +12,7 @@ public class OrderProducerBean {
     @Inject
     private JMSContext context;
 
-    @Resource(lookup = "jms/orderQueue")
+    @Resource(lookup = "jms/MiQueue")
     private Queue queue;
 
     public OrderProducerBean() {

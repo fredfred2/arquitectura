@@ -2,19 +2,12 @@ package com.example.dao;
 
 import com.example.model.Product;
 import java.io.Serializable;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.Resource;
 import javax.enterprise.inject.Model;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-
-import javax.sql.DataSource;
 
 @Model
 public class ProductDAO implements Serializable {
@@ -26,9 +19,13 @@ public class ProductDAO implements Serializable {
 //    private final String nameCol = "PROD_NAME";
 //    private final String priceCol = "PRICE";
 //    private final String descCol = "PROD_DESC";
-    
     @PersistenceContext
-private EntityManager em;
+    private EntityManager em;
+
+    public void addNewProduct(Product newProd) {
+        em.persist(newProd);
+        em.flush();
+    }
 
     public List<Product> getAllProducts() throws SQLException {
 //        List<Product> prodList = new ArrayList<>();
@@ -43,9 +40,9 @@ private EntityManager em;
 //                prodList.add(new Product(id, name, price, desc));
 //            }
 //        }
-TypedQuery<Product> query 
-  = em.createQuery("SELECT p FROM Product p", Product.class);
-List<Product> prodList = query.getResultList(); 
+        TypedQuery<Product> query
+                = em.createQuery("SELECT p FROM Product p", Product.class);
+        List<Product> prodList = query.getResultList();
         return prodList;
     }
 

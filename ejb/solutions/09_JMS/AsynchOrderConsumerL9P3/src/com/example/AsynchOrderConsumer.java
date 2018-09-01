@@ -20,7 +20,7 @@ public class AsynchOrderConsumer {
      *
      * @param args the destination name and type used by the example
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         char answer = '\0';
         /*
          * In a try-with-resources block, create context.
@@ -31,9 +31,9 @@ public class AsynchOrderConsumer {
         try {
             
             Context jndiContext =  getInitialContext();
-            ConnectionFactory connectionFactory = (ConnectionFactory) jndiContext.lookup("jms/myJMSConnectionFactory");
+            ConnectionFactory connectionFactory = (ConnectionFactory) jndiContext.lookup("jms/MiFabricaJMS");
             JMSContext context = connectionFactory.createContext();
-            Queue queue = (Queue) jndiContext.lookup("jms/orderQueue");
+            Queue queue = (Queue) jndiContext.lookup("jms/MiQueue");
             JMSConsumer consumer = context.createConsumer(queue);
             MessageListener listener = new TextListener();
             consumer.setMessageListener(listener);
@@ -43,6 +43,7 @@ public class AsynchOrderConsumer {
 
             while (!((answer == 'q') || (answer == 'Q'))) {
                 try {
+                    Thread.sleep(1000L);
                     answer = (char) inputStreamReader.read();
                 } catch (IOException e) {
                     System.err.println("I/O exception: " + e.toString());
@@ -57,7 +58,9 @@ public class AsynchOrderConsumer {
     
     private static InitialContext getInitialContext() throws NamingException {
         Hashtable env = new Hashtable();
-        env.put(Context.INITIAL_CONTEXT_FACTORY, "weblogic.jndi.WLInitialContextFactory");
+        weblogic.jndi.WLInitialContextFactory l;
+        env.put(Context.INITIAL_CONTEXT_FACTORY,
+                "weblogic.jndi.WLInitialContextFactory");
         env.put(Context.PROVIDER_URL, "t3://localhost:7001");
         return new InitialContext(env);
     }

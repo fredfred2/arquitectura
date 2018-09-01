@@ -1,6 +1,7 @@
 package com.example.servlet;
 
 import com.example.beans.ProductManager;
+import com.example.beans.ProductManager;
 import com.example.model.Product;
 import com.example.util.InventoryException;
 import java.io.IOException;

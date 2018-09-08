@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dd:stack xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dd="urn:dukesdecks"
+       xsi:schemaLocation="urn:dukesdecks cardschema.xsd">
+    <dd:card>
+        <dd:rank>4</dd:rank>
+        <dd:suit>SPADES</dd:suit>
+    </dd:card>
+    <dd:card>
+        <dd:rank>2</dd:rank>
+        <dd:suit>CLUBS</dd:suit>
+    </dd:card>
+    <dd:card>
+        <dd:rank>JOKER</dd:rank>
+        <dd:color>RED</dd:color>
+    </dd:card>
+</dd:stack>

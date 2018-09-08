@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
-    <system systemId="file:/D:/labs/student/solutions/lab03/Practice3-1/SchemaToJava/src/bindings.xjb" uri="xml-resources/jaxb/CardBinding/bindings.xjb.xml"/>
-    <system systemId="file:/D:/labs/student/solutions/lab03/Practice3-1/SchemaToJava/src/bindings.xjb.xml" uri="xml-resources/jaxb/CardBinding/bindings.xjb.xml"/>
-    <system systemId="file:/D:/labs/student/solutions/lab03/Practice3-1/SchemaToJava/../../../lab02/Practice2-4/PlayingCards/src/cardschema.xsd" uri="xml-resources/jaxb/CardBinding/cardschema.xsd"/>
-    <system systemId="file:/D:/labs/student/solutions/lab03/Practice3-3/SchemaToJava/../../../lab03/bindings.xjb.xml" uri="xml-resources/jaxb/CardBinding/bindings.xjb.xml"/>
-    <system systemId="file:/D:/labs/student/solutions/lab03/Practice3-3/SchemaToJava/../../../lab02/Practice2-4/PlayingCards/src/cardschema.xsd" uri="xml-resources/jaxb/CardBinding/cardschema.xsd"/>
-</catalog>

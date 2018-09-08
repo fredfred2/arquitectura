@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-Extension-Name: Jersey-1.17
-Specification-Version: 1.17
-Implementation-Version: 1.17.0
-

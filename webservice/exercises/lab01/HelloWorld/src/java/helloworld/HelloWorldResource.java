@@ -58,7 +58,7 @@ import javax.ws.rs.core.Response;
  * @author mkuchtiak
  */
 @Stateless
-@Path("/helloWorld")
+@Path("helloWorld")
 public class HelloWorldResource {
 
     @EJB

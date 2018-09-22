@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/D:/labs/student/solutions/lab07/Practice7-1/JavaSERestClient/../../../../exercises/lab07/monitoring.xsd" uri="xml-resources/jaxb/MonitorBinding/monitoring.xsd"/>
+</catalog>

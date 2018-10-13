@@ -30,11 +30,11 @@ public class CardGameService {
     @EJB
     private GameStorageBean bean;
     private static final URL wsdlURL;
-    private static final String wsdlLocation = "WEB-INF/wsdl/localhost_7001/CardDeckSessionBean/CardDeckSessionBeanService.wsdl";
+    private static final String wsdlLocation = "/wsdl/localhost_7001/CardDeckSessionBean/CardDeckSessionBeanService.wsdl";
 
     static {
         try {
-            wsdlURL = new URL("file://./" + wsdlLocation);
+            wsdlURL = new URL("http://localhost:7001/CardDeckSessionBean/CardDeckSessionBeanService?WSDL");
         } catch (MalformedURLException ex) {
             throw new ExceptionInInitializerError(ex);
         }
@@ -46,7 +46,7 @@ public class CardGameService {
     public String createCardGame(@WebParam(name = "deck-count") int numberOfDecks,
             @WebParam(name = "jokers-per-deck") int jokerCountPerDeck)
             throws GameException {
-
+    System.out.println("games.CardGameService.createCardGame()");
         if (numberOfDecks < 1 || numberOfDecks > 2) {
             throw new GameException("Only 1-2 decks supported");
         }

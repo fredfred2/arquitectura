@@ -23,8 +23,8 @@ public class ServiceFactory {
     public static CardGameService getGameService() {
         CardGameService_Service service = new CardGameService_Service();
         CardGameService port = service.getCardGameServicePort();
-        String serverCertFile = "D:/labs/student/keystores/server.pem";
-        String clientKeyStore = "D:/labs/student/keystores/client.jks";
+        String serverCertFile = "c:/apps/keystores/server.pem";
+        String clientKeyStore = "c:/apps/keystores/client.jks";
         String clientKeyStorePass = "welcome1";
         String clientKeyAlias = "client";
         String clientKeyPass = "welcome1";
@@ -32,7 +32,7 @@ public class ServiceFactory {
         List credProviders = new ArrayList();
 
         ClientUNTCredentialProvider unt =
-                new ClientUNTCredentialProvider("weblogic".getBytes(), "welcome1".getBytes());
+                new ClientUNTCredentialProvider("weblogic".getBytes(), "weblogic1".getBytes());
         credProviders.add(unt);
 
         try {

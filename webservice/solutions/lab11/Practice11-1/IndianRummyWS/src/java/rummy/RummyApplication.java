@@ -21,6 +21,7 @@ public class RummyApplication extends Application {
         try {
             JAXBContextResolver myJAXBContextResolver = new JAXBContextResolver();
             set.add(myJAXBContextResolver);
+            set.add(new RummyExceptionMapper());
         } catch (Exception ex) {
             ex.printStackTrace();
         }

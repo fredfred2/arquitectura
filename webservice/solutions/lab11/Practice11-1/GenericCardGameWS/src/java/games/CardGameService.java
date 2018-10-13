@@ -31,7 +31,8 @@ public class CardGameService {
 
     static {
         try {
-            wsdlURL = new URL("file://./" + wsdlLocation);
+            wsdlURL = new URL(
+                    "http://localhost:7001/CardDeckSessionBean/CardDeckSessionBeanService?wsdl");
         } catch (MalformedURLException ex) {
             throw new ExceptionInInitializerError(ex);
         }

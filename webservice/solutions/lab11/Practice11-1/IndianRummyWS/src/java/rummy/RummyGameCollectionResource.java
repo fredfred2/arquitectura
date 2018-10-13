@@ -114,6 +114,7 @@ public class RummyGameCollectionResource {
         UriBuilder uriBuilder = uriInfo.getAbsolutePathBuilder();
         uriBuilder.path(gameId);
         rb = Response.created(uriBuilder.build(newGame));
+        System.out.println("rummy.RummyGameCollectionResource.createGame()");
         return rb.build();
     }
 

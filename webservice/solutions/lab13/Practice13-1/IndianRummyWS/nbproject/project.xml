@@ -13,7 +13,14 @@
         <data xmlns="http://www.netbeans.org/ns/web-project/3">
             <name>IndianRummyWS</name>
             <minimum-ant-version>1.6.5</minimum-ant-version>
-            <web-module-libraries/>
+            <web-module-libraries>
+                <library dirs="200">
+                    <file>${file.reference.wlclient.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.com.oracle.webservices.wls.jaxws-wlswss-client.jar}</file>
+                </library>
+            </web-module-libraries>
             <web-module-additional-libraries/>
             <source-roots>
                 <root id="src.dir"/>

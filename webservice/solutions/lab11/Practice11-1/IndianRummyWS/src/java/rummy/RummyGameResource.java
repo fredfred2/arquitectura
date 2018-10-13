@@ -10,6 +10,7 @@ import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.ResponseBuilder;
@@ -27,27 +28,17 @@ public class RummyGameResource {
     private static final Logger logger = Logger.getLogger("rummy");
 
     @GET
-    public Response getGame(@Context UriInfo uriInfo, @PathParam("id") String gameId) {
-        ResponseBuilder rb;
-
+    public RummyGame getGame(@Context UriInfo uriInfo,
+            @PathParam("id") String gameId) throws JAXBException {
         if (!isGroupPresent("game-" + gameId)) {
-            rb = Response.status(Response.Status.NOT_FOUND);
-            return rb.build();
+            throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
-
         RummyGame game;
-        try {
-            JAXBContext jaxbContext = JAXBContext.newInstance(RummyGame.class);
-            Unmarshaller u = jaxbContext.createUnmarshaller();
-            String groupDesc = getGroupDescription("game-" + gameId);
-            ByteArrayInputStream in = new ByteArrayInputStream(groupDesc.getBytes());
-            game = (RummyGame) u.unmarshal(in);
-        } catch (JAXBException ex) {
-            logger.log(Level.SEVERE, "Failed to read game XML", ex);
-            rb = Response.status(Response.Status.INTERNAL_SERVER_ERROR);
-            return rb.build();
-        }
-
+        JAXBContext jaxbContext = JAXBContext.newInstance(RummyGame.class);
+        Unmarshaller u = jaxbContext.createUnmarshaller();
+        String groupDesc = getGroupDescription("game-" + gameId);
+        ByteArrayInputStream in = new ByteArrayInputStream(groupDesc.getBytes());
+        game = (RummyGame) u.unmarshal(in);
         CardType topDiscardCard = showTopCard(gameId, "discard");
         game.setTopDiscardCard(topDiscardCard);
 
@@ -60,7 +51,7 @@ public class RummyGameResource {
         }
 
         game.setHref(uriInfo.getAbsolutePath().toString());
-        return Response.ok(game).build();
+        return game;
     }
 
     @DELETE
